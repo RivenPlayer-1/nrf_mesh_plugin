@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
-import 'package:nordic_nrf_mesh/nordic_nrf_mesh.dart';
-import 'package:nordic_nrf_mesh/src/ble/ble_scanner.dart';
-import 'package:nordic_nrf_mesh/src/constants.dart';
-import 'package:nordic_nrf_mesh/src/utils/provisioning.dart' as utils_provisioning;
+import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
+import 'package:nordic_nrf_mesh_faradine/src/ble/ble_scanner.dart';
+import 'package:nordic_nrf_mesh_faradine/src/constants.dart';
+import 'package:nordic_nrf_mesh_faradine/src/utils/provisioning.dart' as utils_provisioning;
 
 /// {@template nordic_nrf_mesh}
 /// The entry point for the plugin.

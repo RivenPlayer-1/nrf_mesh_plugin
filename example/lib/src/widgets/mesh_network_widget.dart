@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nordic_nrf_mesh/nordic_nrf_mesh.dart';
+import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh.dart';
 
 import 'group.dart';
 import 'node.dart';

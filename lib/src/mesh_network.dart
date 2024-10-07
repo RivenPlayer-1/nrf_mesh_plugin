@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:nordic_nrf_mesh/nordic_nrf_mesh.dart';
-import 'package:nordic_nrf_mesh/src/constants.dart';
+import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
+import 'package:nordic_nrf_mesh_faradine/src/constants.dart';
 
 /// {@template mesh_network}
 /// The class defining the API to manage a bluetooth mesh network.

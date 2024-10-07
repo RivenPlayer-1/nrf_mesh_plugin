@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nordic_nrf_mesh/nordic_nrf_mesh.dart';
+import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh.dart';
 import 'package:nordic_nrf_mesh_example/src/views/control_module/mesh_element.dart';
 
 class Group extends StatefulWidget {

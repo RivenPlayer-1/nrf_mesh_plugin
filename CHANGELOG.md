@@ -1,3 +1,7 @@
+## 0.13.1
+- First version modified by Joseph
+- Updated Android-nRF-Mesh-Library submodule to be up to date and work
+
 ## 0.13.0
 - Use of Nordic Semiconductor's Android SDK v3.2.4
 - Use of Nordic Semiconductor's iOS SDK v3.2.0 (iOS 12.0 required as a result)

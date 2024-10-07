@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nordic_nrf_mesh/nordic_nrf_mesh.dart';
+import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh.dart';
 import 'package:nordic_nrf_mesh_example/src/widgets/mesh_network_widget.dart';
 
 class Home extends StatefulWidget {

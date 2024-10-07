@@ -1,5 +1,5 @@
 /// A Flutter plugin to enable mesh network management and communication using Nordic Semiconductor's SDKs.
-library nordic_nrf_mesh;
+library nordic_nrf_mesh_faradine;
 
 export 'src/nrf_mesh.dart';
 export 'src/mesh_network.dart' show IMeshNetwork;

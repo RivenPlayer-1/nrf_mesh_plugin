@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
-import 'package:nordic_nrf_mesh/nordic_nrf_mesh.dart';
-import 'package:nordic_nrf_mesh/src/ble/ble_scanner.dart';
+import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
+import 'package:nordic_nrf_mesh_faradine/src/ble/ble_scanner.dart';
 
 /// {@template provisioning_events}
 /// A class that may be used to listen to provisioning progress.

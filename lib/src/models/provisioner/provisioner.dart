@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:nordic_nrf_mesh/src/models/provisioner/range_addresses/allocated_group_range.dart';
-import 'package:nordic_nrf_mesh/src/models/provisioner/range_addresses/allocated_scene_range.dart';
-import 'package:nordic_nrf_mesh/src/models/provisioner/range_addresses/allocated_unicast_range.dart';
+import 'package:nordic_nrf_mesh_faradine/src/models/provisioner/range_addresses/allocated_group_range.dart';
+import 'package:nordic_nrf_mesh_faradine/src/models/provisioner/range_addresses/allocated_scene_range.dart';
+import 'package:nordic_nrf_mesh_faradine/src/models/provisioner/range_addresses/allocated_unicast_range.dart';
 
 part 'provisioner.freezed.dart';
 part 'provisioner.g.dart';

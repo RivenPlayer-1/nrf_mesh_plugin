@@ -359,13 +359,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
-  nordic_nrf_mesh:
+  nordic_nrf_mesh_faradine:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.13.0"
+    version: "0.13.1"
   package_config:
     dependency: transitive
     description:

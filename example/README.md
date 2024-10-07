@@ -1,6 +1,6 @@
 # nordic_nrf_mesh_example
 
-Demonstrates how to use the nordic_nrf_mesh plugin.
+Demonstrates how to use the nordic_nrf_mesh_faradine plugin.
 
 ## Getting Started
 

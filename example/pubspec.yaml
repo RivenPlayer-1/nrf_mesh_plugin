@@ -1,5 +1,5 @@
 name: nordic_nrf_mesh_example
-description: Demonstrates how to use the nordic_nrf_mesh plugin.
+description: Demonstrates how to use the nordic_nrf_mesh_faradine plugin.
 version: 1.2.0
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -17,7 +17,7 @@ dependencies:
   permission_handler: ^10.2.0
   device_info_plus: ^10.1.2
 
-  nordic_nrf_mesh:
+  nordic_nrf_mesh_faradine:
     path: ../
 
 dev_dependencies:

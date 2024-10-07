@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nordic_nrf_mesh/src/constants.dart';
+import 'package:nordic_nrf_mesh_faradine/src/constants.dart';
 
 part 'unprovisioned_mesh_node.g.dart';
 

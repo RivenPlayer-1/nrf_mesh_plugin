@@ -30,7 +30,7 @@ assert object.plugins.android instanceof List
 object.plugins.android.each { androidPlugin ->
   assert androidPlugin.name instanceof String
   assert androidPlugin.path instanceof String
-  if(androidPlugin.name == 'nordic_nrf_mesh'){
+  if(androidPlugin.name == 'nordic_nrf_mesh_faradine'){
     println 'should include forked Nordic\'s ADK v3'
     def meshLibPath = androidPlugin.path.replace('android', '') + 'Android-nRF-Mesh-Library\\mesh\\'
     println 'meshLibPath = ' + meshLibPath

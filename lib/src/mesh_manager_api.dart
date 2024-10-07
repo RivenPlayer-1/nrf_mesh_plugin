@@ -4,10 +4,10 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:nordic_nrf_mesh/nordic_nrf_mesh.dart';
-import 'package:nordic_nrf_mesh/src/constants.dart';
-import 'package:nordic_nrf_mesh/src/events/mesh_manager_api_events.dart';
-import 'package:nordic_nrf_mesh/src/mesh_network.dart';
+import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
+import 'package:nordic_nrf_mesh_faradine/src/constants.dart';
+import 'package:nordic_nrf_mesh_faradine/src/events/mesh_manager_api_events.dart';
+import 'package:nordic_nrf_mesh_faradine/src/mesh_network.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// {@template mesh_manager_api}

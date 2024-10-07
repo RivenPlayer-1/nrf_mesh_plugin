@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
-import 'package:nordic_nrf_mesh/src/ble/ble_manager_callbacks.dart';
+import 'package:nordic_nrf_mesh_faradine/src/ble/ble_manager_callbacks.dart';
 
 /// {@template ble_data_event}
 /// An abstract data class that should be extended to hold the in/out data of the current BLE connection
