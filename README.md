@@ -1,9 +1,8 @@
-# nordic_nrf_mesh
-[![pub version]](https://pub.dev/packages/nordic_nrf_mesh) [![pub points]](https://pub.dev/packages/nordic_nrf_mesh/score) [![pub likes]](https://pub.dev/packages/nordic_nrf_mesh/score) [![pub popularity]](https://pub.dev/packages/nordic_nrf_mesh/score)
+# nordic_nrf_mesh_faradine
 
 A Flutter plugin to enable mesh network management and communication using Nordic Semiconductor's SDKs.
 # Features
-This plugin wraps both [IOS-nRF-Mesh-Library] and [Android-nRF-Mesh-Library] to provide a Dart-only API and has the following features :
+This plugin wraps both [IOS-nRF-Mesh-Library] and [Android-nRF-Mesh-Library] (Specifically [this fork](https://github.com/JosephFaradine/Android-nRF-Mesh-Library)) to provide a Dart-only API and has the following features :
 - Create, load and manage a mesh network model
 - (de)provision a BLE mesh node
 - Scan for BLE devices in range
@@ -135,11 +134,10 @@ DiscoveredDevice device;
 bleMeshManager.connect(device);
 ```
 ### Custom BLE features :
-If your use case is not implemented, you should prioritize opening an [Issue] for a feature request. However you can still get access to other features of the [flutter_reactive_ble] plugin by getting its singleton instance using the following snippet :
+If your use case is not implemented, you should implement it. However you can still get access to other features of the [flutter_reactive_ble] plugin by getting its singleton instance using the following snippet :
 ```dart
 final blePlugin = FlutterReactiveBle();
 ```
-Again, this should not be done by you, feel free to ask us to implement a new method/feature ! :)
 ## Example app
 For more in depth use, please refer to example app which shows some of the most used features.
 In a tab based layout, it provides example usage on :
@@ -161,7 +159,3 @@ In a tab based layout, it provides example usage on :
 [iOS-nRF-Mesh-Library]: https://github.com/NordicSemiconductor/IOS-nRF-Mesh-Library
 [flutter_reactive_ble]: https://pub.dev/packages/flutter_reactive_ble
 [Bluetooth Mesh Profile v1.0.1]: https://www.bluetooth.com/specifications/specs/mesh-profile-1-0-1/
-[pub version]: https://img.shields.io/pub/v/nordic_nrf_mesh.svg
-[pub points]: https://badges.bar/nordic_nrf_mesh/pub%20points
-[pub likes]: https://badges.bar/nordic_nrf_mesh/likes
-[pub popularity]: https://badges.bar/nordic_nrf_mesh/popularity
