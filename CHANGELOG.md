@@ -1,6 +1,7 @@
-## 0.13.1
+## 0.13.2
 - First version modified by Joseph
 - Updated Android-nRF-Mesh-Library submodule to be up to date and work
+- Updated README
 
 ## 0.13.0
 - Use of Nordic Semiconductor's Android SDK v3.2.4
