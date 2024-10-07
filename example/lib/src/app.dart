@@ -110,7 +110,7 @@ void log(Object? msg) => debugPrint('[$NordicNrfMeshExampleApp - ${DateTime.now(
 Future<void> checkAndAskPermissions() async {
   if (defaultTargetPlatform == TargetPlatform.android) {
     final androidInfo = await DeviceInfoPlugin().androidInfo;
-    if (androidInfo.version.sdkInt! < 31) {
+    if (androidInfo.version.sdkInt < 31) {
       // location
       await Permission.locationWhenInUse.request();
       await Permission.locationAlways.request();

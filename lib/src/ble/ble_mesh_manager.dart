@@ -65,7 +65,12 @@ class BleMeshManager<T extends BleMeshManagerCallbacks> extends BleManager<T> {
   @override
   Future<DiscoveredService?> isRequiredServiceSupported(bool shouldCheckDoozCustomService) async {
     // In the case of a mesh node, the advertised service should be either 0x1827 or 0x1828
+
+    // This is depreciated. I tried to replace it with the lines below but then provisioning doesn't work
     _discoveredServices = await bleInstance.discoverServices(device!.id);
+    // await bleInstance.discoverAllServices(device!.id);
+    // _discoveredServices = await bleInstance.getDiscoveredServices(device!.id) as List<DiscoveredService>;
+
     _log('services $_discoveredServices');
     isProvisioningCompleted = false;
     if (_hasExpectedService(meshProxyUuid)) {
