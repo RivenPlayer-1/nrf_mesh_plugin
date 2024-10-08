@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh.dart';
+import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
 
 class SendDeprovisioning extends StatefulWidget {
   final MeshManagerApi meshManagerApi;

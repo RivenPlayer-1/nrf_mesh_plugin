@@ -1,4 +1,4 @@
-package fr.dooz.nordic_nrf_mesh
+package com.faradine.nordic_nrf_mesh_faradine
 
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall

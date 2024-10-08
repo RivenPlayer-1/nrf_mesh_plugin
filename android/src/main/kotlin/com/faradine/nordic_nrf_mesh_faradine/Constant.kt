@@ -1,6 +1,6 @@
-package fr.dooz.nordic_nrf_mesh
+package com.faradine.nordic_nrf_mesh_faradine
 
-const val namespace = "fr.dooz.nordic_nrf_mesh";
+const val namespace = "com.faradine.nordic_nrf_mesh_faradine";
 
 const val GENERIC_LEVEL_SERVER = 4098;
 

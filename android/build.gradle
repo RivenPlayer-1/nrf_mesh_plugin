@@ -1,4 +1,4 @@
-group 'fr.dooz.nordic_nrf_mesh'
+group 'com.faradine.nordic_nrf_mesh_faradine'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -25,6 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    namespace "com.example.nordic_nrf_mesh_faradine"
     compileSdkVersion 33
 
     sourceSets {

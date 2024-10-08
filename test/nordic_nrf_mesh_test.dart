@@ -4,7 +4,7 @@ import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
 
 void main() {
   // variables
-  const channel = MethodChannel('fr.dooz.nordic_nrf_mesh/methods');
+  const channel = MethodChannel('com.faradine.nordic_nrf_mesh_faradine/methods');
   late final NordicNrfMesh nordicNrfMesh;
   late final MeshManagerApi meshManagerApi;
   TestWidgetsFlutterBinding.ensureInitialized();

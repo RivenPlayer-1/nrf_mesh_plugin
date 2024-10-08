@@ -25,13 +25,13 @@ _(Note: the Bluetooth scanning and connecting features are done with [flutter_re
 ### Install in Flutter App :
 
 ##### Install plugin
-- add `nordic_nrf_mesh` to your pubspec.yaml and execute `flutter pub get`
-- go to `path/to/flutter/.pub-cache/hosted/pub.dartlang.org/nrf_mesh_plugin-<plugin_version>`
+- add `nordic_nrf_mesh_faradine` to your pubspec.yaml and execute `flutter pub get`
+- go to `path/to/flutter/.pub-cache/hosted/pub.dartlang.org/nrf_mesh_plugin_faradine-<plugin_version>`
 - execute `git submodule update --init`
 
 ##### Update build scripts
 ###### **Android**
-- copy plugin's example app gradle script in [android/settings.gradle](https://github.com/OZEO-DOOZ/nrf_mesh_plugin/blob/master/example/android/settings.gradle#L13)
+- copy plugin's example app gradle script in [android/settings.gradle](https://github.com/JosephFaradine/nrf_mesh_plugin/blob/master/example/android/settings.gradle)
 - paste it in your own app's file
 
 ###### **iOS**

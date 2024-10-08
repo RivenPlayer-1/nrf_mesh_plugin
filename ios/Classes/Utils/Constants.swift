@@ -18,7 +18,7 @@ struct DoozStorage{
 }
 
 struct FlutterChannels{
-    private static let prodNamespace = "fr.dooz.nordic_nrf_mesh"
+    private static let prodNamespace = "com.faradine.nordic_nrf_mesh_faradine"
     
     private static let namespace = prodNamespace
     

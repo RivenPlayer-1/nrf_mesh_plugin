@@ -31,7 +31,7 @@ void main(List<String> arguments) async {
       'shell',
       'pm',
       'grant',
-      'fr.dooz.nordic_nrf_mesh_example',
+      'com.faradine.nordic_nrf_mesh_example',
     ];
 
     //  setup permission

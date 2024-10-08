@@ -1,5 +1,5 @@
 /// The namespace (used to identify flutter method and event channels)
-const namespace = 'fr.dooz.nordic_nrf_mesh';
+const namespace = 'com.faradine.nordic_nrf_mesh_faradine';
 const Duration kDefaultScanDuration = Duration(seconds: 5);
 const Duration kDefaultConnectionTimeout = Duration(seconds: 30);
 const mtuSizeMax = 517;

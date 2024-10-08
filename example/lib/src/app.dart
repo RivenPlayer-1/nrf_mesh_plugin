@@ -1,7 +1,7 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh.dart';
+import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
 import 'package:nordic_nrf_mesh_example/src/views/control_module/provisioned_devices.dart';
 import 'package:nordic_nrf_mesh_example/src/views/home/home.dart';
 import 'package:nordic_nrf_mesh_example/src/views/scan_and_provisionning/scan_and_provisioning.dart';
