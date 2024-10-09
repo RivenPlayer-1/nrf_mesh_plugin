@@ -1,6 +1,6 @@
 name: nordic_nrf_mesh_faradine
 description: A Flutter plugin to enable mesh network management and communication using Nordic Semiconductor's SDKs.
-version: 0.13.2
+version: 0.13.3
 homepage: https://www.faradinesystems.com/
 repository: https://github.com/JosephFaradine/nrf_mesh_plugin
 

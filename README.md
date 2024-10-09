@@ -36,6 +36,11 @@ _(Note: the Bluetooth scanning and connecting features are done with [flutter_re
 - copy plugin's example Podfile script in [ios/Podfile](https://github.com/OZEO-DOOZ/nrf_mesh_plugin/blob/master/example/ios/Podfile#L33)
 - paste it in your own app's file
 ## Initialization
+Import: 
+``` dart
+import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
+```
+
 To begin to use the plugin, one should instantiate the `NordicNrfMesh` instance like so :
 ```dart
 final nordicNrfMesh = NordicNrfMesh();
