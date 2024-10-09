@@ -19,6 +19,7 @@ dependencies:
 
   nordic_nrf_mesh_faradine:
     path: ../
+  # nordic_nrf_mesh_faradine: ^0.13.0
 
 dev_dependencies:
   flutter_test:

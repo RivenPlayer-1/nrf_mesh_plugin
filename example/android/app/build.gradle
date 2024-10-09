@@ -31,6 +31,7 @@ android {
 
     kotlinOptions {
         jvmTarget = '1.8'
+        // jvmTarget = '17'
     }
 
     sourceSets {
@@ -39,7 +40,7 @@ android {
 
     defaultConfig {
         applicationId "com.faradine.nordic_nrf_mesh_example"
-        minSdkVersion 2
+        minSdkVersion 23
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
