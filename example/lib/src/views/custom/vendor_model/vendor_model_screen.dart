@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
 import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
-import 'package:nordic_nrf_mesh_example/src/views/custom/bcon_sliders/bcon_slider_node.dart';
 import 'package:nordic_nrf_mesh_example/src/views/custom/vendor_model/vendor_model_card.dart';
 
 class VendorModelScreen extends StatefulWidget {

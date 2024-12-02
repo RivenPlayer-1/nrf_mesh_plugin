@@ -111,22 +111,28 @@ class _ScanningAndProvisioningState extends State<ScanningAndProvisioning> {
 
       // error with provisioning chat is unhandled because provisionedMeshNodeF is unawaited
       unawaited(provisionedMeshNodeF.then((node) {
-        Navigator.of(context).pop();
+        if (mounted) {
+          Navigator.of(context).pop();
+        }
         scaffoldMessenger
             .showSnackBar(const SnackBar(content: Text('Provisionning succeed, redirecting to control tab...')));
         Future.delayed(const Duration(milliseconds: 500), widget.onGoToControl);
       }).catchError((_) {
-        Navigator.of(context).pop();
+        if (mounted) {
+          Navigator.of(context).pop();
+        }
         scaffoldMessenger.showSnackBar(const SnackBar(content: Text('Provisioning failed')));
         _scanUnprovisionned();
       }));
 
       // This dialog just holds the provisioningEvent which displays the status of the provisioning, but doesn't actually start the provisioning process
-      await showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (_) => ProvisioningDialog(provisioningEvent: provisioningEvent),
-      );
+      if (mounted) {
+        await showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (_) => ProvisioningDialog(provisioningEvent: provisioningEvent),
+        );
+      }
     } catch (e) {
       debugPrint('$e');
       scaffoldMessenger.showSnackBar(SnackBar(content: Text('Caught error: $e')));

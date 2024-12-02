@@ -31,7 +31,9 @@ class _SendGenericLevelState extends State<SendGenericLevel> {
           onChanged: (text) {
             try {
               selectedElementAddress = int.parse(text);
-            } catch (e) {}
+            } catch (e) {
+              debugPrint("Could not parse text to int");
+            }
           },
         ),
         TextField(
@@ -43,7 +45,9 @@ class _SendGenericLevelState extends State<SendGenericLevel> {
                 int? percentage = int.tryParse(text);
                 // range from -32768 to +32767
                 selectedLevel = ((percentage! * 65355 / 100) - 32768).round();
-              } catch (e) {}
+              } catch (e) {
+                debugPrint("Could not convert percentage to 32 bit level");
+              }
             });
           },
         ),

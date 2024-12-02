@@ -6,7 +6,7 @@ part 'send_provisioning_pdu.g.dart';
 
 @freezed
 class SendProvisioningPduData with _$SendProvisioningPduData {
-  @JsonSerializable(explicitToJson: true, anyMap: true)
+  // @JsonSerializable(explicitToJson: true, anyMap: true)
   const factory SendProvisioningPduData(List<int> pdu, UnprovisionedMeshNode meshNode) = _SendProvisioningPduData;
 
   factory SendProvisioningPduData.fromJson(Map<String, dynamic> json) =>

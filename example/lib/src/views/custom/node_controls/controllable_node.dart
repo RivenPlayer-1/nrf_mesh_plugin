@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
-import 'package:nordic_nrf_mesh_faradine/src/mesh_network.dart';
 import 'package:nordic_nrf_mesh_example/src/views/custom/node_controls/controllable_mesh_element.dart';
 
 class ControllableNode extends StatefulWidget {
@@ -29,35 +28,33 @@ class _ControllableNodeState extends State<ControllableNode> {
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (deviceMap[widget.uuid] != null) ...[
-              Text(
-                'Device Name: ${deviceMap[widget.uuid]?.deviceName}',
-                style: cardStyle,
-              ),
-              Text(
-                'Device Id: ${deviceMap[widget.uuid]?.deviceId}',
-                style: cardStyle,
-              ),
-            ],
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (deviceMap[widget.uuid] != null) ...[
             Text(
-              'Node UUID: ${widget.uuid}',
+              'Device Name: ${deviceMap[widget.uuid]?.deviceName}',
               style: cardStyle,
             ),
-            Text('Node address: ${widget.nodeAddress}'),
-            ...[
-              const Text('Elements :'),
-              Column(
-                children: <Widget>[
-                  ...widget.elements.map((element) => ControllableMeshElement(element, widget.meshManagerApi)).toList(),
-                ],
-              ),
-            ],
+            Text(
+              'Device Id: ${deviceMap[widget.uuid]?.deviceId}',
+              style: cardStyle,
+            ),
           ],
-        ),
+          Text(
+            'Node UUID: ${widget.uuid}',
+            style: cardStyle,
+          ),
+          Text('Node address: ${widget.nodeAddress}'),
+          ...[
+            const Text('Elements :'),
+            Column(
+              children: <Widget>[
+                ...widget.elements.map((element) => ControllableMeshElement(element, widget.meshManagerApi)).toList(),
+              ],
+            ),
+          ],
+        ],
       ),
     );
   }

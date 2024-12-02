@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
-import 'package:nordic_nrf_mesh_faradine/src/mesh_network.dart';
 import 'package:nordic_nrf_mesh_example/src/views/custom/bcon_sliders/bcon_slider_element.dart';
 
 /// Card with all 11-12 pairs of sliders on it

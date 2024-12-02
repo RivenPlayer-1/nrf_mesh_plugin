@@ -8,10 +8,10 @@ class BluetoothIcon extends StatefulWidget {
   const BluetoothIcon({Key? key, required this.connection}) : super(key: key);
 
   @override
-  _BluetoothIconState createState() => _BluetoothIconState();
+  BluetoothIconState createState() => BluetoothIconState();
 }
 
-class _BluetoothIconState extends State<BluetoothIcon> {
+class BluetoothIconState extends State<BluetoothIcon> {
   bool _showSearchingIcon = true;
   Timer? _timer;
   Color? _lastKnownColor;

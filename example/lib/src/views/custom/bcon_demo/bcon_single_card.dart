@@ -14,7 +14,7 @@ class BconCard extends StatelessWidget {
   final Function(Color, Color, List<int>, bool) onSetCardColor;
   final Function(int, int, bool) onSetCardStrobe;
 
-  BconCard(
+  const BconCard(
       {super.key,
       required this.onDelete,
       required this.bconName,

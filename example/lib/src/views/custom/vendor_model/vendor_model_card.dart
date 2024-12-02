@@ -1,6 +1,6 @@
+// ignore_for_file: constant_identifier_names
+
 import 'dart:async';
-import 'dart:ffi';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -379,7 +379,7 @@ String parseBconLightState(Uint8List bytes) {
   return "RGB1: ${bytes[3]}, ${bytes[4]}, ${bytes[5]} \nRGB2: ${bytes[6]}, ${bytes[7]}, ${bytes[8]}";
 }
 
-String ListToHexByte3AsBits(List<int> input) {
+String listToHexByte3AsBits(List<int> input) {
   if (input.length < 4) {
     return 'Input Uint8List must have a length of at least 4.';
   }

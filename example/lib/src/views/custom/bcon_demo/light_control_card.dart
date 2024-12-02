@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 class LightControlCard extends StatefulWidget {
@@ -45,19 +43,6 @@ class _LightControlCardState extends State<LightControlCard> {
     const Color.fromARGB(255, 255, 150, 150),
     // const Color.fromARGB(255, 255, 230, 0),
     const Color.fromARGB(255, 0, 0, 0),
-  ];
-
-  final List<String> _channelOptions = [
-    'Choose',
-    "HB White LED",
-    "HB Red LED",
-    "HB Green LED",
-    "HB Blue LED",
-    "HB NIR LED",
-    "HB SWIR LED",
-    "LB Red LED",
-    "LB Green LED",
-    "LB Blue LED"
   ];
 
   @override
@@ -178,7 +163,7 @@ class ColorBox extends StatelessWidget {
   final Color color;
   final VoidCallback onTap;
 
-  const ColorBox({required this.color, required this.onTap});
+  const ColorBox({super.key, required this.color, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

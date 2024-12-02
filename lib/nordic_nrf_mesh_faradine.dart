@@ -2,7 +2,8 @@
 library nordic_nrf_mesh_faradine;
 
 export 'src/nrf_mesh.dart';
-export 'src/mesh_network.dart' show IMeshNetwork;
+export 'src/mesh_network.dart' show IMeshNetwork, DeviceInfo;
+// export 'src/mesh_network.dart';
 export 'src/mesh_manager_api.dart';
 export 'src/events/data/event_data.dart';
 export 'src/models/models.dart';

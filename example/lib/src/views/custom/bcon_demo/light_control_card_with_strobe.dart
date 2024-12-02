@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 class LightControlCardWithStrobe extends StatefulWidget {
@@ -312,7 +310,7 @@ class ColorBox extends StatelessWidget {
   final Color color;
   final VoidCallback onTap;
 
-  const ColorBox({required this.color, required this.onTap});
+  const ColorBox({super.key, required this.color, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

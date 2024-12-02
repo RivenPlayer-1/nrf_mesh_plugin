@@ -1,3 +1,7 @@
+## 0.13.4
+- Important update to have vendor model and location model controls in flutter
+- Changed a line in Android-nRF-Mesh-Library to automatically generate app keys
+
 ## 0.13.3
 - First version modified by Joseph
 - Updated Android-nRF-Mesh-Library submodule to be up to date and work

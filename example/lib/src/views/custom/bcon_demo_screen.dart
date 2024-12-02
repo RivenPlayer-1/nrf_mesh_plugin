@@ -8,7 +8,6 @@ import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
 import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
 import 'package:nordic_nrf_mesh_example/src/views/custom/bcon_demo/bcon_group_card.dart';
 import 'package:nordic_nrf_mesh_example/src/views/custom/custom_screen.dart';
-import 'package:nordic_nrf_mesh_example/src/views/custom/map_display_screen.dart';
 import 'package:provider/provider.dart';
 
 class BconDemoScreen extends StatefulWidget {

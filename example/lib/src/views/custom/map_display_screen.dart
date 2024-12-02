@@ -146,12 +146,13 @@ class _MapDisplayScreenState extends State<MapDisplayScreen> {
                         point: LatLng(location.latitude, location.longitude),
                         child: Container(
                           // Colored border to show where the marker really is
-                          // decoration: BoxDecoration(
-                          //   border: Border.all(
-                          //     color: Colors.blue, // Border color
-                          //     width: 1.0, // Border width (thin)
-                          //   ),
-                          // ),
+                          // ignore: prefer_const_constructors
+                          decoration: BoxDecoration(
+                            // border: Border.all(
+                            //   color: Colors.blue, // Border color
+                            //   width: 1.0, // Border width (thin)
+                            // ),
+                          ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
