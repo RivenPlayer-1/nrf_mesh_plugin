@@ -6,46 +6,67 @@ part of 'mesh_provisioning_status.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UnprovisionedMeshNodeData _$$_UnprovisionedMeshNodeDataFromJson(Map<String, dynamic> json) =>
-    _$_UnprovisionedMeshNodeData(
+_$UnprovisionedMeshNodeDataImpl _$$UnprovisionedMeshNodeDataImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UnprovisionedMeshNodeDataImpl(
       json['uuid'] as String,
-      provisionerPublicKeyXY:
-          (json['provisionerPublicKeyXY'] as List<dynamic>?)?.map((e) => e as int).toList() ?? const [],
+      provisionerPublicKeyXY: (json['provisionerPublicKeyXY'] as List<dynamic>?)
+              ?.map((e) => (e as num).toInt())
+              .toList() ??
+          const [],
     );
 
-Map<String, dynamic> _$$_UnprovisionedMeshNodeDataToJson(_$_UnprovisionedMeshNodeData instance) => <String, dynamic>{
+Map<String, dynamic> _$$UnprovisionedMeshNodeDataImplToJson(
+        _$UnprovisionedMeshNodeDataImpl instance) =>
+    <String, dynamic>{
       'uuid': instance.uuid,
       'provisionerPublicKeyXY': instance.provisionerPublicKeyXY,
     };
 
-_$_ProvisionedMeshNodeData _$$_ProvisionedMeshNodeDataFromJson(Map<String, dynamic> json) => _$_ProvisionedMeshNodeData(
+_$ProvisionedMeshNodeDataImpl _$$ProvisionedMeshNodeDataImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ProvisionedMeshNodeDataImpl(
       json['uuid'] as String,
     );
 
-Map<String, dynamic> _$$_ProvisionedMeshNodeDataToJson(_$_ProvisionedMeshNodeData instance) => <String, dynamic>{
+Map<String, dynamic> _$$ProvisionedMeshNodeDataImplToJson(
+        _$ProvisionedMeshNodeDataImpl instance) =>
+    <String, dynamic>{
       'uuid': instance.uuid,
     };
 
-_$_MeshProvisioningStatusData _$$_MeshProvisioningStatusDataFromJson(Map json) => _$_MeshProvisioningStatusData(
+_$MeshProvisioningStatusDataImpl _$$MeshProvisioningStatusDataImplFromJson(
+        Map json) =>
+    _$MeshProvisioningStatusDataImpl(
       json['state'] as String,
-      (json['data'] as List<dynamic>).map((e) => e as int).toList(),
-      json['meshNode'] == null ? null : UnprovisionedMeshNodeData.fromJson(json['meshNode'] as Map),
+      (json['data'] as List<dynamic>).map((e) => (e as num).toInt()).toList(),
+      json['meshNode'] == null
+          ? null
+          : UnprovisionedMeshNodeData.fromJson(json['meshNode'] as Map),
     );
 
-Map<String, dynamic> _$$_MeshProvisioningStatusDataToJson(_$_MeshProvisioningStatusData instance) => <String, dynamic>{
+Map<String, dynamic> _$$MeshProvisioningStatusDataImplToJson(
+        _$MeshProvisioningStatusDataImpl instance) =>
+    <String, dynamic>{
       'state': instance.state,
       'data': instance.data,
       'meshNode': instance.meshNode?.toJson(),
     };
 
-_$_MeshProvisioningCompletedData _$$_MeshProvisioningCompletedDataFromJson(Map json) =>
-    _$_MeshProvisioningCompletedData(
-      json['state'] as String,
-      (json['data'] as List<dynamic>).map((e) => e as int).toList(),
-      json['meshNode'] == null ? null : ProvisionedMeshNodeData.fromJson(json['meshNode'] as Map),
-    );
+_$MeshProvisioningCompletedDataImpl
+    _$$MeshProvisioningCompletedDataImplFromJson(Map json) =>
+        _$MeshProvisioningCompletedDataImpl(
+          json['state'] as String,
+          (json['data'] as List<dynamic>)
+              .map((e) => (e as num).toInt())
+              .toList(),
+          json['meshNode'] == null
+              ? null
+              : ProvisionedMeshNodeData.fromJson(json['meshNode'] as Map),
+        );
 
-Map<String, dynamic> _$$_MeshProvisioningCompletedDataToJson(_$_MeshProvisioningCompletedData instance) =>
+Map<String, dynamic> _$$MeshProvisioningCompletedDataImplToJson(
+        _$MeshProvisioningCompletedDataImpl instance) =>
     <String, dynamic>{
       'state': instance.state,
       'data': instance.data,

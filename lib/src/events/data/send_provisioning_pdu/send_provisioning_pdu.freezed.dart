@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'send_provisioning_pdu.dart';
 
@@ -12,9 +12,10 @@ part of 'send_provisioning_pdu.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SendProvisioningPduData _$SendProvisioningPduDataFromJson(Map<String, dynamic> json) {
+SendProvisioningPduData _$SendProvisioningPduDataFromJson(
+    Map<String, dynamic> json) {
   return _SendProvisioningPduData.fromJson(json);
 }
 
@@ -23,74 +24,93 @@ mixin _$SendProvisioningPduData {
   List<int> get pdu => throw _privateConstructorUsedError;
   UnprovisionedMeshNode get meshNode => throw _privateConstructorUsedError;
 
+  /// Serializes this SendProvisioningPduData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SendProvisioningPduDataCopyWith<SendProvisioningPduData> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of SendProvisioningPduData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $SendProvisioningPduDataCopyWith<SendProvisioningPduData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SendProvisioningPduDataCopyWith<$Res> {
-  factory $SendProvisioningPduDataCopyWith(SendProvisioningPduData value, $Res Function(SendProvisioningPduData) then) =
-      _$SendProvisioningPduDataCopyWithImpl<$Res>;
+  factory $SendProvisioningPduDataCopyWith(SendProvisioningPduData value,
+          $Res Function(SendProvisioningPduData) then) =
+      _$SendProvisioningPduDataCopyWithImpl<$Res, SendProvisioningPduData>;
+  @useResult
   $Res call({List<int> pdu, UnprovisionedMeshNode meshNode});
 }
 
 /// @nodoc
-class _$SendProvisioningPduDataCopyWithImpl<$Res> implements $SendProvisioningPduDataCopyWith<$Res> {
+class _$SendProvisioningPduDataCopyWithImpl<$Res,
+        $Val extends SendProvisioningPduData>
+    implements $SendProvisioningPduDataCopyWith<$Res> {
   _$SendProvisioningPduDataCopyWithImpl(this._value, this._then);
 
-  final SendProvisioningPduData _value;
   // ignore: unused_field
-  final $Res Function(SendProvisioningPduData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of SendProvisioningPduData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pdu = freezed,
-    Object? meshNode = freezed,
+    Object? pdu = null,
+    Object? meshNode = null,
   }) {
     return _then(_value.copyWith(
-      pdu: pdu == freezed
+      pdu: null == pdu
           ? _value.pdu
           : pdu // ignore: cast_nullable_to_non_nullable
               as List<int>,
-      meshNode: meshNode == freezed
+      meshNode: null == meshNode
           ? _value.meshNode
           : meshNode // ignore: cast_nullable_to_non_nullable
               as UnprovisionedMeshNode,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_SendProvisioningPduDataCopyWith<$Res> implements $SendProvisioningPduDataCopyWith<$Res> {
-  factory _$$_SendProvisioningPduDataCopyWith(
-          _$_SendProvisioningPduData value, $Res Function(_$_SendProvisioningPduData) then) =
-      __$$_SendProvisioningPduDataCopyWithImpl<$Res>;
+abstract class _$$SendProvisioningPduDataImplCopyWith<$Res>
+    implements $SendProvisioningPduDataCopyWith<$Res> {
+  factory _$$SendProvisioningPduDataImplCopyWith(
+          _$SendProvisioningPduDataImpl value,
+          $Res Function(_$SendProvisioningPduDataImpl) then) =
+      __$$SendProvisioningPduDataImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<int> pdu, UnprovisionedMeshNode meshNode});
 }
 
 /// @nodoc
-class __$$_SendProvisioningPduDataCopyWithImpl<$Res> extends _$SendProvisioningPduDataCopyWithImpl<$Res>
-    implements _$$_SendProvisioningPduDataCopyWith<$Res> {
-  __$$_SendProvisioningPduDataCopyWithImpl(
-      _$_SendProvisioningPduData _value, $Res Function(_$_SendProvisioningPduData) _then)
-      : super(_value, (v) => _then(v as _$_SendProvisioningPduData));
+class __$$SendProvisioningPduDataImplCopyWithImpl<$Res>
+    extends _$SendProvisioningPduDataCopyWithImpl<$Res,
+        _$SendProvisioningPduDataImpl>
+    implements _$$SendProvisioningPduDataImplCopyWith<$Res> {
+  __$$SendProvisioningPduDataImplCopyWithImpl(
+      _$SendProvisioningPduDataImpl _value,
+      $Res Function(_$SendProvisioningPduDataImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_SendProvisioningPduData get _value => super._value as _$_SendProvisioningPduData;
-
+  /// Create a copy of SendProvisioningPduData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pdu = freezed,
-    Object? meshNode = freezed,
+    Object? pdu = null,
+    Object? meshNode = null,
   }) {
-    return _then(_$_SendProvisioningPduData(
-      pdu == freezed
+    return _then(_$SendProvisioningPduDataImpl(
+      null == pdu
           ? _value._pdu
           : pdu // ignore: cast_nullable_to_non_nullable
               as List<int>,
-      meshNode == freezed
+      null == meshNode
           ? _value.meshNode
           : meshNode // ignore: cast_nullable_to_non_nullable
               as UnprovisionedMeshNode,
@@ -101,14 +121,17 @@ class __$$_SendProvisioningPduDataCopyWithImpl<$Res> extends _$SendProvisioningP
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true, anyMap: true)
-class _$_SendProvisioningPduData implements _SendProvisioningPduData {
-  const _$_SendProvisioningPduData(final List<int> pdu, this.meshNode) : _pdu = pdu;
+class _$SendProvisioningPduDataImpl implements _SendProvisioningPduData {
+  const _$SendProvisioningPduDataImpl(final List<int> pdu, this.meshNode)
+      : _pdu = pdu;
 
-  factory _$_SendProvisioningPduData.fromJson(Map<String, dynamic> json) => _$$_SendProvisioningPduDataFromJson(json);
+  factory _$SendProvisioningPduDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SendProvisioningPduDataImplFromJson(json);
 
   final List<int> _pdu;
   @override
   List<int> get pdu {
+    if (_pdu is EqualUnmodifiableListView) return _pdu;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_pdu);
   }
@@ -122,43 +145,54 @@ class _$_SendProvisioningPduData implements _SendProvisioningPduData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SendProvisioningPduData &&
+            other is _$SendProvisioningPduDataImpl &&
             const DeepCollectionEquality().equals(other._pdu, _pdu) &&
-            const DeepCollectionEquality().equals(other.meshNode, meshNode));
+            (identical(other.meshNode, meshNode) ||
+                other.meshNode == meshNode));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_pdu), const DeepCollectionEquality().hash(meshNode));
+      runtimeType, const DeepCollectionEquality().hash(_pdu), meshNode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SendProvisioningPduData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$_SendProvisioningPduDataCopyWith<_$_SendProvisioningPduData> get copyWith =>
-      __$$_SendProvisioningPduDataCopyWithImpl<_$_SendProvisioningPduData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SendProvisioningPduDataImplCopyWith<_$SendProvisioningPduDataImpl>
+      get copyWith => __$$SendProvisioningPduDataImplCopyWithImpl<
+          _$SendProvisioningPduDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SendProvisioningPduDataToJson(
+    return _$$SendProvisioningPduDataImplToJson(
       this,
     );
   }
 }
 
 abstract class _SendProvisioningPduData implements SendProvisioningPduData {
-  const factory _SendProvisioningPduData(final List<int> pdu, final UnprovisionedMeshNode meshNode) =
-      _$_SendProvisioningPduData;
+  const factory _SendProvisioningPduData(
+          final List<int> pdu, final UnprovisionedMeshNode meshNode) =
+      _$SendProvisioningPduDataImpl;
 
-  factory _SendProvisioningPduData.fromJson(Map<String, dynamic> json) = _$_SendProvisioningPduData.fromJson;
+  factory _SendProvisioningPduData.fromJson(Map<String, dynamic> json) =
+      _$SendProvisioningPduDataImpl.fromJson;
 
   @override
   List<int> get pdu;
   @override
   UnprovisionedMeshNode get meshNode;
+
+  /// Create a copy of SendProvisioningPduData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_SendProvisioningPduDataCopyWith<_$_SendProvisioningPduData> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SendProvisioningPduDataImplCopyWith<_$SendProvisioningPduDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -21,7 +21,7 @@ class ProvisionedMeshNodeData with _$ProvisionedMeshNodeData {
 
 @freezed
 class MeshProvisioningStatusData with _$MeshProvisioningStatusData {
-  // @JsonSerializable(explicitToJson: true, anyMap: true)
+  @JsonSerializable(explicitToJson: true, anyMap: true)
   const factory MeshProvisioningStatusData(String state, List<int> data, UnprovisionedMeshNodeData? meshNode) =
       _MeshProvisioningStatusData;
 
@@ -31,7 +31,7 @@ class MeshProvisioningStatusData with _$MeshProvisioningStatusData {
 
 @freezed
 class MeshProvisioningCompletedData with _$MeshProvisioningCompletedData {
-  // @JsonSerializable(explicitToJson: true, anyMap: true)
+  @JsonSerializable(explicitToJson: true, anyMap: true)
   const factory MeshProvisioningCompletedData(String state, List<int> data, ProvisionedMeshNodeData? meshNode) =
       _MeshProvisioningCompletedData;
 

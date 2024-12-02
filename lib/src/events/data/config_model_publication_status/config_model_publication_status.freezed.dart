@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'config_model_publication_status.dart';
 
@@ -10,50 +12,12 @@ part of 'config_model_publication_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConfigModelPublicationStatus _$ConfigModelPublicationStatusFromJson(Map<String, dynamic> json) {
+ConfigModelPublicationStatus _$ConfigModelPublicationStatusFromJson(
+    Map<String, dynamic> json) {
   return _ConfigModelPublicationStatus.fromJson(json);
 }
-
-/// @nodoc
-class _$ConfigModelPublicationStatusTearOff {
-  const _$ConfigModelPublicationStatusTearOff();
-
-  _ConfigModelPublicationStatus call(
-      int elementAddress,
-      int publishAddress,
-      int appKeyIndex,
-      bool credentialFlag,
-      int publishTtl,
-      int publicationSteps,
-      int publicationResolution,
-      int retransmitCount,
-      int retransmitIntervalSteps,
-      int modelIdentifier,
-      bool isSuccessful) {
-    return _ConfigModelPublicationStatus(
-      elementAddress,
-      publishAddress,
-      appKeyIndex,
-      credentialFlag,
-      publishTtl,
-      publicationSteps,
-      publicationResolution,
-      retransmitCount,
-      retransmitIntervalSteps,
-      modelIdentifier,
-      isSuccessful,
-    );
-  }
-
-  ConfigModelPublicationStatus fromJson(Map<String, Object> json) {
-    return ConfigModelPublicationStatus.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ConfigModelPublicationStatus = _$ConfigModelPublicationStatusTearOff();
 
 /// @nodoc
 mixin _$ConfigModelPublicationStatus {
@@ -69,17 +33,24 @@ mixin _$ConfigModelPublicationStatus {
   int get modelIdentifier => throw _privateConstructorUsedError;
   bool get isSuccessful => throw _privateConstructorUsedError;
 
+  /// Serializes this ConfigModelPublicationStatus to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ConfigModelPublicationStatusCopyWith<ConfigModelPublicationStatus> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of ConfigModelPublicationStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ConfigModelPublicationStatusCopyWith<ConfigModelPublicationStatus>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ConfigModelPublicationStatusCopyWith<$Res> {
   factory $ConfigModelPublicationStatusCopyWith(
-          ConfigModelPublicationStatus value, $Res Function(ConfigModelPublicationStatus) then) =
-      _$ConfigModelPublicationStatusCopyWithImpl<$Res>;
+          ConfigModelPublicationStatus value,
+          $Res Function(ConfigModelPublicationStatus) then) =
+      _$ConfigModelPublicationStatusCopyWithImpl<$Res,
+          ConfigModelPublicationStatus>;
+  @useResult
   $Res call(
       {int elementAddress,
       int publishAddress,
@@ -95,82 +66,91 @@ abstract class $ConfigModelPublicationStatusCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ConfigModelPublicationStatusCopyWithImpl<$Res> implements $ConfigModelPublicationStatusCopyWith<$Res> {
+class _$ConfigModelPublicationStatusCopyWithImpl<$Res,
+        $Val extends ConfigModelPublicationStatus>
+    implements $ConfigModelPublicationStatusCopyWith<$Res> {
   _$ConfigModelPublicationStatusCopyWithImpl(this._value, this._then);
 
-  final ConfigModelPublicationStatus _value;
   // ignore: unused_field
-  final $Res Function(ConfigModelPublicationStatus) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of ConfigModelPublicationStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? elementAddress = freezed,
-    Object? publishAddress = freezed,
-    Object? appKeyIndex = freezed,
-    Object? credentialFlag = freezed,
-    Object? publishTtl = freezed,
-    Object? publicationSteps = freezed,
-    Object? publicationResolution = freezed,
-    Object? retransmitCount = freezed,
-    Object? retransmitIntervalSteps = freezed,
-    Object? modelIdentifier = freezed,
-    Object? isSuccessful = freezed,
+    Object? elementAddress = null,
+    Object? publishAddress = null,
+    Object? appKeyIndex = null,
+    Object? credentialFlag = null,
+    Object? publishTtl = null,
+    Object? publicationSteps = null,
+    Object? publicationResolution = null,
+    Object? retransmitCount = null,
+    Object? retransmitIntervalSteps = null,
+    Object? modelIdentifier = null,
+    Object? isSuccessful = null,
   }) {
     return _then(_value.copyWith(
-      elementAddress: elementAddress == freezed
+      elementAddress: null == elementAddress
           ? _value.elementAddress
           : elementAddress // ignore: cast_nullable_to_non_nullable
               as int,
-      publishAddress: publishAddress == freezed
+      publishAddress: null == publishAddress
           ? _value.publishAddress
           : publishAddress // ignore: cast_nullable_to_non_nullable
               as int,
-      appKeyIndex: appKeyIndex == freezed
+      appKeyIndex: null == appKeyIndex
           ? _value.appKeyIndex
           : appKeyIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      credentialFlag: credentialFlag == freezed
+      credentialFlag: null == credentialFlag
           ? _value.credentialFlag
           : credentialFlag // ignore: cast_nullable_to_non_nullable
               as bool,
-      publishTtl: publishTtl == freezed
+      publishTtl: null == publishTtl
           ? _value.publishTtl
           : publishTtl // ignore: cast_nullable_to_non_nullable
               as int,
-      publicationSteps: publicationSteps == freezed
+      publicationSteps: null == publicationSteps
           ? _value.publicationSteps
           : publicationSteps // ignore: cast_nullable_to_non_nullable
               as int,
-      publicationResolution: publicationResolution == freezed
+      publicationResolution: null == publicationResolution
           ? _value.publicationResolution
           : publicationResolution // ignore: cast_nullable_to_non_nullable
               as int,
-      retransmitCount: retransmitCount == freezed
+      retransmitCount: null == retransmitCount
           ? _value.retransmitCount
           : retransmitCount // ignore: cast_nullable_to_non_nullable
               as int,
-      retransmitIntervalSteps: retransmitIntervalSteps == freezed
+      retransmitIntervalSteps: null == retransmitIntervalSteps
           ? _value.retransmitIntervalSteps
           : retransmitIntervalSteps // ignore: cast_nullable_to_non_nullable
               as int,
-      modelIdentifier: modelIdentifier == freezed
+      modelIdentifier: null == modelIdentifier
           ? _value.modelIdentifier
           : modelIdentifier // ignore: cast_nullable_to_non_nullable
               as int,
-      isSuccessful: isSuccessful == freezed
+      isSuccessful: null == isSuccessful
           ? _value.isSuccessful
           : isSuccessful // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$ConfigModelPublicationStatusCopyWith<$Res> implements $ConfigModelPublicationStatusCopyWith<$Res> {
-  factory _$ConfigModelPublicationStatusCopyWith(
-          _ConfigModelPublicationStatus value, $Res Function(_ConfigModelPublicationStatus) then) =
-      __$ConfigModelPublicationStatusCopyWithImpl<$Res>;
+abstract class _$$ConfigModelPublicationStatusImplCopyWith<$Res>
+    implements $ConfigModelPublicationStatusCopyWith<$Res> {
+  factory _$$ConfigModelPublicationStatusImplCopyWith(
+          _$ConfigModelPublicationStatusImpl value,
+          $Res Function(_$ConfigModelPublicationStatusImpl) then) =
+      __$$ConfigModelPublicationStatusImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int elementAddress,
       int publishAddress,
@@ -186,71 +166,74 @@ abstract class _$ConfigModelPublicationStatusCopyWith<$Res> implements $ConfigMo
 }
 
 /// @nodoc
-class __$ConfigModelPublicationStatusCopyWithImpl<$Res> extends _$ConfigModelPublicationStatusCopyWithImpl<$Res>
-    implements _$ConfigModelPublicationStatusCopyWith<$Res> {
-  __$ConfigModelPublicationStatusCopyWithImpl(
-      _ConfigModelPublicationStatus _value, $Res Function(_ConfigModelPublicationStatus) _then)
-      : super(_value, (v) => _then(v as _ConfigModelPublicationStatus));
+class __$$ConfigModelPublicationStatusImplCopyWithImpl<$Res>
+    extends _$ConfigModelPublicationStatusCopyWithImpl<$Res,
+        _$ConfigModelPublicationStatusImpl>
+    implements _$$ConfigModelPublicationStatusImplCopyWith<$Res> {
+  __$$ConfigModelPublicationStatusImplCopyWithImpl(
+      _$ConfigModelPublicationStatusImpl _value,
+      $Res Function(_$ConfigModelPublicationStatusImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _ConfigModelPublicationStatus get _value => super._value as _ConfigModelPublicationStatus;
-
+  /// Create a copy of ConfigModelPublicationStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? elementAddress = freezed,
-    Object? publishAddress = freezed,
-    Object? appKeyIndex = freezed,
-    Object? credentialFlag = freezed,
-    Object? publishTtl = freezed,
-    Object? publicationSteps = freezed,
-    Object? publicationResolution = freezed,
-    Object? retransmitCount = freezed,
-    Object? retransmitIntervalSteps = freezed,
-    Object? modelIdentifier = freezed,
-    Object? isSuccessful = freezed,
+    Object? elementAddress = null,
+    Object? publishAddress = null,
+    Object? appKeyIndex = null,
+    Object? credentialFlag = null,
+    Object? publishTtl = null,
+    Object? publicationSteps = null,
+    Object? publicationResolution = null,
+    Object? retransmitCount = null,
+    Object? retransmitIntervalSteps = null,
+    Object? modelIdentifier = null,
+    Object? isSuccessful = null,
   }) {
-    return _then(_ConfigModelPublicationStatus(
-      elementAddress == freezed
+    return _then(_$ConfigModelPublicationStatusImpl(
+      null == elementAddress
           ? _value.elementAddress
           : elementAddress // ignore: cast_nullable_to_non_nullable
               as int,
-      publishAddress == freezed
+      null == publishAddress
           ? _value.publishAddress
           : publishAddress // ignore: cast_nullable_to_non_nullable
               as int,
-      appKeyIndex == freezed
+      null == appKeyIndex
           ? _value.appKeyIndex
           : appKeyIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      credentialFlag == freezed
+      null == credentialFlag
           ? _value.credentialFlag
           : credentialFlag // ignore: cast_nullable_to_non_nullable
               as bool,
-      publishTtl == freezed
+      null == publishTtl
           ? _value.publishTtl
           : publishTtl // ignore: cast_nullable_to_non_nullable
               as int,
-      publicationSteps == freezed
+      null == publicationSteps
           ? _value.publicationSteps
           : publicationSteps // ignore: cast_nullable_to_non_nullable
               as int,
-      publicationResolution == freezed
+      null == publicationResolution
           ? _value.publicationResolution
           : publicationResolution // ignore: cast_nullable_to_non_nullable
               as int,
-      retransmitCount == freezed
+      null == retransmitCount
           ? _value.retransmitCount
           : retransmitCount // ignore: cast_nullable_to_non_nullable
               as int,
-      retransmitIntervalSteps == freezed
+      null == retransmitIntervalSteps
           ? _value.retransmitIntervalSteps
           : retransmitIntervalSteps // ignore: cast_nullable_to_non_nullable
               as int,
-      modelIdentifier == freezed
+      null == modelIdentifier
           ? _value.modelIdentifier
           : modelIdentifier // ignore: cast_nullable_to_non_nullable
               as int,
-      isSuccessful == freezed
+      null == isSuccessful
           ? _value.isSuccessful
           : isSuccessful // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -260,8 +243,9 @@ class __$ConfigModelPublicationStatusCopyWithImpl<$Res> extends _$ConfigModelPub
 
 /// @nodoc
 @JsonSerializable()
-class _$_ConfigModelPublicationStatus implements _ConfigModelPublicationStatus {
-  const _$_ConfigModelPublicationStatus(
+class _$ConfigModelPublicationStatusImpl
+    implements _ConfigModelPublicationStatus {
+  const _$ConfigModelPublicationStatusImpl(
       this.elementAddress,
       this.publishAddress,
       this.appKeyIndex,
@@ -274,8 +258,9 @@ class _$_ConfigModelPublicationStatus implements _ConfigModelPublicationStatus {
       this.modelIdentifier,
       this.isSuccessful);
 
-  factory _$_ConfigModelPublicationStatus.fromJson(Map<String, dynamic> json) =>
-      _$_$_ConfigModelPublicationStatusFromJson(json);
+  factory _$ConfigModelPublicationStatusImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ConfigModelPublicationStatusImplFromJson(json);
 
   @override
   final int elementAddress;
@@ -306,99 +291,115 @@ class _$_ConfigModelPublicationStatus implements _ConfigModelPublicationStatus {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _ConfigModelPublicationStatus &&
+        (other.runtimeType == runtimeType &&
+            other is _$ConfigModelPublicationStatusImpl &&
             (identical(other.elementAddress, elementAddress) ||
-                const DeepCollectionEquality().equals(other.elementAddress, elementAddress)) &&
+                other.elementAddress == elementAddress) &&
             (identical(other.publishAddress, publishAddress) ||
-                const DeepCollectionEquality().equals(other.publishAddress, publishAddress)) &&
+                other.publishAddress == publishAddress) &&
             (identical(other.appKeyIndex, appKeyIndex) ||
-                const DeepCollectionEquality().equals(other.appKeyIndex, appKeyIndex)) &&
+                other.appKeyIndex == appKeyIndex) &&
             (identical(other.credentialFlag, credentialFlag) ||
-                const DeepCollectionEquality().equals(other.credentialFlag, credentialFlag)) &&
+                other.credentialFlag == credentialFlag) &&
             (identical(other.publishTtl, publishTtl) ||
-                const DeepCollectionEquality().equals(other.publishTtl, publishTtl)) &&
+                other.publishTtl == publishTtl) &&
             (identical(other.publicationSteps, publicationSteps) ||
-                const DeepCollectionEquality().equals(other.publicationSteps, publicationSteps)) &&
+                other.publicationSteps == publicationSteps) &&
             (identical(other.publicationResolution, publicationResolution) ||
-                const DeepCollectionEquality().equals(other.publicationResolution, publicationResolution)) &&
+                other.publicationResolution == publicationResolution) &&
             (identical(other.retransmitCount, retransmitCount) ||
-                const DeepCollectionEquality().equals(other.retransmitCount, retransmitCount)) &&
-            (identical(other.retransmitIntervalSteps, retransmitIntervalSteps) ||
-                const DeepCollectionEquality().equals(other.retransmitIntervalSteps, retransmitIntervalSteps)) &&
+                other.retransmitCount == retransmitCount) &&
+            (identical(
+                    other.retransmitIntervalSteps, retransmitIntervalSteps) ||
+                other.retransmitIntervalSteps == retransmitIntervalSteps) &&
             (identical(other.modelIdentifier, modelIdentifier) ||
-                const DeepCollectionEquality().equals(other.modelIdentifier, modelIdentifier)) &&
+                other.modelIdentifier == modelIdentifier) &&
             (identical(other.isSuccessful, isSuccessful) ||
-                const DeepCollectionEquality().equals(other.isSuccessful, isSuccessful)));
+                other.isSuccessful == isSuccessful));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(elementAddress) ^
-      const DeepCollectionEquality().hash(publishAddress) ^
-      const DeepCollectionEquality().hash(appKeyIndex) ^
-      const DeepCollectionEquality().hash(credentialFlag) ^
-      const DeepCollectionEquality().hash(publishTtl) ^
-      const DeepCollectionEquality().hash(publicationSteps) ^
-      const DeepCollectionEquality().hash(publicationResolution) ^
-      const DeepCollectionEquality().hash(retransmitCount) ^
-      const DeepCollectionEquality().hash(retransmitIntervalSteps) ^
-      const DeepCollectionEquality().hash(modelIdentifier) ^
-      const DeepCollectionEquality().hash(isSuccessful);
+  int get hashCode => Object.hash(
+      runtimeType,
+      elementAddress,
+      publishAddress,
+      appKeyIndex,
+      credentialFlag,
+      publishTtl,
+      publicationSteps,
+      publicationResolution,
+      retransmitCount,
+      retransmitIntervalSteps,
+      modelIdentifier,
+      isSuccessful);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ConfigModelPublicationStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$ConfigModelPublicationStatusCopyWith<_ConfigModelPublicationStatus> get copyWith =>
-      __$ConfigModelPublicationStatusCopyWithImpl<_ConfigModelPublicationStatus>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ConfigModelPublicationStatusImplCopyWith<
+          _$ConfigModelPublicationStatusImpl>
+      get copyWith => __$$ConfigModelPublicationStatusImplCopyWithImpl<
+          _$ConfigModelPublicationStatusImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ConfigModelPublicationStatusToJson(this);
+    return _$$ConfigModelPublicationStatusImplToJson(
+      this,
+    );
   }
 }
 
-abstract class _ConfigModelPublicationStatus implements ConfigModelPublicationStatus {
+abstract class _ConfigModelPublicationStatus
+    implements ConfigModelPublicationStatus {
   const factory _ConfigModelPublicationStatus(
-      int elementAddress,
-      int publishAddress,
-      int appKeyIndex,
-      bool credentialFlag,
-      int publishTtl,
-      int publicationSteps,
-      int publicationResolution,
-      int retransmitCount,
-      int retransmitIntervalSteps,
-      int modelIdentifier,
-      bool isSuccessful) = _$_ConfigModelPublicationStatus;
+      final int elementAddress,
+      final int publishAddress,
+      final int appKeyIndex,
+      final bool credentialFlag,
+      final int publishTtl,
+      final int publicationSteps,
+      final int publicationResolution,
+      final int retransmitCount,
+      final int retransmitIntervalSteps,
+      final int modelIdentifier,
+      final bool isSuccessful) = _$ConfigModelPublicationStatusImpl;
 
-  factory _ConfigModelPublicationStatus.fromJson(Map<String, dynamic> json) = _$_ConfigModelPublicationStatus.fromJson;
+  factory _ConfigModelPublicationStatus.fromJson(Map<String, dynamic> json) =
+      _$ConfigModelPublicationStatusImpl.fromJson;
 
   @override
-  int get elementAddress => throw _privateConstructorUsedError;
+  int get elementAddress;
   @override
-  int get publishAddress => throw _privateConstructorUsedError;
+  int get publishAddress;
   @override
-  int get appKeyIndex => throw _privateConstructorUsedError;
+  int get appKeyIndex;
   @override
-  bool get credentialFlag => throw _privateConstructorUsedError;
+  bool get credentialFlag;
   @override
-  int get publishTtl => throw _privateConstructorUsedError;
+  int get publishTtl;
   @override
-  int get publicationSteps => throw _privateConstructorUsedError;
+  int get publicationSteps;
   @override
-  int get publicationResolution => throw _privateConstructorUsedError;
+  int get publicationResolution;
   @override
-  int get retransmitCount => throw _privateConstructorUsedError;
+  int get retransmitCount;
   @override
-  int get retransmitIntervalSteps => throw _privateConstructorUsedError;
+  int get retransmitIntervalSteps;
   @override
-  int get modelIdentifier => throw _privateConstructorUsedError;
+  int get modelIdentifier;
   @override
-  bool get isSuccessful => throw _privateConstructorUsedError;
+  bool get isSuccessful;
+
+  /// Create a copy of ConfigModelPublicationStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$ConfigModelPublicationStatusCopyWith<_ConfigModelPublicationStatus> get copyWith =>
-      throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ConfigModelPublicationStatusImplCopyWith<
+          _$ConfigModelPublicationStatusImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'config_beacon_status.dart';
 
@@ -10,31 +12,11 @@ part of 'config_beacon_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ConfigBeaconStatus _$ConfigBeaconStatusFromJson(Map<String, dynamic> json) {
   return _ConfigBeaconStatus.fromJson(json);
 }
-
-/// @nodoc
-class _$ConfigBeaconStatusTearOff {
-  const _$ConfigBeaconStatusTearOff();
-
-  _ConfigBeaconStatus call(int source, int destination, bool enable) {
-    return _ConfigBeaconStatus(
-      source,
-      destination,
-      enable,
-    );
-  }
-
-  ConfigBeaconStatus fromJson(Map<String, Object> json) {
-    return ConfigBeaconStatus.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ConfigBeaconStatus = _$ConfigBeaconStatusTearOff();
 
 /// @nodoc
 mixin _$ConfigBeaconStatus {
@@ -42,82 +24,99 @@ mixin _$ConfigBeaconStatus {
   int get destination => throw _privateConstructorUsedError;
   bool get enable => throw _privateConstructorUsedError;
 
+  /// Serializes this ConfigBeaconStatus to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ConfigBeaconStatusCopyWith<ConfigBeaconStatus> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of ConfigBeaconStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ConfigBeaconStatusCopyWith<ConfigBeaconStatus> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ConfigBeaconStatusCopyWith<$Res> {
-  factory $ConfigBeaconStatusCopyWith(ConfigBeaconStatus value, $Res Function(ConfigBeaconStatus) then) =
-      _$ConfigBeaconStatusCopyWithImpl<$Res>;
+  factory $ConfigBeaconStatusCopyWith(
+          ConfigBeaconStatus value, $Res Function(ConfigBeaconStatus) then) =
+      _$ConfigBeaconStatusCopyWithImpl<$Res, ConfigBeaconStatus>;
+  @useResult
   $Res call({int source, int destination, bool enable});
 }
 
 /// @nodoc
-class _$ConfigBeaconStatusCopyWithImpl<$Res> implements $ConfigBeaconStatusCopyWith<$Res> {
+class _$ConfigBeaconStatusCopyWithImpl<$Res, $Val extends ConfigBeaconStatus>
+    implements $ConfigBeaconStatusCopyWith<$Res> {
   _$ConfigBeaconStatusCopyWithImpl(this._value, this._then);
 
-  final ConfigBeaconStatus _value;
   // ignore: unused_field
-  final $Res Function(ConfigBeaconStatus) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of ConfigBeaconStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = freezed,
-    Object? destination = freezed,
-    Object? enable = freezed,
+    Object? source = null,
+    Object? destination = null,
+    Object? enable = null,
   }) {
     return _then(_value.copyWith(
-      source: source == freezed
+      source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination: destination == freezed
+      destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
-      enable: enable == freezed
+      enable: null == enable
           ? _value.enable
           : enable // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$ConfigBeaconStatusCopyWith<$Res> implements $ConfigBeaconStatusCopyWith<$Res> {
-  factory _$ConfigBeaconStatusCopyWith(_ConfigBeaconStatus value, $Res Function(_ConfigBeaconStatus) then) =
-      __$ConfigBeaconStatusCopyWithImpl<$Res>;
+abstract class _$$ConfigBeaconStatusImplCopyWith<$Res>
+    implements $ConfigBeaconStatusCopyWith<$Res> {
+  factory _$$ConfigBeaconStatusImplCopyWith(_$ConfigBeaconStatusImpl value,
+          $Res Function(_$ConfigBeaconStatusImpl) then) =
+      __$$ConfigBeaconStatusImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int source, int destination, bool enable});
 }
 
 /// @nodoc
-class __$ConfigBeaconStatusCopyWithImpl<$Res> extends _$ConfigBeaconStatusCopyWithImpl<$Res>
-    implements _$ConfigBeaconStatusCopyWith<$Res> {
-  __$ConfigBeaconStatusCopyWithImpl(_ConfigBeaconStatus _value, $Res Function(_ConfigBeaconStatus) _then)
-      : super(_value, (v) => _then(v as _ConfigBeaconStatus));
+class __$$ConfigBeaconStatusImplCopyWithImpl<$Res>
+    extends _$ConfigBeaconStatusCopyWithImpl<$Res, _$ConfigBeaconStatusImpl>
+    implements _$$ConfigBeaconStatusImplCopyWith<$Res> {
+  __$$ConfigBeaconStatusImplCopyWithImpl(_$ConfigBeaconStatusImpl _value,
+      $Res Function(_$ConfigBeaconStatusImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _ConfigBeaconStatus get _value => super._value as _ConfigBeaconStatus;
-
+  /// Create a copy of ConfigBeaconStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = freezed,
-    Object? destination = freezed,
-    Object? enable = freezed,
+    Object? source = null,
+    Object? destination = null,
+    Object? enable = null,
   }) {
-    return _then(_ConfigBeaconStatus(
-      source == freezed
+    return _then(_$ConfigBeaconStatusImpl(
+      null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination == freezed
+      null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
-      enable == freezed
+      null == enable
           ? _value.enable
           : enable // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -127,10 +126,11 @@ class __$ConfigBeaconStatusCopyWithImpl<$Res> extends _$ConfigBeaconStatusCopyWi
 
 /// @nodoc
 @JsonSerializable()
-class _$_ConfigBeaconStatus implements _ConfigBeaconStatus {
-  const _$_ConfigBeaconStatus(this.source, this.destination, this.enable);
+class _$ConfigBeaconStatusImpl implements _ConfigBeaconStatus {
+  const _$ConfigBeaconStatusImpl(this.source, this.destination, this.enable);
 
-  factory _$_ConfigBeaconStatus.fromJson(Map<String, dynamic> json) => _$_$_ConfigBeaconStatusFromJson(json);
+  factory _$ConfigBeaconStatusImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ConfigBeaconStatusImplFromJson(json);
 
   @override
   final int source;
@@ -145,45 +145,56 @@ class _$_ConfigBeaconStatus implements _ConfigBeaconStatus {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _ConfigBeaconStatus &&
-            (identical(other.source, source) || const DeepCollectionEquality().equals(other.source, source)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$ConfigBeaconStatusImpl &&
+            (identical(other.source, source) || other.source == source) &&
             (identical(other.destination, destination) ||
-                const DeepCollectionEquality().equals(other.destination, destination)) &&
-            (identical(other.enable, enable) || const DeepCollectionEquality().equals(other.enable, enable)));
+                other.destination == destination) &&
+            (identical(other.enable, enable) || other.enable == enable));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(source) ^
-      const DeepCollectionEquality().hash(destination) ^
-      const DeepCollectionEquality().hash(enable);
+  int get hashCode => Object.hash(runtimeType, source, destination, enable);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ConfigBeaconStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$ConfigBeaconStatusCopyWith<_ConfigBeaconStatus> get copyWith =>
-      __$ConfigBeaconStatusCopyWithImpl<_ConfigBeaconStatus>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ConfigBeaconStatusImplCopyWith<_$ConfigBeaconStatusImpl> get copyWith =>
+      __$$ConfigBeaconStatusImplCopyWithImpl<_$ConfigBeaconStatusImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ConfigBeaconStatusToJson(this);
+    return _$$ConfigBeaconStatusImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _ConfigBeaconStatus implements ConfigBeaconStatus {
-  const factory _ConfigBeaconStatus(int source, int destination, bool enable) = _$_ConfigBeaconStatus;
+  const factory _ConfigBeaconStatus(
+          final int source, final int destination, final bool enable) =
+      _$ConfigBeaconStatusImpl;
 
-  factory _ConfigBeaconStatus.fromJson(Map<String, dynamic> json) = _$_ConfigBeaconStatus.fromJson;
+  factory _ConfigBeaconStatus.fromJson(Map<String, dynamic> json) =
+      _$ConfigBeaconStatusImpl.fromJson;
 
   @override
-  int get source => throw _privateConstructorUsedError;
+  int get source;
   @override
-  int get destination => throw _privateConstructorUsedError;
+  int get destination;
   @override
-  bool get enable => throw _privateConstructorUsedError;
+  bool get enable;
+
+  /// Create a copy of ConfigBeaconStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$ConfigBeaconStatusCopyWith<_ConfigBeaconStatus> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ConfigBeaconStatusImplCopyWith<_$ConfigBeaconStatusImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

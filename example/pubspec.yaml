@@ -5,21 +5,28 @@ version: 1.2.0
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: ">=2.17.0 <4.0.0"
+  sdk: ">=2.17.0 <3.0.0"
   flutter: ">=3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  file_picker: ^5.2.4
+  file_picker: ^8.1.4
   flutter_reactive_ble: ^5.0.2
   permission_handler: ^10.2.0
-  device_info_plus: ^10.1.2
+  # COMMENTED OUT
+  # device_info_plus: 10.1.2
 
+  # nordic_nrf_mesh_faradine: ^0.13.0
   nordic_nrf_mesh_faradine:
     path: ../
-  # nordic_nrf_mesh_faradine: ^0.13.0
+  flutter_circle_color_picker: ^0.3.0
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
+  url_launcher: ^6.3.1
+  provider: ^6.1.2
+  flutter_map_location_marker: ^9.1.0
 
 dev_dependencies:
   flutter_test:
@@ -31,3 +38,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/

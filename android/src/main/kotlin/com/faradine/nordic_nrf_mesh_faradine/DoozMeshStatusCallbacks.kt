@@ -57,6 +57,32 @@ class DoozMeshStatusCallbacks(var eventSink: EventChannel.EventSink?): MeshStatu
                     ))
                 }
             }
+            // Vendor model implemented by JL
+            is VendorModelMessageStatus -> {
+                Log.d(tag, "received a VendorModelMessageStatus")
+                Handler(Looper.getMainLooper()).post {
+                    eventSink?.success(mapOf(
+                            "eventName" to "onVendorModelMessageStatus",
+                            "source" to meshMessage.src,
+                            "modelIdentifier" to meshMessage.modelIdentifier,
+                            "message" to meshMessage.getAccessPayload(),
+                    ))
+                }
+            }
+            // Generic Location model implemented by JL
+            is GenericLocationGlobalStatus -> {
+                Log.d(tag, "received a GenericLocationGlobalStatus")
+                Handler(Looper.getMainLooper()).post {
+                    eventSink?.success(mapOf(
+                            "eventName" to "onGenericLocationGlobalStatus",
+                            "source" to meshMessage.src,
+                            "latitude" to meshMessage.getLatitude().getEncodedValue(),
+                            "longitude" to meshMessage.getLongitude().getEncodedValue(),
+                            "altitude" to meshMessage.getAltitude().getEncodedValue(),
+                            // "message" to meshMessage.getAccessPayload(), // doesn't work
+                    ))
+                }
+            }
             is GenericLevelStatus -> {
                 Log.d(tag, "received a GenericLevelStatus")
                 Handler(Looper.getMainLooper()).post {

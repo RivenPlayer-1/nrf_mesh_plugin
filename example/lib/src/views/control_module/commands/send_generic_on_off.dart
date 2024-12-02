@@ -16,7 +16,7 @@ class SendGenericOnOff extends StatefulWidget {
 class _SendGenericOnOffState extends State<SendGenericOnOff> {
   int? selectedElementAddress;
 
-  bool onOff = false;
+  bool onOff = true;
 
   @override
   Widget build(BuildContext context) {
@@ -43,34 +43,44 @@ class _SendGenericOnOffState extends State<SendGenericOnOff> {
           },
         ),
         TextButton(
-          onPressed: selectedElementAddress != null
-              ? () async {
-                  final scaffoldMessenger = ScaffoldMessenger.of(context);
-                  debugPrint('send level $onOff to $selectedElementAddress');
-                  final provisionerUuid = await widget.meshManagerApi.meshNetwork!.selectedProvisionerUuid();
-                  final nodes = await widget.meshManagerApi.meshNetwork!.nodes;
-                  try {
-                    final provisionedNode = nodes.firstWhere((element) => element.uuid == provisionerUuid);
-                    final sequenceNumber = await widget.meshManagerApi.getSequenceNumber(provisionedNode);
-                    await widget.meshManagerApi
-                        .sendGenericOnOffSet(selectedElementAddress!, onOff, sequenceNumber)
-                        .timeout(const Duration(seconds: 40));
-                    scaffoldMessenger.showSnackBar(const SnackBar(content: Text('OK')));
-                  } on TimeoutException catch (_) {
-                    scaffoldMessenger.showSnackBar(const SnackBar(content: Text('Board didn\'t respond')));
-                  } on StateError catch (_) {
-                    scaffoldMessenger.showSnackBar(
-                        SnackBar(content: Text('No provisioner found with this uuid : $provisionerUuid')));
-                  } on PlatformException catch (e) {
-                    scaffoldMessenger.showSnackBar(SnackBar(content: Text('${e.message}')));
-                  } catch (e) {
-                    scaffoldMessenger.showSnackBar(SnackBar(content: Text(e.toString())));
-                  }
-                }
-              : null,
+          onPressed: selectedElementAddress != null ? () => sendGenericOnOffCommand(context) : null,
           child: const Text('Send on off'),
         )
       ],
     );
+  }
+
+  // Extracted so I can copy/paste/modify at will
+  Future<void> sendGenericOnOffCommand(BuildContext context) async {
+    {
+      final scaffoldMessenger = ScaffoldMessenger.of(context);
+      debugPrint('send level $onOff to $selectedElementAddress');
+      final provisionerUuid = await widget.meshManagerApi.meshNetwork!.selectedProvisionerUuid();
+      final nodes = await widget.meshManagerApi.meshNetwork!.nodes;
+      try {
+        final provisionedNode = nodes.firstWhere((element) => element.uuid == provisionerUuid);
+        final sequenceNumber = await widget.meshManagerApi.getSequenceNumber(provisionedNode);
+
+        // result.presentState gives what the light's state is
+        var result = await widget.meshManagerApi
+            .sendGenericOnOffSet(selectedElementAddress!, onOff, sequenceNumber)
+            .timeout(const Duration(seconds: 3)); // originally set to 40 which is probably more reasonable
+
+        // I assume that the "sendGenericOnOffSet" -> { in DoozMeshManagerApi.kt gets an Ack from the board
+        // before it runs the result.success(null) but I don't know a good way to tell
+        scaffoldMessenger.clearSnackBars();
+        scaffoldMessenger
+            .showSnackBar(SnackBar(content: Text('OK. Light is now ${result.presentState ? 'on' : 'off'}')));
+      } on TimeoutException catch (_) {
+        scaffoldMessenger.showSnackBar(const SnackBar(content: Text('Board didn\'t respond')));
+      } on StateError catch (_) {
+        scaffoldMessenger
+            .showSnackBar(SnackBar(content: Text('No provisioner found with this uuid : $provisionerUuid')));
+      } on PlatformException catch (e) {
+        scaffoldMessenger.showSnackBar(SnackBar(content: Text('${e.message}')));
+      } catch (e) {
+        scaffoldMessenger.showSnackBar(SnackBar(content: Text(e.toString())));
+      }
+    }
   }
 }

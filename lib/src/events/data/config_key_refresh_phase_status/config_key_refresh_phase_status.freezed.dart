@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'config_key_refresh_phase_status.dart';
 
@@ -10,35 +12,12 @@ part of 'config_key_refresh_phase_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConfigKeyRefreshPhaseStatus _$ConfigKeyRefreshPhaseStatusFromJson(Map<String, dynamic> json) {
+ConfigKeyRefreshPhaseStatus _$ConfigKeyRefreshPhaseStatusFromJson(
+    Map<String, dynamic> json) {
   return _ConfigKeyRefreshPhaseStatus.fromJson(json);
 }
-
-/// @nodoc
-class _$ConfigKeyRefreshPhaseStatusTearOff {
-  const _$ConfigKeyRefreshPhaseStatusTearOff();
-
-  _ConfigKeyRefreshPhaseStatus call(
-      int source, int destination, int statusCode, String statusCodeName, int netKeyIndex, int transition) {
-    return _ConfigKeyRefreshPhaseStatus(
-      source,
-      destination,
-      statusCode,
-      statusCodeName,
-      netKeyIndex,
-      transition,
-    );
-  }
-
-  ConfigKeyRefreshPhaseStatus fromJson(Map<String, Object> json) {
-    return ConfigKeyRefreshPhaseStatus.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ConfigKeyRefreshPhaseStatus = _$ConfigKeyRefreshPhaseStatusTearOff();
 
 /// @nodoc
 mixin _$ConfigKeyRefreshPhaseStatus {
@@ -49,115 +28,147 @@ mixin _$ConfigKeyRefreshPhaseStatus {
   int get netKeyIndex => throw _privateConstructorUsedError;
   int get transition => throw _privateConstructorUsedError;
 
+  /// Serializes this ConfigKeyRefreshPhaseStatus to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ConfigKeyRefreshPhaseStatusCopyWith<ConfigKeyRefreshPhaseStatus> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of ConfigKeyRefreshPhaseStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ConfigKeyRefreshPhaseStatusCopyWith<ConfigKeyRefreshPhaseStatus>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ConfigKeyRefreshPhaseStatusCopyWith<$Res> {
   factory $ConfigKeyRefreshPhaseStatusCopyWith(
-          ConfigKeyRefreshPhaseStatus value, $Res Function(ConfigKeyRefreshPhaseStatus) then) =
-      _$ConfigKeyRefreshPhaseStatusCopyWithImpl<$Res>;
-  $Res call({int source, int destination, int statusCode, String statusCodeName, int netKeyIndex, int transition});
+          ConfigKeyRefreshPhaseStatus value,
+          $Res Function(ConfigKeyRefreshPhaseStatus) then) =
+      _$ConfigKeyRefreshPhaseStatusCopyWithImpl<$Res,
+          ConfigKeyRefreshPhaseStatus>;
+  @useResult
+  $Res call(
+      {int source,
+      int destination,
+      int statusCode,
+      String statusCodeName,
+      int netKeyIndex,
+      int transition});
 }
 
 /// @nodoc
-class _$ConfigKeyRefreshPhaseStatusCopyWithImpl<$Res> implements $ConfigKeyRefreshPhaseStatusCopyWith<$Res> {
+class _$ConfigKeyRefreshPhaseStatusCopyWithImpl<$Res,
+        $Val extends ConfigKeyRefreshPhaseStatus>
+    implements $ConfigKeyRefreshPhaseStatusCopyWith<$Res> {
   _$ConfigKeyRefreshPhaseStatusCopyWithImpl(this._value, this._then);
 
-  final ConfigKeyRefreshPhaseStatus _value;
   // ignore: unused_field
-  final $Res Function(ConfigKeyRefreshPhaseStatus) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of ConfigKeyRefreshPhaseStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = freezed,
-    Object? destination = freezed,
-    Object? statusCode = freezed,
-    Object? statusCodeName = freezed,
-    Object? netKeyIndex = freezed,
-    Object? transition = freezed,
+    Object? source = null,
+    Object? destination = null,
+    Object? statusCode = null,
+    Object? statusCodeName = null,
+    Object? netKeyIndex = null,
+    Object? transition = null,
   }) {
     return _then(_value.copyWith(
-      source: source == freezed
+      source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination: destination == freezed
+      destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
-      statusCode: statusCode == freezed
+      statusCode: null == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
               as int,
-      statusCodeName: statusCodeName == freezed
+      statusCodeName: null == statusCodeName
           ? _value.statusCodeName
           : statusCodeName // ignore: cast_nullable_to_non_nullable
               as String,
-      netKeyIndex: netKeyIndex == freezed
+      netKeyIndex: null == netKeyIndex
           ? _value.netKeyIndex
           : netKeyIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      transition: transition == freezed
+      transition: null == transition
           ? _value.transition
           : transition // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$ConfigKeyRefreshPhaseStatusCopyWith<$Res> implements $ConfigKeyRefreshPhaseStatusCopyWith<$Res> {
-  factory _$ConfigKeyRefreshPhaseStatusCopyWith(
-          _ConfigKeyRefreshPhaseStatus value, $Res Function(_ConfigKeyRefreshPhaseStatus) then) =
-      __$ConfigKeyRefreshPhaseStatusCopyWithImpl<$Res>;
+abstract class _$$ConfigKeyRefreshPhaseStatusImplCopyWith<$Res>
+    implements $ConfigKeyRefreshPhaseStatusCopyWith<$Res> {
+  factory _$$ConfigKeyRefreshPhaseStatusImplCopyWith(
+          _$ConfigKeyRefreshPhaseStatusImpl value,
+          $Res Function(_$ConfigKeyRefreshPhaseStatusImpl) then) =
+      __$$ConfigKeyRefreshPhaseStatusImplCopyWithImpl<$Res>;
   @override
-  $Res call({int source, int destination, int statusCode, String statusCodeName, int netKeyIndex, int transition});
+  @useResult
+  $Res call(
+      {int source,
+      int destination,
+      int statusCode,
+      String statusCodeName,
+      int netKeyIndex,
+      int transition});
 }
 
 /// @nodoc
-class __$ConfigKeyRefreshPhaseStatusCopyWithImpl<$Res> extends _$ConfigKeyRefreshPhaseStatusCopyWithImpl<$Res>
-    implements _$ConfigKeyRefreshPhaseStatusCopyWith<$Res> {
-  __$ConfigKeyRefreshPhaseStatusCopyWithImpl(
-      _ConfigKeyRefreshPhaseStatus _value, $Res Function(_ConfigKeyRefreshPhaseStatus) _then)
-      : super(_value, (v) => _then(v as _ConfigKeyRefreshPhaseStatus));
+class __$$ConfigKeyRefreshPhaseStatusImplCopyWithImpl<$Res>
+    extends _$ConfigKeyRefreshPhaseStatusCopyWithImpl<$Res,
+        _$ConfigKeyRefreshPhaseStatusImpl>
+    implements _$$ConfigKeyRefreshPhaseStatusImplCopyWith<$Res> {
+  __$$ConfigKeyRefreshPhaseStatusImplCopyWithImpl(
+      _$ConfigKeyRefreshPhaseStatusImpl _value,
+      $Res Function(_$ConfigKeyRefreshPhaseStatusImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _ConfigKeyRefreshPhaseStatus get _value => super._value as _ConfigKeyRefreshPhaseStatus;
-
+  /// Create a copy of ConfigKeyRefreshPhaseStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = freezed,
-    Object? destination = freezed,
-    Object? statusCode = freezed,
-    Object? statusCodeName = freezed,
-    Object? netKeyIndex = freezed,
-    Object? transition = freezed,
+    Object? source = null,
+    Object? destination = null,
+    Object? statusCode = null,
+    Object? statusCodeName = null,
+    Object? netKeyIndex = null,
+    Object? transition = null,
   }) {
-    return _then(_ConfigKeyRefreshPhaseStatus(
-      source == freezed
+    return _then(_$ConfigKeyRefreshPhaseStatusImpl(
+      null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination == freezed
+      null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
-      statusCode == freezed
+      null == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
               as int,
-      statusCodeName == freezed
+      null == statusCodeName
           ? _value.statusCodeName
           : statusCodeName // ignore: cast_nullable_to_non_nullable
               as String,
-      netKeyIndex == freezed
+      null == netKeyIndex
           ? _value.netKeyIndex
           : netKeyIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      transition == freezed
+      null == transition
           ? _value.transition
           : transition // ignore: cast_nullable_to_non_nullable
               as int,
@@ -167,12 +178,14 @@ class __$ConfigKeyRefreshPhaseStatusCopyWithImpl<$Res> extends _$ConfigKeyRefres
 
 /// @nodoc
 @JsonSerializable()
-class _$_ConfigKeyRefreshPhaseStatus implements _ConfigKeyRefreshPhaseStatus {
-  const _$_ConfigKeyRefreshPhaseStatus(
-      this.source, this.destination, this.statusCode, this.statusCodeName, this.netKeyIndex, this.transition);
+class _$ConfigKeyRefreshPhaseStatusImpl
+    implements _ConfigKeyRefreshPhaseStatus {
+  const _$ConfigKeyRefreshPhaseStatusImpl(this.source, this.destination,
+      this.statusCode, this.statusCodeName, this.netKeyIndex, this.transition);
 
-  factory _$_ConfigKeyRefreshPhaseStatus.fromJson(Map<String, dynamic> json) =>
-      _$_$_ConfigKeyRefreshPhaseStatusFromJson(json);
+  factory _$ConfigKeyRefreshPhaseStatusImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ConfigKeyRefreshPhaseStatusImplFromJson(json);
 
   @override
   final int source;
@@ -193,64 +206,75 @@ class _$_ConfigKeyRefreshPhaseStatus implements _ConfigKeyRefreshPhaseStatus {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _ConfigKeyRefreshPhaseStatus &&
-            (identical(other.source, source) || const DeepCollectionEquality().equals(other.source, source)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$ConfigKeyRefreshPhaseStatusImpl &&
+            (identical(other.source, source) || other.source == source) &&
             (identical(other.destination, destination) ||
-                const DeepCollectionEquality().equals(other.destination, destination)) &&
+                other.destination == destination) &&
             (identical(other.statusCode, statusCode) ||
-                const DeepCollectionEquality().equals(other.statusCode, statusCode)) &&
+                other.statusCode == statusCode) &&
             (identical(other.statusCodeName, statusCodeName) ||
-                const DeepCollectionEquality().equals(other.statusCodeName, statusCodeName)) &&
+                other.statusCodeName == statusCodeName) &&
             (identical(other.netKeyIndex, netKeyIndex) ||
-                const DeepCollectionEquality().equals(other.netKeyIndex, netKeyIndex)) &&
+                other.netKeyIndex == netKeyIndex) &&
             (identical(other.transition, transition) ||
-                const DeepCollectionEquality().equals(other.transition, transition)));
+                other.transition == transition));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(source) ^
-      const DeepCollectionEquality().hash(destination) ^
-      const DeepCollectionEquality().hash(statusCode) ^
-      const DeepCollectionEquality().hash(statusCodeName) ^
-      const DeepCollectionEquality().hash(netKeyIndex) ^
-      const DeepCollectionEquality().hash(transition);
+  int get hashCode => Object.hash(runtimeType, source, destination, statusCode,
+      statusCodeName, netKeyIndex, transition);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ConfigKeyRefreshPhaseStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$ConfigKeyRefreshPhaseStatusCopyWith<_ConfigKeyRefreshPhaseStatus> get copyWith =>
-      __$ConfigKeyRefreshPhaseStatusCopyWithImpl<_ConfigKeyRefreshPhaseStatus>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ConfigKeyRefreshPhaseStatusImplCopyWith<_$ConfigKeyRefreshPhaseStatusImpl>
+      get copyWith => __$$ConfigKeyRefreshPhaseStatusImplCopyWithImpl<
+          _$ConfigKeyRefreshPhaseStatusImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ConfigKeyRefreshPhaseStatusToJson(this);
+    return _$$ConfigKeyRefreshPhaseStatusImplToJson(
+      this,
+    );
   }
 }
 
-abstract class _ConfigKeyRefreshPhaseStatus implements ConfigKeyRefreshPhaseStatus {
+abstract class _ConfigKeyRefreshPhaseStatus
+    implements ConfigKeyRefreshPhaseStatus {
   const factory _ConfigKeyRefreshPhaseStatus(
-          int source, int destination, int statusCode, String statusCodeName, int netKeyIndex, int transition) =
-      _$_ConfigKeyRefreshPhaseStatus;
+      final int source,
+      final int destination,
+      final int statusCode,
+      final String statusCodeName,
+      final int netKeyIndex,
+      final int transition) = _$ConfigKeyRefreshPhaseStatusImpl;
 
-  factory _ConfigKeyRefreshPhaseStatus.fromJson(Map<String, dynamic> json) = _$_ConfigKeyRefreshPhaseStatus.fromJson;
+  factory _ConfigKeyRefreshPhaseStatus.fromJson(Map<String, dynamic> json) =
+      _$ConfigKeyRefreshPhaseStatusImpl.fromJson;
 
   @override
-  int get source => throw _privateConstructorUsedError;
+  int get source;
   @override
-  int get destination => throw _privateConstructorUsedError;
+  int get destination;
   @override
-  int get statusCode => throw _privateConstructorUsedError;
+  int get statusCode;
   @override
-  String get statusCodeName => throw _privateConstructorUsedError;
+  String get statusCodeName;
   @override
-  int get netKeyIndex => throw _privateConstructorUsedError;
+  int get netKeyIndex;
   @override
-  int get transition => throw _privateConstructorUsedError;
+  int get transition;
+
+  /// Create a copy of ConfigKeyRefreshPhaseStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$ConfigKeyRefreshPhaseStatusCopyWith<_ConfigKeyRefreshPhaseStatus> get copyWith =>
-      throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ConfigKeyRefreshPhaseStatusImplCopyWith<_$ConfigKeyRefreshPhaseStatusImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

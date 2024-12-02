@@ -9,7 +9,11 @@ class Model extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      children: <Widget>[Text(' ${model.modelId} '), appKeyBindIcon(), const Text(', ')],
+      children: <Widget>[
+        Text('model ID: 0x${model.modelId.toRadixString(16).toUpperCase()} '),
+        appKeyBindIcon(),
+        const Text(', ')
+      ],
     );
   }
 

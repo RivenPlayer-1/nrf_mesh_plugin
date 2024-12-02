@@ -62,6 +62,7 @@ class ProvisionedMeshNode {
   final MethodChannel _methodChannel;
   final String uuid;
 
+  // Unnamed constructor
   /// {@macro provisioned_node}
   ProvisionedMeshNode(this.uuid) : _methodChannel = MethodChannel('$namespace/provisioned_mesh_node/$uuid/methods');
 

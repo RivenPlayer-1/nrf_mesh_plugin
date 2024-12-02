@@ -22,6 +22,10 @@ abstract class IMeshNetwork {
   /// The current list of nodes (provisioners + provisioned mesh devices)
   Future<List<ProvisionedMeshNode>> get nodes;
 
+  Map<String, DeviceInfo> get deviceMap;
+
+  void addMap(String uuid, String deviceId, String deviceName);
+
   /// The currently defined group(s)
   Future<List<GroupData>> get groups;
 
@@ -109,6 +113,8 @@ class MeshNetwork implements IMeshNetwork {
   /// The unique id of the currently loaded [MeshNetwork]
   final String _id;
 
+  final Map<String, DeviceInfo> _deviceMap = {};
+
   /// {@macro mesh_network_impl}
   MeshNetwork(this._id) : _methodChannel = MethodChannel('$namespace/mesh_network/$_id/methods');
 
@@ -134,10 +140,26 @@ class MeshNetwork implements IMeshNetwork {
   @override
   Future<String> get name async => (await _methodChannel.invokeMethod<String>('getMeshNetworkName'))!;
 
+  // This is where .nodes are aquired. They come from native code
   @override
   Future<List<ProvisionedMeshNode>> get nodes async {
     final nodes = await _methodChannel.invokeMethod<List<dynamic>>('nodes');
     return nodes!.map((e) => ProvisionedMeshNode(e['uuid'])).toList();
+  }
+
+  // Future<List<String>> get deviceIds async {
+  //   return _deviceIds;
+  // }
+
+  @override
+  Map<String, DeviceInfo> get deviceMap {
+    return _deviceMap;
+  }
+
+  // Function to associate and store node uuid with device Id and Device Name
+  @override
+  void addMap(String uuid, String deviceId, String deviceName) {
+    _deviceMap[uuid] = DeviceInfo(deviceId, deviceName);
   }
 
   @override
@@ -340,4 +362,15 @@ class MeshNetwork implements IMeshNetwork {
       throw UnsupportedError('Platform ${Platform.operatingSystem} is not supported');
     }
   }
+}
+
+class DeviceInfo {
+  final String _deviceId;
+  final String _deviceName;
+
+  DeviceInfo(this._deviceId, this._deviceName);
+
+  String get deviceId => _deviceId;
+
+  String get deviceName => _deviceName;
 }

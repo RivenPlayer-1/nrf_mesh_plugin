@@ -43,6 +43,8 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
         mMeshManagerApi.loadMeshNetwork()
     }
 
+    // calls handleNotifications in MeshManagerApi.java
+    // Processes and reassembles bluetooth mesh notifications
     private fun handleNotifications(mtu: Int, pdu: ByteArray) {
         mMeshManagerApi.handleNotifications(mtu, pdu)
     }
@@ -148,6 +150,8 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                 mMeshManagerApi.createMeshPdu(address, meshMessage)
                 result.success(null)
             }
+
+            // There are get functions for some of these
             "sendGenericLevelGet" -> {
                 val address = call.argument<Int>("address")!!
                 val keyIndex = call.argument<Int>("keyIndex")!!
@@ -156,7 +160,7 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                 )
                 mMeshManagerApi.createMeshPdu(address, meshMessage)
                 result.success(null)
-            }
+            } 
             "sendGenericOnOffSet" -> {
                 val address = call.argument<Int>("address")!!
                 val value = call.argument<Boolean>("value")!!
@@ -174,8 +178,48 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                         delay
                 )
                 mMeshManagerApi.createMeshPdu(address, meshMessage)
-                result.success(null)
+                result.success(null) // the success value shows up in mesh_manager_api.dart sendGenericOnOffSet()
+                // Any changes here have to re-run the whole app to take effect (No hot restart or reload)
             }
+
+
+            "sendVendorModelMessage" -> {
+                val address = call.argument<Int>("address")!!
+                val modelId = call.argument<Int>("modelId")!!
+                val keyIndex = call.argument<Int>("keyIndex")!!
+                val companyIdentifier = call.argument<Int>("companyIdentifier")!!
+                val opCode = call.argument<Int>("opCode")!!
+                // Retrieve parameters as a List<Int>
+                val parametersList = call.argument<List<Int>>("parameters") ?: emptyList()
+                
+                // Convert List<Int> to ByteArray
+                val parameters = ByteArray(parametersList.size)
+                for (i in parametersList.indices) {
+                    parameters[i] = parametersList[i].toByte()
+                }
+            
+                val meshMessage: MeshMessage = VendorModelMessageAcked(
+                        mMeshManagerApi.meshNetwork!!.getAppKey(keyIndex),
+                        modelId,
+                        companyIdentifier,
+                        opCode,
+                        parameters
+                        
+                )
+                mMeshManagerApi.createMeshPdu(address, meshMessage)
+                result.success(1) // the success value shows up in mesh_manager_api.dart
+            }
+
+            "sendGenericLocationGlobalGet" -> {
+                val address = call.argument<Int>("address")!!
+                val keyIndex = call.argument<Int>("keyIndex")!!
+                val meshMessage: MeshMessage = GenericLocationGlobalGet(
+                        mMeshManagerApi.meshNetwork!!.getAppKey(keyIndex),                        
+                )
+                mMeshManagerApi.createMeshPdu(address, meshMessage)
+                result.success(1) // the success value shows up in mesh_manager_api.dart
+            }
+
             "getSNBeacon" -> {
                 val address = call.argument<Int>("address")!!
                 val meshMessage: MeshMessage = ConfigBeaconGet()
@@ -386,6 +430,9 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                 mMeshManagerApi.createMeshPdu(address, meshMessage)
                 result.success(null)
             }
+
+            // Lightness commands exist
+            // Lots of command files here Android-nRF-Mesh-Library\mesh\src\main\java\no\nordicsemi\android\mesh\transport
             "sendLightLightness" -> {
                 val sequenceNumber = call.argument<Int>("sequenceNumber")!!
                 val address = call.argument<Int>("address")!!
@@ -430,6 +477,8 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                 val serviceData = call.argument<ByteArray>("serviceData")!!
                 result.success(mMeshManagerApi.getDeviceUuid(serviceData).toString())
             }
+
+            // Calls private fun handleNotifications
             "handleNotifications" -> {
                 val pdu = call.argument<ByteArray>("pdu")!!
                 handleNotifications(call.argument<Int>("mtu")!!, pdu)
@@ -447,6 +496,7 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
             }
             "provisioning" -> {
                 val uuid = UUID.fromString(call.argument("uuid")!!)
+//                val deviceId = call.argument("deviceId")!!
                 val unProvisionedMeshNode = unProvisionedMeshNodes.firstOrNull { it.meshNode.deviceUuid == uuid }
                 if (unProvisionedMeshNode == null) {
                     result.error("NOT_FOUND", "MeshNode with uuid $uuid doesn't exist", null)
@@ -531,6 +581,13 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                     result.error("102", e.message, "an error occured while checking service data")
                 }
             }
+
+            // Custom stuff
+            "customTest" -> {
+                result.success(1)
+            }
+
+            // Final catch all
             else -> {
                 result.notImplemented()
             }

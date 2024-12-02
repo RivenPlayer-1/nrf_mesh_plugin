@@ -75,6 +75,8 @@ class _ScanningAndProvisioningState extends State<ScanningAndProvisioning> {
 
   Future<void> provisionDevice(DiscoveredDevice device) async {
     final scaffoldMessenger = ScaffoldMessenger.of(context);
+
+    // Stop scanning and only allow one provisioning to happen at once
     if (isScanning) {
       await _stopScan();
     }
@@ -107,6 +109,7 @@ class _ScanningAndProvisioningState extends State<ScanningAndProvisioning> {
           )
           .timeout(const Duration(minutes: 1));
 
+      // error with provisioning chat is unhandled because provisionedMeshNodeF is unawaited
       unawaited(provisionedMeshNodeF.then((node) {
         Navigator.of(context).pop();
         scaffoldMessenger
@@ -114,14 +117,54 @@ class _ScanningAndProvisioningState extends State<ScanningAndProvisioning> {
         Future.delayed(const Duration(milliseconds: 500), widget.onGoToControl);
       }).catchError((_) {
         Navigator.of(context).pop();
-        scaffoldMessenger.showSnackBar(const SnackBar(content: Text('Provisionning failed')));
+        scaffoldMessenger.showSnackBar(const SnackBar(content: Text('Provisioning failed')));
         _scanUnprovisionned();
       }));
+
+      // This dialog just holds the provisioningEvent which displays the status of the provisioning, but doesn't actually start the provisioning process
       await showDialog(
         context: context,
         barrierDismissible: false,
         builder: (_) => ProvisioningDialog(provisioningEvent: provisioningEvent),
       );
+    } catch (e) {
+      debugPrint('$e');
+      scaffoldMessenger.showSnackBar(SnackBar(content: Text('Caught error: $e')));
+    } finally {
+      isProvisioning = false;
+    }
+  }
+
+  Future<void> identifyDevice(DiscoveredDevice device) async {
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
+
+    if (isProvisioning) {
+      return;
+    }
+
+    try {
+      // Android is sending the mac Adress of the device, but Apple generates
+      // an UUID specific by smartphone.
+
+      String deviceUUID;
+
+      if (Platform.isAndroid) {
+        deviceUUID = _serviceData[device.id].toString();
+      } else if (Platform.isIOS) {
+        deviceUUID = device.id.toString();
+      } else {
+        throw UnimplementedError('device uuid on platform : ${Platform.operatingSystem}');
+      }
+      final identifyEvent = ProvisioningEvent();
+      widget.nordicNrfMesh
+          .identify(
+            _meshManagerApi,
+            BleMeshManager(),
+            device,
+            deviceUUID,
+            events: identifyEvent,
+          )
+          .timeout(const Duration(seconds: 5));
     } catch (e) {
       debugPrint('$e');
       scaffoldMessenger.showSnackBar(SnackBar(content: Text('Caught error: $e')));
@@ -158,6 +201,7 @@ class _ScanningAndProvisioningState extends State<ScanningAndProvisioning> {
                       key: ValueKey('device-$i'),
                       device: _devices.elementAt(i),
                       onTap: () => provisionDevice(_devices.elementAt(i)),
+                      onIdentify: () => identifyDevice(_devices.elementAt(i)),
                     ),
                 ],
               ),
@@ -166,6 +210,17 @@ class _ScanningAndProvisioningState extends State<ScanningAndProvisioning> {
       ),
     );
   }
+
+  // IDENTIFY DOES NOT WORK
+  // void identifyDevice(DiscoveredDevice device) async {
+  //   final deviceUuid = Uuid.parse(_meshManagerApi.getDeviceUuid(device.serviceData[meshProvisioningUuid]!.toList()));
+
+  //   await BleMeshManager()
+  //       .connect(device, connectionTimeout: const Duration(seconds: 10))
+  //       .catchError((e) => debugPrint('Failed to identify device'));
+
+  //   await widget.nordicNrfMesh.meshManagerApi.identifyNode(deviceUuid.toString());
+  // }
 }
 
 class ProvisioningDialog extends StatelessWidget {

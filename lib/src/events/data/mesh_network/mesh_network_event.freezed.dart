@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'mesh_network_event.dart';
 
@@ -10,90 +12,90 @@ part of 'mesh_network_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 MeshNetworkEventData _$MeshNetworkEventDataFromJson(Map<String, dynamic> json) {
   return _MeshNetworkEventData.fromJson(json);
 }
 
 /// @nodoc
-class _$MeshNetworkEventDataTearOff {
-  const _$MeshNetworkEventDataTearOff();
-
-  _MeshNetworkEventData call(String id) {
-    return _MeshNetworkEventData(
-      id,
-    );
-  }
-
-  MeshNetworkEventData fromJson(Map<String, Object> json) {
-    return MeshNetworkEventData.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $MeshNetworkEventData = _$MeshNetworkEventDataTearOff();
-
-/// @nodoc
 mixin _$MeshNetworkEventData {
   String get id => throw _privateConstructorUsedError;
 
+  /// Serializes this MeshNetworkEventData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $MeshNetworkEventDataCopyWith<MeshNetworkEventData> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of MeshNetworkEventData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MeshNetworkEventDataCopyWith<MeshNetworkEventData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $MeshNetworkEventDataCopyWith<$Res> {
-  factory $MeshNetworkEventDataCopyWith(MeshNetworkEventData value, $Res Function(MeshNetworkEventData) then) =
-      _$MeshNetworkEventDataCopyWithImpl<$Res>;
+  factory $MeshNetworkEventDataCopyWith(MeshNetworkEventData value,
+          $Res Function(MeshNetworkEventData) then) =
+      _$MeshNetworkEventDataCopyWithImpl<$Res, MeshNetworkEventData>;
+  @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class _$MeshNetworkEventDataCopyWithImpl<$Res> implements $MeshNetworkEventDataCopyWith<$Res> {
+class _$MeshNetworkEventDataCopyWithImpl<$Res,
+        $Val extends MeshNetworkEventData>
+    implements $MeshNetworkEventDataCopyWith<$Res> {
   _$MeshNetworkEventDataCopyWithImpl(this._value, this._then);
 
-  final MeshNetworkEventData _value;
   // ignore: unused_field
-  final $Res Function(MeshNetworkEventData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of MeshNetworkEventData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$MeshNetworkEventDataCopyWith<$Res> implements $MeshNetworkEventDataCopyWith<$Res> {
-  factory _$MeshNetworkEventDataCopyWith(_MeshNetworkEventData value, $Res Function(_MeshNetworkEventData) then) =
-      __$MeshNetworkEventDataCopyWithImpl<$Res>;
+abstract class _$$MeshNetworkEventDataImplCopyWith<$Res>
+    implements $MeshNetworkEventDataCopyWith<$Res> {
+  factory _$$MeshNetworkEventDataImplCopyWith(_$MeshNetworkEventDataImpl value,
+          $Res Function(_$MeshNetworkEventDataImpl) then) =
+      __$$MeshNetworkEventDataImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$MeshNetworkEventDataCopyWithImpl<$Res> extends _$MeshNetworkEventDataCopyWithImpl<$Res>
-    implements _$MeshNetworkEventDataCopyWith<$Res> {
-  __$MeshNetworkEventDataCopyWithImpl(_MeshNetworkEventData _value, $Res Function(_MeshNetworkEventData) _then)
-      : super(_value, (v) => _then(v as _MeshNetworkEventData));
+class __$$MeshNetworkEventDataImplCopyWithImpl<$Res>
+    extends _$MeshNetworkEventDataCopyWithImpl<$Res, _$MeshNetworkEventDataImpl>
+    implements _$$MeshNetworkEventDataImplCopyWith<$Res> {
+  __$$MeshNetworkEventDataImplCopyWithImpl(_$MeshNetworkEventDataImpl _value,
+      $Res Function(_$MeshNetworkEventDataImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _MeshNetworkEventData get _value => super._value as _MeshNetworkEventData;
-
+  /// Create a copy of MeshNetworkEventData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
   }) {
-    return _then(_MeshNetworkEventData(
-      id == freezed
+    return _then(_$MeshNetworkEventDataImpl(
+      null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
@@ -103,10 +105,11 @@ class __$MeshNetworkEventDataCopyWithImpl<$Res> extends _$MeshNetworkEventDataCo
 
 /// @nodoc
 @JsonSerializable()
-class _$_MeshNetworkEventData implements _MeshNetworkEventData {
-  const _$_MeshNetworkEventData(this.id);
+class _$MeshNetworkEventDataImpl implements _MeshNetworkEventData {
+  const _$MeshNetworkEventDataImpl(this.id);
 
-  factory _$_MeshNetworkEventData.fromJson(Map<String, dynamic> json) => _$_$_MeshNetworkEventDataFromJson(json);
+  factory _$MeshNetworkEventDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MeshNetworkEventDataImplFromJson(json);
 
   @override
   final String id;
@@ -117,120 +120,138 @@ class _$_MeshNetworkEventData implements _MeshNetworkEventData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _MeshNetworkEventData &&
-            (identical(other.id, id) || const DeepCollectionEquality().equals(other.id, id)));
+        (other.runtimeType == runtimeType &&
+            other is _$MeshNetworkEventDataImpl &&
+            (identical(other.id, id) || other.id == id));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+  int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MeshNetworkEventData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$MeshNetworkEventDataCopyWith<_MeshNetworkEventData> get copyWith =>
-      __$MeshNetworkEventDataCopyWithImpl<_MeshNetworkEventData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$MeshNetworkEventDataImplCopyWith<_$MeshNetworkEventDataImpl>
+      get copyWith =>
+          __$$MeshNetworkEventDataImplCopyWithImpl<_$MeshNetworkEventDataImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_MeshNetworkEventDataToJson(this);
+    return _$$MeshNetworkEventDataImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _MeshNetworkEventData implements MeshNetworkEventData {
-  const factory _MeshNetworkEventData(String id) = _$_MeshNetworkEventData;
+  const factory _MeshNetworkEventData(final String id) =
+      _$MeshNetworkEventDataImpl;
 
-  factory _MeshNetworkEventData.fromJson(Map<String, dynamic> json) = _$_MeshNetworkEventData.fromJson;
+  factory _MeshNetworkEventData.fromJson(Map<String, dynamic> json) =
+      _$MeshNetworkEventDataImpl.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
+
+  /// Create a copy of MeshNetworkEventData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$MeshNetworkEventDataCopyWith<_MeshNetworkEventData> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MeshNetworkEventDataImplCopyWith<_$MeshNetworkEventDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
-MeshNetworkEventError _$MeshNetworkEventErrorFromJson(Map<String, dynamic> json) {
+MeshNetworkEventError _$MeshNetworkEventErrorFromJson(
+    Map<String, dynamic> json) {
   return _MeshNetworkEventError.fromJson(json);
 }
-
-/// @nodoc
-class _$MeshNetworkEventErrorTearOff {
-  const _$MeshNetworkEventErrorTearOff();
-
-  _MeshNetworkEventError call(String error) {
-    return _MeshNetworkEventError(
-      error,
-    );
-  }
-
-  MeshNetworkEventError fromJson(Map<String, Object> json) {
-    return MeshNetworkEventError.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $MeshNetworkEventError = _$MeshNetworkEventErrorTearOff();
 
 /// @nodoc
 mixin _$MeshNetworkEventError {
   String get error => throw _privateConstructorUsedError;
 
+  /// Serializes this MeshNetworkEventError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $MeshNetworkEventErrorCopyWith<MeshNetworkEventError> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of MeshNetworkEventError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MeshNetworkEventErrorCopyWith<MeshNetworkEventError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $MeshNetworkEventErrorCopyWith<$Res> {
-  factory $MeshNetworkEventErrorCopyWith(MeshNetworkEventError value, $Res Function(MeshNetworkEventError) then) =
-      _$MeshNetworkEventErrorCopyWithImpl<$Res>;
+  factory $MeshNetworkEventErrorCopyWith(MeshNetworkEventError value,
+          $Res Function(MeshNetworkEventError) then) =
+      _$MeshNetworkEventErrorCopyWithImpl<$Res, MeshNetworkEventError>;
+  @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class _$MeshNetworkEventErrorCopyWithImpl<$Res> implements $MeshNetworkEventErrorCopyWith<$Res> {
+class _$MeshNetworkEventErrorCopyWithImpl<$Res,
+        $Val extends MeshNetworkEventError>
+    implements $MeshNetworkEventErrorCopyWith<$Res> {
   _$MeshNetworkEventErrorCopyWithImpl(this._value, this._then);
 
-  final MeshNetworkEventError _value;
   // ignore: unused_field
-  final $Res Function(MeshNetworkEventError) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of MeshNetworkEventError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_value.copyWith(
-      error: error == freezed
+      error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$MeshNetworkEventErrorCopyWith<$Res> implements $MeshNetworkEventErrorCopyWith<$Res> {
-  factory _$MeshNetworkEventErrorCopyWith(_MeshNetworkEventError value, $Res Function(_MeshNetworkEventError) then) =
-      __$MeshNetworkEventErrorCopyWithImpl<$Res>;
+abstract class _$$MeshNetworkEventErrorImplCopyWith<$Res>
+    implements $MeshNetworkEventErrorCopyWith<$Res> {
+  factory _$$MeshNetworkEventErrorImplCopyWith(
+          _$MeshNetworkEventErrorImpl value,
+          $Res Function(_$MeshNetworkEventErrorImpl) then) =
+      __$$MeshNetworkEventErrorImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$MeshNetworkEventErrorCopyWithImpl<$Res> extends _$MeshNetworkEventErrorCopyWithImpl<$Res>
-    implements _$MeshNetworkEventErrorCopyWith<$Res> {
-  __$MeshNetworkEventErrorCopyWithImpl(_MeshNetworkEventError _value, $Res Function(_MeshNetworkEventError) _then)
-      : super(_value, (v) => _then(v as _MeshNetworkEventError));
+class __$$MeshNetworkEventErrorImplCopyWithImpl<$Res>
+    extends _$MeshNetworkEventErrorCopyWithImpl<$Res,
+        _$MeshNetworkEventErrorImpl>
+    implements _$$MeshNetworkEventErrorImplCopyWith<$Res> {
+  __$$MeshNetworkEventErrorImplCopyWithImpl(_$MeshNetworkEventErrorImpl _value,
+      $Res Function(_$MeshNetworkEventErrorImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _MeshNetworkEventError get _value => super._value as _MeshNetworkEventError;
-
+  /// Create a copy of MeshNetworkEventError
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(_MeshNetworkEventError(
-      error == freezed
+    return _then(_$MeshNetworkEventErrorImpl(
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
@@ -240,10 +261,11 @@ class __$MeshNetworkEventErrorCopyWithImpl<$Res> extends _$MeshNetworkEventError
 
 /// @nodoc
 @JsonSerializable()
-class _$_MeshNetworkEventError implements _MeshNetworkEventError {
-  const _$_MeshNetworkEventError(this.error);
+class _$MeshNetworkEventErrorImpl implements _MeshNetworkEventError {
+  const _$MeshNetworkEventErrorImpl(this.error);
 
-  factory _$_MeshNetworkEventError.fromJson(Map<String, dynamic> json) => _$_$_MeshNetworkEventErrorFromJson(json);
+  factory _$MeshNetworkEventErrorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MeshNetworkEventErrorImplFromJson(json);
 
   @override
   final String error;
@@ -254,34 +276,48 @@ class _$_MeshNetworkEventError implements _MeshNetworkEventError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _MeshNetworkEventError &&
-            (identical(other.error, error) || const DeepCollectionEquality().equals(other.error, error)));
+        (other.runtimeType == runtimeType &&
+            other is _$MeshNetworkEventErrorImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+  int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MeshNetworkEventError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$MeshNetworkEventErrorCopyWith<_MeshNetworkEventError> get copyWith =>
-      __$MeshNetworkEventErrorCopyWithImpl<_MeshNetworkEventError>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$MeshNetworkEventErrorImplCopyWith<_$MeshNetworkEventErrorImpl>
+      get copyWith => __$$MeshNetworkEventErrorImplCopyWithImpl<
+          _$MeshNetworkEventErrorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_MeshNetworkEventErrorToJson(this);
+    return _$$MeshNetworkEventErrorImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _MeshNetworkEventError implements MeshNetworkEventError {
-  const factory _MeshNetworkEventError(String error) = _$_MeshNetworkEventError;
+  const factory _MeshNetworkEventError(final String error) =
+      _$MeshNetworkEventErrorImpl;
 
-  factory _MeshNetworkEventError.fromJson(Map<String, dynamic> json) = _$_MeshNetworkEventError.fromJson;
+  factory _MeshNetworkEventError.fromJson(Map<String, dynamic> json) =
+      _$MeshNetworkEventErrorImpl.fromJson;
 
   @override
-  String get error => throw _privateConstructorUsedError;
+  String get error;
+
+  /// Create a copy of MeshNetworkEventError
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$MeshNetworkEventErrorCopyWith<_MeshNetworkEventError> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MeshNetworkEventErrorImplCopyWith<_$MeshNetworkEventErrorImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

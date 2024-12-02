@@ -11,9 +11,13 @@ class MeshElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text('address : ${element.address}'),
-        Row(
-          children: <Widget>[const Text('Models: '), ...element.models.map((e) => Model(e))],
+        Text('Element address : ${element.address}', style: const TextStyle(decoration: TextDecoration.underline)),
+        Wrap(
+          children: <Widget>[
+            const Text('Models: '),
+            ...element.models.map((e) => Model(e)),
+            const SizedBox(height: 40),
+          ],
         )
       ],
     );

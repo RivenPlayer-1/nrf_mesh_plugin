@@ -6,18 +6,19 @@ part of 'config_key_refresh_phase_status.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ConfigKeyRefreshPhaseStatus _$_$_ConfigKeyRefreshPhaseStatusFromJson(Map<String, dynamic> json) {
-  return _$_ConfigKeyRefreshPhaseStatus(
-    json['source'] as int,
-    json['destination'] as int,
-    json['statusCode'] as int,
-    json['statusCodeName'] as String,
-    json['netKeyIndex'] as int,
-    json['transition'] as int,
-  );
-}
+_$ConfigKeyRefreshPhaseStatusImpl _$$ConfigKeyRefreshPhaseStatusImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ConfigKeyRefreshPhaseStatusImpl(
+      (json['source'] as num).toInt(),
+      (json['destination'] as num).toInt(),
+      (json['statusCode'] as num).toInt(),
+      json['statusCodeName'] as String,
+      (json['netKeyIndex'] as num).toInt(),
+      (json['transition'] as num).toInt(),
+    );
 
-Map<String, dynamic> _$_$_ConfigKeyRefreshPhaseStatusToJson(_$_ConfigKeyRefreshPhaseStatus instance) =>
+Map<String, dynamic> _$$ConfigKeyRefreshPhaseStatusImplToJson(
+        _$ConfigKeyRefreshPhaseStatusImpl instance) =>
     <String, dynamic>{
       'source': instance.source,
       'destination': instance.destination,

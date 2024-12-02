@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'dooz_scenario_status.dart';
 
@@ -10,56 +12,12 @@ part of 'dooz_scenario_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-DoozScenarioStatusData _$DoozScenarioStatusDataFromJson(Map<String, dynamic> json) {
+DoozScenarioStatusData _$DoozScenarioStatusDataFromJson(
+    Map<String, dynamic> json) {
   return _DoozScenarioStatusData.fromJson(json);
 }
-
-/// @nodoc
-class _$DoozScenarioStatusDataTearOff {
-  const _$DoozScenarioStatusDataTearOff();
-
-  _DoozScenarioStatusData call(
-      int scenarioId,
-      int command,
-      int io,
-      bool isActive,
-      int unused,
-      int value,
-      int transition,
-      int startAt,
-      int duration,
-      int daysInWeek,
-      int correlation,
-      int extra,
-      int source,
-      int destination) {
-    return _DoozScenarioStatusData(
-      scenarioId,
-      command,
-      io,
-      isActive,
-      unused,
-      value,
-      transition,
-      startAt,
-      duration,
-      daysInWeek,
-      correlation,
-      extra,
-      source,
-      destination,
-    );
-  }
-
-  DoozScenarioStatusData fromJson(Map<String, Object> json) {
-    return DoozScenarioStatusData.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $DoozScenarioStatusData = _$DoozScenarioStatusDataTearOff();
 
 /// @nodoc
 mixin _$DoozScenarioStatusData {
@@ -78,15 +36,22 @@ mixin _$DoozScenarioStatusData {
   int get source => throw _privateConstructorUsedError;
   int get destination => throw _privateConstructorUsedError;
 
+  /// Serializes this DoozScenarioStatusData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DoozScenarioStatusDataCopyWith<DoozScenarioStatusData> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of DoozScenarioStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $DoozScenarioStatusDataCopyWith<DoozScenarioStatusData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DoozScenarioStatusDataCopyWith<$Res> {
-  factory $DoozScenarioStatusDataCopyWith(DoozScenarioStatusData value, $Res Function(DoozScenarioStatusData) then) =
-      _$DoozScenarioStatusDataCopyWithImpl<$Res>;
+  factory $DoozScenarioStatusDataCopyWith(DoozScenarioStatusData value,
+          $Res Function(DoozScenarioStatusData) then) =
+      _$DoozScenarioStatusDataCopyWithImpl<$Res, DoozScenarioStatusData>;
+  @useResult
   $Res call(
       {int scenarioId,
       int command,
@@ -105,96 +70,106 @@ abstract class $DoozScenarioStatusDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DoozScenarioStatusDataCopyWithImpl<$Res> implements $DoozScenarioStatusDataCopyWith<$Res> {
+class _$DoozScenarioStatusDataCopyWithImpl<$Res,
+        $Val extends DoozScenarioStatusData>
+    implements $DoozScenarioStatusDataCopyWith<$Res> {
   _$DoozScenarioStatusDataCopyWithImpl(this._value, this._then);
 
-  final DoozScenarioStatusData _value;
   // ignore: unused_field
-  final $Res Function(DoozScenarioStatusData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of DoozScenarioStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? scenarioId = freezed,
-    Object? command = freezed,
-    Object? io = freezed,
-    Object? isActive = freezed,
-    Object? unused = freezed,
-    Object? value = freezed,
-    Object? transition = freezed,
-    Object? startAt = freezed,
-    Object? duration = freezed,
-    Object? daysInWeek = freezed,
-    Object? correlation = freezed,
-    Object? extra = freezed,
-    Object? source = freezed,
-    Object? destination = freezed,
+    Object? scenarioId = null,
+    Object? command = null,
+    Object? io = null,
+    Object? isActive = null,
+    Object? unused = null,
+    Object? value = null,
+    Object? transition = null,
+    Object? startAt = null,
+    Object? duration = null,
+    Object? daysInWeek = null,
+    Object? correlation = null,
+    Object? extra = null,
+    Object? source = null,
+    Object? destination = null,
   }) {
     return _then(_value.copyWith(
-      scenarioId: scenarioId == freezed
+      scenarioId: null == scenarioId
           ? _value.scenarioId
           : scenarioId // ignore: cast_nullable_to_non_nullable
               as int,
-      command: command == freezed
+      command: null == command
           ? _value.command
           : command // ignore: cast_nullable_to_non_nullable
               as int,
-      io: io == freezed
+      io: null == io
           ? _value.io
           : io // ignore: cast_nullable_to_non_nullable
               as int,
-      isActive: isActive == freezed
+      isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
-      unused: unused == freezed
+      unused: null == unused
           ? _value.unused
           : unused // ignore: cast_nullable_to_non_nullable
               as int,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
-      transition: transition == freezed
+      transition: null == transition
           ? _value.transition
           : transition // ignore: cast_nullable_to_non_nullable
               as int,
-      startAt: startAt == freezed
+      startAt: null == startAt
           ? _value.startAt
           : startAt // ignore: cast_nullable_to_non_nullable
               as int,
-      duration: duration == freezed
+      duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as int,
-      daysInWeek: daysInWeek == freezed
+      daysInWeek: null == daysInWeek
           ? _value.daysInWeek
           : daysInWeek // ignore: cast_nullable_to_non_nullable
               as int,
-      correlation: correlation == freezed
+      correlation: null == correlation
           ? _value.correlation
           : correlation // ignore: cast_nullable_to_non_nullable
               as int,
-      extra: extra == freezed
+      extra: null == extra
           ? _value.extra
           : extra // ignore: cast_nullable_to_non_nullable
               as int,
-      source: source == freezed
+      source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination: destination == freezed
+      destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$DoozScenarioStatusDataCopyWith<$Res> implements $DoozScenarioStatusDataCopyWith<$Res> {
-  factory _$DoozScenarioStatusDataCopyWith(_DoozScenarioStatusData value, $Res Function(_DoozScenarioStatusData) then) =
-      __$DoozScenarioStatusDataCopyWithImpl<$Res>;
+abstract class _$$DoozScenarioStatusDataImplCopyWith<$Res>
+    implements $DoozScenarioStatusDataCopyWith<$Res> {
+  factory _$$DoozScenarioStatusDataImplCopyWith(
+          _$DoozScenarioStatusDataImpl value,
+          $Res Function(_$DoozScenarioStatusDataImpl) then) =
+      __$$DoozScenarioStatusDataImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int scenarioId,
       int command,
@@ -213,85 +188,89 @@ abstract class _$DoozScenarioStatusDataCopyWith<$Res> implements $DoozScenarioSt
 }
 
 /// @nodoc
-class __$DoozScenarioStatusDataCopyWithImpl<$Res> extends _$DoozScenarioStatusDataCopyWithImpl<$Res>
-    implements _$DoozScenarioStatusDataCopyWith<$Res> {
-  __$DoozScenarioStatusDataCopyWithImpl(_DoozScenarioStatusData _value, $Res Function(_DoozScenarioStatusData) _then)
-      : super(_value, (v) => _then(v as _DoozScenarioStatusData));
+class __$$DoozScenarioStatusDataImplCopyWithImpl<$Res>
+    extends _$DoozScenarioStatusDataCopyWithImpl<$Res,
+        _$DoozScenarioStatusDataImpl>
+    implements _$$DoozScenarioStatusDataImplCopyWith<$Res> {
+  __$$DoozScenarioStatusDataImplCopyWithImpl(
+      _$DoozScenarioStatusDataImpl _value,
+      $Res Function(_$DoozScenarioStatusDataImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _DoozScenarioStatusData get _value => super._value as _DoozScenarioStatusData;
-
+  /// Create a copy of DoozScenarioStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? scenarioId = freezed,
-    Object? command = freezed,
-    Object? io = freezed,
-    Object? isActive = freezed,
-    Object? unused = freezed,
-    Object? value = freezed,
-    Object? transition = freezed,
-    Object? startAt = freezed,
-    Object? duration = freezed,
-    Object? daysInWeek = freezed,
-    Object? correlation = freezed,
-    Object? extra = freezed,
-    Object? source = freezed,
-    Object? destination = freezed,
+    Object? scenarioId = null,
+    Object? command = null,
+    Object? io = null,
+    Object? isActive = null,
+    Object? unused = null,
+    Object? value = null,
+    Object? transition = null,
+    Object? startAt = null,
+    Object? duration = null,
+    Object? daysInWeek = null,
+    Object? correlation = null,
+    Object? extra = null,
+    Object? source = null,
+    Object? destination = null,
   }) {
-    return _then(_DoozScenarioStatusData(
-      scenarioId == freezed
+    return _then(_$DoozScenarioStatusDataImpl(
+      null == scenarioId
           ? _value.scenarioId
           : scenarioId // ignore: cast_nullable_to_non_nullable
               as int,
-      command == freezed
+      null == command
           ? _value.command
           : command // ignore: cast_nullable_to_non_nullable
               as int,
-      io == freezed
+      null == io
           ? _value.io
           : io // ignore: cast_nullable_to_non_nullable
               as int,
-      isActive == freezed
+      null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
-      unused == freezed
+      null == unused
           ? _value.unused
           : unused // ignore: cast_nullable_to_non_nullable
               as int,
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
-      transition == freezed
+      null == transition
           ? _value.transition
           : transition // ignore: cast_nullable_to_non_nullable
               as int,
-      startAt == freezed
+      null == startAt
           ? _value.startAt
           : startAt // ignore: cast_nullable_to_non_nullable
               as int,
-      duration == freezed
+      null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as int,
-      daysInWeek == freezed
+      null == daysInWeek
           ? _value.daysInWeek
           : daysInWeek // ignore: cast_nullable_to_non_nullable
               as int,
-      correlation == freezed
+      null == correlation
           ? _value.correlation
           : correlation // ignore: cast_nullable_to_non_nullable
               as int,
-      extra == freezed
+      null == extra
           ? _value.extra
           : extra // ignore: cast_nullable_to_non_nullable
               as int,
-      source == freezed
+      null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination == freezed
+      null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
@@ -301,8 +280,8 @@ class __$DoozScenarioStatusDataCopyWithImpl<$Res> extends _$DoozScenarioStatusDa
 
 /// @nodoc
 @JsonSerializable()
-class _$_DoozScenarioStatusData implements _DoozScenarioStatusData {
-  const _$_DoozScenarioStatusData(
+class _$DoozScenarioStatusDataImpl implements _DoozScenarioStatusData {
+  const _$DoozScenarioStatusDataImpl(
       this.scenarioId,
       this.command,
       this.io,
@@ -318,7 +297,8 @@ class _$_DoozScenarioStatusData implements _DoozScenarioStatusData {
       this.source,
       this.destination);
 
-  factory _$_DoozScenarioStatusData.fromJson(Map<String, dynamic> json) => _$_$_DoozScenarioStatusDataFromJson(json);
+  factory _$DoozScenarioStatusDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DoozScenarioStatusDataImplFromJson(json);
 
   @override
   final int scenarioId;
@@ -355,107 +335,122 @@ class _$_DoozScenarioStatusData implements _DoozScenarioStatusData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _DoozScenarioStatusData &&
+        (other.runtimeType == runtimeType &&
+            other is _$DoozScenarioStatusDataImpl &&
             (identical(other.scenarioId, scenarioId) ||
-                const DeepCollectionEquality().equals(other.scenarioId, scenarioId)) &&
-            (identical(other.command, command) || const DeepCollectionEquality().equals(other.command, command)) &&
-            (identical(other.io, io) || const DeepCollectionEquality().equals(other.io, io)) &&
-            (identical(other.isActive, isActive) || const DeepCollectionEquality().equals(other.isActive, isActive)) &&
-            (identical(other.unused, unused) || const DeepCollectionEquality().equals(other.unused, unused)) &&
-            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)) &&
+                other.scenarioId == scenarioId) &&
+            (identical(other.command, command) || other.command == command) &&
+            (identical(other.io, io) || other.io == io) &&
+            (identical(other.isActive, isActive) ||
+                other.isActive == isActive) &&
+            (identical(other.unused, unused) || other.unused == unused) &&
+            (identical(other.value, value) || other.value == value) &&
             (identical(other.transition, transition) ||
-                const DeepCollectionEquality().equals(other.transition, transition)) &&
-            (identical(other.startAt, startAt) || const DeepCollectionEquality().equals(other.startAt, startAt)) &&
-            (identical(other.duration, duration) || const DeepCollectionEquality().equals(other.duration, duration)) &&
+                other.transition == transition) &&
+            (identical(other.startAt, startAt) || other.startAt == startAt) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration) &&
             (identical(other.daysInWeek, daysInWeek) ||
-                const DeepCollectionEquality().equals(other.daysInWeek, daysInWeek)) &&
+                other.daysInWeek == daysInWeek) &&
             (identical(other.correlation, correlation) ||
-                const DeepCollectionEquality().equals(other.correlation, correlation)) &&
-            (identical(other.extra, extra) || const DeepCollectionEquality().equals(other.extra, extra)) &&
-            (identical(other.source, source) || const DeepCollectionEquality().equals(other.source, source)) &&
+                other.correlation == correlation) &&
+            (identical(other.extra, extra) || other.extra == extra) &&
+            (identical(other.source, source) || other.source == source) &&
             (identical(other.destination, destination) ||
-                const DeepCollectionEquality().equals(other.destination, destination)));
+                other.destination == destination));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(scenarioId) ^
-      const DeepCollectionEquality().hash(command) ^
-      const DeepCollectionEquality().hash(io) ^
-      const DeepCollectionEquality().hash(isActive) ^
-      const DeepCollectionEquality().hash(unused) ^
-      const DeepCollectionEquality().hash(value) ^
-      const DeepCollectionEquality().hash(transition) ^
-      const DeepCollectionEquality().hash(startAt) ^
-      const DeepCollectionEquality().hash(duration) ^
-      const DeepCollectionEquality().hash(daysInWeek) ^
-      const DeepCollectionEquality().hash(correlation) ^
-      const DeepCollectionEquality().hash(extra) ^
-      const DeepCollectionEquality().hash(source) ^
-      const DeepCollectionEquality().hash(destination);
+  int get hashCode => Object.hash(
+      runtimeType,
+      scenarioId,
+      command,
+      io,
+      isActive,
+      unused,
+      value,
+      transition,
+      startAt,
+      duration,
+      daysInWeek,
+      correlation,
+      extra,
+      source,
+      destination);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DoozScenarioStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$DoozScenarioStatusDataCopyWith<_DoozScenarioStatusData> get copyWith =>
-      __$DoozScenarioStatusDataCopyWithImpl<_DoozScenarioStatusData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$DoozScenarioStatusDataImplCopyWith<_$DoozScenarioStatusDataImpl>
+      get copyWith => __$$DoozScenarioStatusDataImplCopyWithImpl<
+          _$DoozScenarioStatusDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_DoozScenarioStatusDataToJson(this);
+    return _$$DoozScenarioStatusDataImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _DoozScenarioStatusData implements DoozScenarioStatusData {
   const factory _DoozScenarioStatusData(
-      int scenarioId,
-      int command,
-      int io,
-      bool isActive,
-      int unused,
-      int value,
-      int transition,
-      int startAt,
-      int duration,
-      int daysInWeek,
-      int correlation,
-      int extra,
-      int source,
-      int destination) = _$_DoozScenarioStatusData;
+      final int scenarioId,
+      final int command,
+      final int io,
+      final bool isActive,
+      final int unused,
+      final int value,
+      final int transition,
+      final int startAt,
+      final int duration,
+      final int daysInWeek,
+      final int correlation,
+      final int extra,
+      final int source,
+      final int destination) = _$DoozScenarioStatusDataImpl;
 
-  factory _DoozScenarioStatusData.fromJson(Map<String, dynamic> json) = _$_DoozScenarioStatusData.fromJson;
+  factory _DoozScenarioStatusData.fromJson(Map<String, dynamic> json) =
+      _$DoozScenarioStatusDataImpl.fromJson;
 
   @override
-  int get scenarioId => throw _privateConstructorUsedError;
+  int get scenarioId;
   @override
-  int get command => throw _privateConstructorUsedError;
+  int get command;
   @override
-  int get io => throw _privateConstructorUsedError;
+  int get io;
   @override
-  bool get isActive => throw _privateConstructorUsedError;
+  bool get isActive;
   @override
-  int get unused => throw _privateConstructorUsedError;
+  int get unused;
   @override
-  int get value => throw _privateConstructorUsedError;
+  int get value;
   @override
-  int get transition => throw _privateConstructorUsedError;
+  int get transition;
   @override
-  int get startAt => throw _privateConstructorUsedError;
+  int get startAt;
   @override
-  int get duration => throw _privateConstructorUsedError;
+  int get duration;
   @override
-  int get daysInWeek => throw _privateConstructorUsedError;
+  int get daysInWeek;
   @override
-  int get correlation => throw _privateConstructorUsedError;
+  int get correlation;
   @override
-  int get extra => throw _privateConstructorUsedError;
+  int get extra;
   @override
-  int get source => throw _privateConstructorUsedError;
+  int get source;
   @override
-  int get destination => throw _privateConstructorUsedError;
+  int get destination;
+
+  /// Create a copy of DoozScenarioStatusData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$DoozScenarioStatusDataCopyWith<_DoozScenarioStatusData> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DoozScenarioStatusDataImplCopyWith<_$DoozScenarioStatusDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

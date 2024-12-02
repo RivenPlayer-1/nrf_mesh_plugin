@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
 import 'package:nordic_nrf_mesh_faradine/src/constants.dart';
+import 'package:nordic_nrf_mesh_faradine/src/events/data/vendor_model_message_status/vendor_model_message_status.dart';
+import 'package:nordic_nrf_mesh_faradine/src/events/data/generic_location_status/generic_location_status.dart';
 import 'package:nordic_nrf_mesh_faradine/src/events/mesh_manager_api_events.dart';
 import 'package:nordic_nrf_mesh_faradine/src/mesh_network.dart';
 import 'package:rxdart/rxdart.dart';
@@ -38,6 +40,8 @@ class MeshManagerApi {
   late final _onV2MagicLevelSetStatusController = StreamController<MagicLevelSetStatusData>.broadcast();
   late final _onV2MagicLevelGetStatusController = StreamController<MagicLevelGetStatusData>.broadcast();
   late final _onGenericOnOffStatusController = StreamController<GenericOnOffStatusData>.broadcast();
+  late final _onVendorModelMessageStatusController = StreamController<VendorModelMessageStatusData>.broadcast();
+  late final _onGenericLocationStatusController = StreamController<GenericLocationStatusData>.broadcast();
   late final _onConfigModelAppStatusController = StreamController<ConfigModelAppStatusData>.broadcast();
   late final _onConfigModelSubscriptionStatusController = StreamController<ConfigModelSubscriptionStatus>.broadcast();
   late final _onConfigModelPublicationStatusController = StreamController<ConfigModelPublicationStatus>.broadcast();
@@ -64,6 +68,8 @@ class MeshManagerApi {
   late StreamSubscription<ConfigAppKeyStatusData> _onConfigAppKeyStatusSubscription;
   late StreamSubscription<GenericLevelStatusData> _onGenericLevelStatusSubscription;
   late StreamSubscription<GenericOnOffStatusData> _onGenericOnOffStatusSubscription;
+  late StreamSubscription<VendorModelMessageStatusData> _onVendorModelMessageStatusSubscription;
+  late StreamSubscription<GenericLocationStatusData> _onGenericLocationStatusSubscription;
   late StreamSubscription<DoozScenarioStatusData> _onDoozScenarioStatusSubscription;
   late StreamSubscription<DoozEpochStatusData> _onDoozEpochStatusSubscription;
   late StreamSubscription<MagicLevelSetStatusData> _onV2MagicLevelSetStatusSubscription;
@@ -84,8 +90,11 @@ class MeshManagerApi {
 
   MeshManagerApi() {
     // initialize main event stream listener
-    _eventChannelStream =
-        _eventChannel.receiveBroadcastStream().cast<Map>().map((event) => event.cast<String, dynamic>());
+    // This is where Mesh events happen and are categorized and dealt with
+    _eventChannelStream = _eventChannel.receiveBroadcastStream().cast<Map>().map((event) {
+      // debugPrint("[Event Name] ${event['eventName']}");
+      return event.cast<String, dynamic>();
+    });
     if (kDebugMode) {
       _eventChannelStream.doOnData((data) => debugPrint('$data'));
     }
@@ -140,6 +149,18 @@ class MeshManagerApi {
         .where((event) => event['eventName'] == MeshManagerApiEvent.genericOnOffStatus.value)
         .map((event) => GenericOnOffStatusData.fromJson(event))
         .listen(_onGenericOnOffStatusController.add);
+    _onVendorModelMessageStatusSubscription = _eventChannelStream
+        .where((event) => event['eventName'] == MeshManagerApiEvent.vendorModelMessageStatus.value)
+        .map((event) {
+      // debugPrint("[Vendor Model Message Subscription]");
+      return VendorModelMessageStatusData.fromJson(event);
+    }).listen(_onVendorModelMessageStatusController.add);
+    _onGenericLocationStatusSubscription = _eventChannelStream
+        .where((event) => event['eventName'] == MeshManagerApiEvent.genericLocationStatus.value)
+        .map((event) {
+      debugPrint("[Generic Location Subscription]");
+      return GenericLocationStatusData.fromJson(event);
+    }).listen(_onGenericLocationStatusController.add);
     _onDoozScenarioStatusSubscription = _eventChannelStream
         .where((event) => event['eventName'] == MeshManagerApiEvent.doozScenarioStatus.value)
         .map((event) => DoozScenarioStatusData.fromJson(event))
@@ -243,6 +264,10 @@ class MeshManagerApi {
 
   Stream<GenericOnOffStatusData> get onGenericOnOffStatus => _onGenericOnOffStatusController.stream;
 
+  Stream<VendorModelMessageStatusData> get onVendorModelMessageStatus => _onVendorModelMessageStatusController.stream;
+
+  Stream<GenericLocationStatusData> get onGenericLocationStatus => _onGenericLocationStatusController.stream;
+
   Stream<DoozScenarioStatusData> get onDoozScenarioStatus => _onDoozScenarioStatusController.stream;
 
   Stream<DoozEpochStatusData> get onDoozScenarioEpochStatus => _onDoozEpochStatusController.stream;
@@ -319,6 +344,8 @@ class MeshManagerApi {
         _onV2MagicLevelSetStatusSubscription.cancel(),
         _onV2MagicLevelGetStatusSubscription.cancel(),
         _onGenericOnOffStatusSubscription.cancel(),
+        _onVendorModelMessageStatusSubscription.cancel(),
+        _onGenericLocationStatusSubscription.cancel(),
         _onConfigModelAppStatusSubscription.cancel(),
         _onConfigModelSubscriptionStatusSubscription.cancel(),
         _onConfigModelPublicationStatusSubscription.cancel(),
@@ -343,6 +370,8 @@ class MeshManagerApi {
         _onConfigAppKeyStatusController.close(),
         _onGenericLevelStatusController.close(),
         _onGenericOnOffStatusController.close(),
+        _onVendorModelMessageStatusController.close(),
+        _onGenericLocationStatusController.close(),
         _onConfigModelAppStatusController.close(),
         _onConfigModelSubscriptionStatusController.close(),
         _onConfigModelPublicationStatusController.close(),
@@ -422,9 +451,18 @@ class MeshManagerApi {
     int delay = 0,
   }) async {
     final status = _onGenericLevelStatusController.stream.firstWhere(
+      // element.source is always a device address, not a group address
       (element) => element.source == address,
       orElse: () => const GenericLevelStatusData(-1, -1, -1, -1, -1, -1),
     );
+    // final status = _onGenericLevelStatusController.stream.firstWhere(
+    //   (element) => element.source == 130,
+    //   orElse: () => const GenericLevelStatusData(-1, -1, -1, -1, -1, -1),
+    // );
+    // await for (GenericLevelStatusData status in _onGenericLevelStatusController.stream) {
+    //   debugPrint('[Status] ${status.source}');
+    // }
+
     await _methodChannel.invokeMethod('sendGenericLevelSet', {
       'address': address,
       'level': level,
@@ -466,6 +504,8 @@ class MeshManagerApi {
       (element) => element.source == address && element.presentState == value,
       orElse: () => const GenericOnOffStatusData(-1, false, false, -1, -1),
     );
+
+    // result of method below is sent from methodChannel's result.success(null)
     await _methodChannel.invokeMethod('sendGenericOnOffSet', {
       'address': address,
       'value': value,
@@ -474,6 +514,50 @@ class MeshManagerApi {
       'transitionStep': transitionStep,
       'transitionResolution': transitionResolution,
       'delay': delay,
+    });
+    return status;
+  }
+
+  /// Will send a Vendor model message to the given [address].
+  Future<VendorModelMessageStatusData> sendVendorModelMessage(
+    int address,
+    int modelId,
+    int companyIdentifier,
+    int opCode,
+    Uint8List parameters, {
+    int keyIndex = 0,
+  }) async {
+    // Action on the first vendor model response message from the device
+    final status = _onVendorModelMessageStatusController.stream.firstWhere(
+      (element) => element.source == address,
+      orElse: () => VendorModelMessageStatusData(-1, -1, Uint8List(1)),
+    );
+
+    await _methodChannel.invokeMethod('sendVendorModelMessage', {
+      'address': address,
+      'modelId': modelId,
+      'companyIdentifier': companyIdentifier,
+      'keyIndex': keyIndex,
+      'opCode': opCode,
+      'parameters': parameters.toList(), // convert to List<Int> with null terminator
+    });
+    // return status;
+    return status;
+  }
+
+  /// Will send a Generic Location request to the given [address].
+  Future<GenericLocationStatusData> sendGenericLocationGlobalGet(
+    int address, {
+    int keyIndex = 0,
+  }) async {
+    final status = _onGenericLocationStatusController.stream.firstWhere(
+      (element) => element.source == address,
+      orElse: () => const GenericLocationStatusData(-1, -1, -1, -1),
+    );
+
+    await _methodChannel.invokeMethod('sendGenericLocationGlobalGet', {
+      'address': address,
+      'keyIndex': keyIndex,
     });
     return status;
   }
@@ -550,6 +634,30 @@ class MeshManagerApi {
       'appKeyIndex': appKeyIndex,
     });
     return status;
+  }
+
+  // custom thing to test
+  Future<int> customTest() async {
+    final result = await _methodChannel.invokeMethod<int>('customTest');
+    return result!;
+  }
+
+  Future<int> checkAppKey({
+    int keyIndex = 0,
+  }) async {
+    debugPrint('[Joseph Debug] keyIndex is $keyIndex');
+
+    final result = await _methodChannel.invokeMethod('checkAppKey', {
+      'keyIndex': keyIndex,
+    });
+
+    return result!;
+  }
+
+  // My function to experiment with (doesn't work)
+  Future<bool> addAppKey() async {
+    final result = await _methodChannel.invokeMethod<bool>('addAppKey');
+    return result!;
   }
 
   /// Will send a ConfigModelSubscriptionAdd message to the given [elementAddress].
@@ -993,6 +1101,7 @@ class MeshManagerApi {
   Future<ConfigNodeResetStatus> deprovision(ProvisionedMeshNode meshNode) async {
     if (Platform.isIOS || Platform.isAndroid) {
       final unicastAddress = await meshNode.unicastAddress;
+      final uuid = meshNode.uuid;
       final status = _onConfigNodeResetStatusController.stream
           .where((element) => element.source == unicastAddress)
           .timeout(const Duration(seconds: 3),
@@ -1001,6 +1110,7 @@ class MeshManagerApi {
                   ))
           .first;
       await _methodChannel.invokeMethod('deprovision', {'unicastAddress': unicastAddress});
+      meshNetwork!.deviceMap.remove(uuid);
       return status;
     } else {
       throw UnsupportedError('Platform ${Platform.operatingSystem} is not supported');

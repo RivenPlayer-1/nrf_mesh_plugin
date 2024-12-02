@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
@@ -43,6 +44,9 @@ class _HomeState extends State<Home> {
         _meshNetwork = event;
       });
     });
+
+    //Auto load mesh networks
+    _meshManagerApi.loadMeshNetwork();
   }
 
   @override
@@ -136,9 +140,9 @@ class MeshNetworkDatabaseWidget extends StatelessWidget {
             debugPrint('loading and importing json file...');
             final json = await file.readAsString();
             await meshManagerApi.importMeshNetworkJson(json);
-            debugPrint('done !');
+            debugPrint('done (nothing done since above code commented out) !');
           },
-          child: const Text('Import MeshNetwork (JSON)'),
+          child: const Text('Import Mesh Network (JSON)'),
         ),
         TextButton(
           onPressed: meshManagerApi.loadMeshNetwork,
@@ -148,6 +152,36 @@ class MeshNetworkDatabaseWidget extends StatelessWidget {
           onPressed: meshNetwork != null
               ? () async {
                   final meshNetworkJson = await meshManagerApi.exportMeshNetwork();
+
+                  debugPrint(meshNetworkJson);
+
+                  if (meshNetworkJson != null) {
+                    try {
+                      String? filePath = await FilePicker.platform.saveFile(
+                        dialogTitle: 'Save Mesh Network',
+                        fileName: 'Mesh Network.json',
+                        initialDirectory: '',
+                        bytes: Uint8List.fromList(utf8.encode(meshNetworkJson)),
+                      );
+
+                      if (filePath == null) {
+                        // User canceled the file picker
+                        debugPrint('File save canceled');
+                        return;
+                      }
+
+                      // Write the string to the selected file
+                      final file = File(filePath);
+                      await file.writeAsString(meshNetworkJson);
+
+                      debugPrint('File saved at: $filePath');
+                    } on PlatformException catch (e) {
+                      debugPrint('Unsupported operation $e');
+                    } catch (e) {
+                      debugPrint(e.toString());
+                    }
+                  }
+
                   debugPrint(meshNetworkJson);
                 }
               : null,

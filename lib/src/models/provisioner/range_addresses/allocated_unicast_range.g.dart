@@ -6,14 +6,16 @@ part of 'allocated_unicast_range.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AllocatedUnicastRange _$_$_AllocatedUnicastRangeFromJson(Map<String, dynamic> json) {
-  return _$_AllocatedUnicastRange(
-    json['lowAddress'] as int,
-    json['highAddress'] as int,
-  );
-}
+_$AllocatedUnicastRangeImpl _$$AllocatedUnicastRangeImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AllocatedUnicastRangeImpl(
+      (json['lowAddress'] as num).toInt(),
+      (json['highAddress'] as num).toInt(),
+    );
 
-Map<String, dynamic> _$_$_AllocatedUnicastRangeToJson(_$_AllocatedUnicastRange instance) => <String, dynamic>{
+Map<String, dynamic> _$$AllocatedUnicastRangeImplToJson(
+        _$AllocatedUnicastRangeImpl instance) =>
+    <String, dynamic>{
       'lowAddress': instance.lowAddress,
       'highAddress': instance.highAddress,
     };

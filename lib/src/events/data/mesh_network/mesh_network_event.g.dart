@@ -6,22 +6,26 @@ part of 'mesh_network_event.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MeshNetworkEventData _$_$_MeshNetworkEventDataFromJson(Map<String, dynamic> json) {
-  return _$_MeshNetworkEventData(
-    json['id'] as String,
-  );
-}
+_$MeshNetworkEventDataImpl _$$MeshNetworkEventDataImplFromJson(
+        Map<String, dynamic> json) =>
+    _$MeshNetworkEventDataImpl(
+      json['id'] as String,
+    );
 
-Map<String, dynamic> _$_$_MeshNetworkEventDataToJson(_$_MeshNetworkEventData instance) => <String, dynamic>{
+Map<String, dynamic> _$$MeshNetworkEventDataImplToJson(
+        _$MeshNetworkEventDataImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
     };
 
-_$_MeshNetworkEventError _$_$_MeshNetworkEventErrorFromJson(Map<String, dynamic> json) {
-  return _$_MeshNetworkEventError(
-    json['error'] as String,
-  );
-}
+_$MeshNetworkEventErrorImpl _$$MeshNetworkEventErrorImplFromJson(
+        Map<String, dynamic> json) =>
+    _$MeshNetworkEventErrorImpl(
+      json['error'] as String,
+    );
 
-Map<String, dynamic> _$_$_MeshNetworkEventErrorToJson(_$_MeshNetworkEventError instance) => <String, dynamic>{
+Map<String, dynamic> _$$MeshNetworkEventErrorImplToJson(
+        _$MeshNetworkEventErrorImpl instance) =>
+    <String, dynamic>{
       'error': instance.error,
     };

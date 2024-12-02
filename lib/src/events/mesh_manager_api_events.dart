@@ -35,6 +35,8 @@ class MeshManagerApiEvent {
   static const configAppKeyStatus = MeshManagerApiEvent._('onConfigAppKeyStatus');
   static const genericLevelStatus = MeshManagerApiEvent._('onGenericLevelStatus');
   static const genericOnOffStatus = MeshManagerApiEvent._('onGenericOnOffStatus');
+  static const vendorModelMessageStatus = MeshManagerApiEvent._('onVendorModelMessageStatus');
+  static const genericLocationStatus = MeshManagerApiEvent._('onGenericLocationGlobalStatus');
   static const v2MagicLevelSetStatus = MeshManagerApiEvent._('onMagicLevelSetStatus');
   static const v2MagicLevelGetStatus = MeshManagerApiEvent._('onMagicLevelGetStatus');
   static const doozScenarioStatus = MeshManagerApiEvent._('onDoozScenarioStatus');

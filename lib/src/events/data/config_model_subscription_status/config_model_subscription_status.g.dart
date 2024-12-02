@@ -6,18 +6,19 @@ part of 'config_model_subscription_status.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ConfigModelSubscriptionStatus _$_$_ConfigModelSubscriptionStatusFromJson(Map<String, dynamic> json) {
-  return _$_ConfigModelSubscriptionStatus(
-    json['source'] as int,
-    json['destination'] as int,
-    json['elementAddress'] as int,
-    json['subscriptionAddress'] as int,
-    json['modelIdentifier'] as int,
-    json['isSuccessful'] as bool,
-  );
-}
+_$ConfigModelSubscriptionStatusImpl
+    _$$ConfigModelSubscriptionStatusImplFromJson(Map<String, dynamic> json) =>
+        _$ConfigModelSubscriptionStatusImpl(
+          (json['source'] as num).toInt(),
+          (json['destination'] as num).toInt(),
+          (json['elementAddress'] as num).toInt(),
+          (json['subscriptionAddress'] as num).toInt(),
+          (json['modelIdentifier'] as num).toInt(),
+          json['isSuccessful'] as bool,
+        );
 
-Map<String, dynamic> _$_$_ConfigModelSubscriptionStatusToJson(_$_ConfigModelSubscriptionStatus instance) =>
+Map<String, dynamic> _$$ConfigModelSubscriptionStatusImplToJson(
+        _$ConfigModelSubscriptionStatusImpl instance) =>
     <String, dynamic>{
       'source': instance.source,
       'destination': instance.destination,

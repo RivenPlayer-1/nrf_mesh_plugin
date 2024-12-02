@@ -9,8 +9,13 @@ import 'package:nordic_nrf_mesh_example/src/widgets/device.dart';
 
 class ProvisionedDevices extends StatefulWidget {
   final NordicNrfMesh nordicNrfMesh;
+  final VoidCallback onGoToProvisioning;
 
-  const ProvisionedDevices({Key? key, required this.nordicNrfMesh}) : super(key: key);
+  const ProvisionedDevices({
+    Key? key,
+    required this.nordicNrfMesh,
+    required this.onGoToProvisioning,
+  }) : super(key: key);
 
   @override
   State<ProvisionedDevices> createState() => _ProvisionedDevicesState();
@@ -72,6 +77,7 @@ class _ProvisionedDevicesState extends State<ProvisionedDevices> {
             child: Module(
                 device: _device!,
                 meshManagerApi: _meshManagerApi,
+                onGoToProvisioning: widget.onGoToProvisioning,
                 onDisconnect: () {
                   _device = null;
                   _scanProvisionned();

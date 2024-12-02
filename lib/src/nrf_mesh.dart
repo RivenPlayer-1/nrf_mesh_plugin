@@ -7,7 +7,7 @@ import 'package:nordic_nrf_mesh_faradine/src/ble/ble_scanner.dart';
 import 'package:nordic_nrf_mesh_faradine/src/constants.dart';
 import 'package:nordic_nrf_mesh_faradine/src/utils/provisioning.dart' as utils_provisioning;
 
-/// {@template nordic_nrf_mesh}
+/// {@template nordic_nrf_mesh_faradine}
 /// The entry point for the plugin.
 /// It exposes some important methods such as Bluetooth scanning and mesh (de)provisioning.
 ///
@@ -51,6 +51,16 @@ class NordicNrfMesh {
   }) =>
       utils_provisioning.provisioning(meshManagerApi, bleMeshManager, _bleScanner, device, serviceDataUuid,
           events: events);
+
+  // Identify only function following the frame work of above provisioning function
+  Future<void> identify(
+    final MeshManagerApi meshManagerApi,
+    final BleMeshManager bleMeshManager,
+    final DiscoveredDevice device,
+    final String serviceDataUuid, {
+    final utils_provisioning.ProvisioningEvent? events,
+  }) =>
+      utils_provisioning.identify(meshManagerApi, bleMeshManager, _bleScanner, device, serviceDataUuid, events: events);
 
   /// {@template deprovision}
   /// Will try to deprovision the specified [ProvisionedMeshNode] by sending [ConfigNodeReset] message via the unicast address.

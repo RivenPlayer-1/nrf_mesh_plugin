@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'light_ctl_status.dart';
 
@@ -10,37 +12,11 @@ part of 'light_ctl_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LightCtlStatusData _$LightCtlStatusDataFromJson(Map<String, dynamic> json) {
   return _LightCtlStatusData.fromJson(json);
 }
-
-/// @nodoc
-class _$LightCtlStatusDataTearOff {
-  const _$LightCtlStatusDataTearOff();
-
-  _LightCtlStatusData call(int presentLightness, int targetLightness, int presentTemperature, int targetTemperature,
-      int transitionSteps, int transitionResolution, int source, int destination) {
-    return _LightCtlStatusData(
-      presentLightness,
-      targetLightness,
-      presentTemperature,
-      targetTemperature,
-      transitionSteps,
-      transitionResolution,
-      source,
-      destination,
-    );
-  }
-
-  LightCtlStatusData fromJson(Map<String, Object> json) {
-    return LightCtlStatusData.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $LightCtlStatusData = _$LightCtlStatusDataTearOff();
 
 /// @nodoc
 mixin _$LightCtlStatusData {
@@ -53,15 +29,22 @@ mixin _$LightCtlStatusData {
   int get source => throw _privateConstructorUsedError;
   int get destination => throw _privateConstructorUsedError;
 
+  /// Serializes this LightCtlStatusData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $LightCtlStatusDataCopyWith<LightCtlStatusData> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of LightCtlStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $LightCtlStatusDataCopyWith<LightCtlStatusData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $LightCtlStatusDataCopyWith<$Res> {
-  factory $LightCtlStatusDataCopyWith(LightCtlStatusData value, $Res Function(LightCtlStatusData) then) =
-      _$LightCtlStatusDataCopyWithImpl<$Res>;
+  factory $LightCtlStatusDataCopyWith(
+          LightCtlStatusData value, $Res Function(LightCtlStatusData) then) =
+      _$LightCtlStatusDataCopyWithImpl<$Res, LightCtlStatusData>;
+  @useResult
   $Res call(
       {int presentLightness,
       int targetLightness,
@@ -74,66 +57,74 @@ abstract class $LightCtlStatusDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LightCtlStatusDataCopyWithImpl<$Res> implements $LightCtlStatusDataCopyWith<$Res> {
+class _$LightCtlStatusDataCopyWithImpl<$Res, $Val extends LightCtlStatusData>
+    implements $LightCtlStatusDataCopyWith<$Res> {
   _$LightCtlStatusDataCopyWithImpl(this._value, this._then);
 
-  final LightCtlStatusData _value;
   // ignore: unused_field
-  final $Res Function(LightCtlStatusData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of LightCtlStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? presentLightness = freezed,
-    Object? targetLightness = freezed,
-    Object? presentTemperature = freezed,
-    Object? targetTemperature = freezed,
-    Object? transitionSteps = freezed,
-    Object? transitionResolution = freezed,
-    Object? source = freezed,
-    Object? destination = freezed,
+    Object? presentLightness = null,
+    Object? targetLightness = null,
+    Object? presentTemperature = null,
+    Object? targetTemperature = null,
+    Object? transitionSteps = null,
+    Object? transitionResolution = null,
+    Object? source = null,
+    Object? destination = null,
   }) {
     return _then(_value.copyWith(
-      presentLightness: presentLightness == freezed
+      presentLightness: null == presentLightness
           ? _value.presentLightness
           : presentLightness // ignore: cast_nullable_to_non_nullable
               as int,
-      targetLightness: targetLightness == freezed
+      targetLightness: null == targetLightness
           ? _value.targetLightness
           : targetLightness // ignore: cast_nullable_to_non_nullable
               as int,
-      presentTemperature: presentTemperature == freezed
+      presentTemperature: null == presentTemperature
           ? _value.presentTemperature
           : presentTemperature // ignore: cast_nullable_to_non_nullable
               as int,
-      targetTemperature: targetTemperature == freezed
+      targetTemperature: null == targetTemperature
           ? _value.targetTemperature
           : targetTemperature // ignore: cast_nullable_to_non_nullable
               as int,
-      transitionSteps: transitionSteps == freezed
+      transitionSteps: null == transitionSteps
           ? _value.transitionSteps
           : transitionSteps // ignore: cast_nullable_to_non_nullable
               as int,
-      transitionResolution: transitionResolution == freezed
+      transitionResolution: null == transitionResolution
           ? _value.transitionResolution
           : transitionResolution // ignore: cast_nullable_to_non_nullable
               as int,
-      source: source == freezed
+      source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination: destination == freezed
+      destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$LightCtlStatusDataCopyWith<$Res> implements $LightCtlStatusDataCopyWith<$Res> {
-  factory _$LightCtlStatusDataCopyWith(_LightCtlStatusData value, $Res Function(_LightCtlStatusData) then) =
-      __$LightCtlStatusDataCopyWithImpl<$Res>;
+abstract class _$$LightCtlStatusDataImplCopyWith<$Res>
+    implements $LightCtlStatusDataCopyWith<$Res> {
+  factory _$$LightCtlStatusDataImplCopyWith(_$LightCtlStatusDataImpl value,
+          $Res Function(_$LightCtlStatusDataImpl) then) =
+      __$$LightCtlStatusDataImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int presentLightness,
       int targetLightness,
@@ -146,55 +137,57 @@ abstract class _$LightCtlStatusDataCopyWith<$Res> implements $LightCtlStatusData
 }
 
 /// @nodoc
-class __$LightCtlStatusDataCopyWithImpl<$Res> extends _$LightCtlStatusDataCopyWithImpl<$Res>
-    implements _$LightCtlStatusDataCopyWith<$Res> {
-  __$LightCtlStatusDataCopyWithImpl(_LightCtlStatusData _value, $Res Function(_LightCtlStatusData) _then)
-      : super(_value, (v) => _then(v as _LightCtlStatusData));
+class __$$LightCtlStatusDataImplCopyWithImpl<$Res>
+    extends _$LightCtlStatusDataCopyWithImpl<$Res, _$LightCtlStatusDataImpl>
+    implements _$$LightCtlStatusDataImplCopyWith<$Res> {
+  __$$LightCtlStatusDataImplCopyWithImpl(_$LightCtlStatusDataImpl _value,
+      $Res Function(_$LightCtlStatusDataImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _LightCtlStatusData get _value => super._value as _LightCtlStatusData;
-
+  /// Create a copy of LightCtlStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? presentLightness = freezed,
-    Object? targetLightness = freezed,
-    Object? presentTemperature = freezed,
-    Object? targetTemperature = freezed,
-    Object? transitionSteps = freezed,
-    Object? transitionResolution = freezed,
-    Object? source = freezed,
-    Object? destination = freezed,
+    Object? presentLightness = null,
+    Object? targetLightness = null,
+    Object? presentTemperature = null,
+    Object? targetTemperature = null,
+    Object? transitionSteps = null,
+    Object? transitionResolution = null,
+    Object? source = null,
+    Object? destination = null,
   }) {
-    return _then(_LightCtlStatusData(
-      presentLightness == freezed
+    return _then(_$LightCtlStatusDataImpl(
+      null == presentLightness
           ? _value.presentLightness
           : presentLightness // ignore: cast_nullable_to_non_nullable
               as int,
-      targetLightness == freezed
+      null == targetLightness
           ? _value.targetLightness
           : targetLightness // ignore: cast_nullable_to_non_nullable
               as int,
-      presentTemperature == freezed
+      null == presentTemperature
           ? _value.presentTemperature
           : presentTemperature // ignore: cast_nullable_to_non_nullable
               as int,
-      targetTemperature == freezed
+      null == targetTemperature
           ? _value.targetTemperature
           : targetTemperature // ignore: cast_nullable_to_non_nullable
               as int,
-      transitionSteps == freezed
+      null == transitionSteps
           ? _value.transitionSteps
           : transitionSteps // ignore: cast_nullable_to_non_nullable
               as int,
-      transitionResolution == freezed
+      null == transitionResolution
           ? _value.transitionResolution
           : transitionResolution // ignore: cast_nullable_to_non_nullable
               as int,
-      source == freezed
+      null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination == freezed
+      null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
@@ -204,11 +197,19 @@ class __$LightCtlStatusDataCopyWithImpl<$Res> extends _$LightCtlStatusDataCopyWi
 
 /// @nodoc
 @JsonSerializable()
-class _$_LightCtlStatusData implements _LightCtlStatusData {
-  const _$_LightCtlStatusData(this.presentLightness, this.targetLightness, this.presentTemperature,
-      this.targetTemperature, this.transitionSteps, this.transitionResolution, this.source, this.destination);
+class _$LightCtlStatusDataImpl implements _LightCtlStatusData {
+  const _$LightCtlStatusDataImpl(
+      this.presentLightness,
+      this.targetLightness,
+      this.presentTemperature,
+      this.targetTemperature,
+      this.transitionSteps,
+      this.transitionResolution,
+      this.source,
+      this.destination);
 
-  factory _$_LightCtlStatusData.fromJson(Map<String, dynamic> json) => _$_$_LightCtlStatusDataFromJson(json);
+  factory _$LightCtlStatusDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LightCtlStatusDataImplFromJson(json);
 
   @override
   final int presentLightness;
@@ -233,79 +234,92 @@ class _$_LightCtlStatusData implements _LightCtlStatusData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _LightCtlStatusData &&
+        (other.runtimeType == runtimeType &&
+            other is _$LightCtlStatusDataImpl &&
             (identical(other.presentLightness, presentLightness) ||
-                const DeepCollectionEquality().equals(other.presentLightness, presentLightness)) &&
+                other.presentLightness == presentLightness) &&
             (identical(other.targetLightness, targetLightness) ||
-                const DeepCollectionEquality().equals(other.targetLightness, targetLightness)) &&
+                other.targetLightness == targetLightness) &&
             (identical(other.presentTemperature, presentTemperature) ||
-                const DeepCollectionEquality().equals(other.presentTemperature, presentTemperature)) &&
+                other.presentTemperature == presentTemperature) &&
             (identical(other.targetTemperature, targetTemperature) ||
-                const DeepCollectionEquality().equals(other.targetTemperature, targetTemperature)) &&
+                other.targetTemperature == targetTemperature) &&
             (identical(other.transitionSteps, transitionSteps) ||
-                const DeepCollectionEquality().equals(other.transitionSteps, transitionSteps)) &&
+                other.transitionSteps == transitionSteps) &&
             (identical(other.transitionResolution, transitionResolution) ||
-                const DeepCollectionEquality().equals(other.transitionResolution, transitionResolution)) &&
-            (identical(other.source, source) || const DeepCollectionEquality().equals(other.source, source)) &&
+                other.transitionResolution == transitionResolution) &&
+            (identical(other.source, source) || other.source == source) &&
             (identical(other.destination, destination) ||
-                const DeepCollectionEquality().equals(other.destination, destination)));
+                other.destination == destination));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(presentLightness) ^
-      const DeepCollectionEquality().hash(targetLightness) ^
-      const DeepCollectionEquality().hash(presentTemperature) ^
-      const DeepCollectionEquality().hash(targetTemperature) ^
-      const DeepCollectionEquality().hash(transitionSteps) ^
-      const DeepCollectionEquality().hash(transitionResolution) ^
-      const DeepCollectionEquality().hash(source) ^
-      const DeepCollectionEquality().hash(destination);
+  int get hashCode => Object.hash(
+      runtimeType,
+      presentLightness,
+      targetLightness,
+      presentTemperature,
+      targetTemperature,
+      transitionSteps,
+      transitionResolution,
+      source,
+      destination);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LightCtlStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$LightCtlStatusDataCopyWith<_LightCtlStatusData> get copyWith =>
-      __$LightCtlStatusDataCopyWithImpl<_LightCtlStatusData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$LightCtlStatusDataImplCopyWith<_$LightCtlStatusDataImpl> get copyWith =>
+      __$$LightCtlStatusDataImplCopyWithImpl<_$LightCtlStatusDataImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_LightCtlStatusDataToJson(this);
+    return _$$LightCtlStatusDataImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _LightCtlStatusData implements LightCtlStatusData {
   const factory _LightCtlStatusData(
-      int presentLightness,
-      int targetLightness,
-      int presentTemperature,
-      int targetTemperature,
-      int transitionSteps,
-      int transitionResolution,
-      int source,
-      int destination) = _$_LightCtlStatusData;
+      final int presentLightness,
+      final int targetLightness,
+      final int presentTemperature,
+      final int targetTemperature,
+      final int transitionSteps,
+      final int transitionResolution,
+      final int source,
+      final int destination) = _$LightCtlStatusDataImpl;
 
-  factory _LightCtlStatusData.fromJson(Map<String, dynamic> json) = _$_LightCtlStatusData.fromJson;
+  factory _LightCtlStatusData.fromJson(Map<String, dynamic> json) =
+      _$LightCtlStatusDataImpl.fromJson;
 
   @override
-  int get presentLightness => throw _privateConstructorUsedError;
+  int get presentLightness;
   @override
-  int get targetLightness => throw _privateConstructorUsedError;
+  int get targetLightness;
   @override
-  int get presentTemperature => throw _privateConstructorUsedError;
+  int get presentTemperature;
   @override
-  int get targetTemperature => throw _privateConstructorUsedError;
+  int get targetTemperature;
   @override
-  int get transitionSteps => throw _privateConstructorUsedError;
+  int get transitionSteps;
   @override
-  int get transitionResolution => throw _privateConstructorUsedError;
+  int get transitionResolution;
   @override
-  int get source => throw _privateConstructorUsedError;
+  int get source;
   @override
-  int get destination => throw _privateConstructorUsedError;
+  int get destination;
+
+  /// Create a copy of LightCtlStatusData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$LightCtlStatusDataCopyWith<_LightCtlStatusData> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LightCtlStatusDataImplCopyWith<_$LightCtlStatusDataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

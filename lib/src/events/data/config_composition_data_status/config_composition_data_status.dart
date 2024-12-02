@@ -5,7 +5,7 @@ part 'config_composition_data_status.g.dart';
 
 @freezed
 class ConfigCompositionDataStatusData with _$ConfigCompositionDataStatusData {
-  // @JsonSerializable(anyMap: true)
+  @JsonSerializable(anyMap: true)
   const factory ConfigCompositionDataStatusData(int source, ConfigCompositionDataStatusMeshMessage meshMessage) =
       _ConfigCompositionDataStatusData;
 

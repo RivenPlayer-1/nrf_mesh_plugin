@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'magic_level_get_status.dart';
 
@@ -10,34 +12,12 @@ part of 'magic_level_get_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-MagicLevelGetStatusData _$MagicLevelGetStatusDataFromJson(Map<String, dynamic> json) {
+MagicLevelGetStatusData _$MagicLevelGetStatusDataFromJson(
+    Map<String, dynamic> json) {
   return _MagicLevelGetStatusData.fromJson(json);
 }
-
-/// @nodoc
-class _$MagicLevelGetStatusDataTearOff {
-  const _$MagicLevelGetStatusDataTearOff();
-
-  _MagicLevelGetStatusData call(int io, int index, int value, int correlation, int source, int destination) {
-    return _MagicLevelGetStatusData(
-      io,
-      index,
-      value,
-      correlation,
-      source,
-      destination,
-    );
-  }
-
-  MagicLevelGetStatusData fromJson(Map<String, Object> json) {
-    return MagicLevelGetStatusData.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $MagicLevelGetStatusData = _$MagicLevelGetStatusDataTearOff();
 
 /// @nodoc
 mixin _$MagicLevelGetStatusData {
@@ -48,113 +28,145 @@ mixin _$MagicLevelGetStatusData {
   int get source => throw _privateConstructorUsedError;
   int get destination => throw _privateConstructorUsedError;
 
+  /// Serializes this MagicLevelGetStatusData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $MagicLevelGetStatusDataCopyWith<MagicLevelGetStatusData> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of MagicLevelGetStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MagicLevelGetStatusDataCopyWith<MagicLevelGetStatusData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $MagicLevelGetStatusDataCopyWith<$Res> {
-  factory $MagicLevelGetStatusDataCopyWith(MagicLevelGetStatusData value, $Res Function(MagicLevelGetStatusData) then) =
-      _$MagicLevelGetStatusDataCopyWithImpl<$Res>;
-  $Res call({int io, int index, int value, int correlation, int source, int destination});
+  factory $MagicLevelGetStatusDataCopyWith(MagicLevelGetStatusData value,
+          $Res Function(MagicLevelGetStatusData) then) =
+      _$MagicLevelGetStatusDataCopyWithImpl<$Res, MagicLevelGetStatusData>;
+  @useResult
+  $Res call(
+      {int io,
+      int index,
+      int value,
+      int correlation,
+      int source,
+      int destination});
 }
 
 /// @nodoc
-class _$MagicLevelGetStatusDataCopyWithImpl<$Res> implements $MagicLevelGetStatusDataCopyWith<$Res> {
+class _$MagicLevelGetStatusDataCopyWithImpl<$Res,
+        $Val extends MagicLevelGetStatusData>
+    implements $MagicLevelGetStatusDataCopyWith<$Res> {
   _$MagicLevelGetStatusDataCopyWithImpl(this._value, this._then);
 
-  final MagicLevelGetStatusData _value;
   // ignore: unused_field
-  final $Res Function(MagicLevelGetStatusData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of MagicLevelGetStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? io = freezed,
-    Object? index = freezed,
-    Object? value = freezed,
-    Object? correlation = freezed,
-    Object? source = freezed,
-    Object? destination = freezed,
+    Object? io = null,
+    Object? index = null,
+    Object? value = null,
+    Object? correlation = null,
+    Object? source = null,
+    Object? destination = null,
   }) {
     return _then(_value.copyWith(
-      io: io == freezed
+      io: null == io
           ? _value.io
           : io // ignore: cast_nullable_to_non_nullable
               as int,
-      index: index == freezed
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
-      correlation: correlation == freezed
+      correlation: null == correlation
           ? _value.correlation
           : correlation // ignore: cast_nullable_to_non_nullable
               as int,
-      source: source == freezed
+      source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination: destination == freezed
+      destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$MagicLevelGetStatusDataCopyWith<$Res> implements $MagicLevelGetStatusDataCopyWith<$Res> {
-  factory _$MagicLevelGetStatusDataCopyWith(
-          _MagicLevelGetStatusData value, $Res Function(_MagicLevelGetStatusData) then) =
-      __$MagicLevelGetStatusDataCopyWithImpl<$Res>;
+abstract class _$$MagicLevelGetStatusDataImplCopyWith<$Res>
+    implements $MagicLevelGetStatusDataCopyWith<$Res> {
+  factory _$$MagicLevelGetStatusDataImplCopyWith(
+          _$MagicLevelGetStatusDataImpl value,
+          $Res Function(_$MagicLevelGetStatusDataImpl) then) =
+      __$$MagicLevelGetStatusDataImplCopyWithImpl<$Res>;
   @override
-  $Res call({int io, int index, int value, int correlation, int source, int destination});
+  @useResult
+  $Res call(
+      {int io,
+      int index,
+      int value,
+      int correlation,
+      int source,
+      int destination});
 }
 
 /// @nodoc
-class __$MagicLevelGetStatusDataCopyWithImpl<$Res> extends _$MagicLevelGetStatusDataCopyWithImpl<$Res>
-    implements _$MagicLevelGetStatusDataCopyWith<$Res> {
-  __$MagicLevelGetStatusDataCopyWithImpl(_MagicLevelGetStatusData _value, $Res Function(_MagicLevelGetStatusData) _then)
-      : super(_value, (v) => _then(v as _MagicLevelGetStatusData));
+class __$$MagicLevelGetStatusDataImplCopyWithImpl<$Res>
+    extends _$MagicLevelGetStatusDataCopyWithImpl<$Res,
+        _$MagicLevelGetStatusDataImpl>
+    implements _$$MagicLevelGetStatusDataImplCopyWith<$Res> {
+  __$$MagicLevelGetStatusDataImplCopyWithImpl(
+      _$MagicLevelGetStatusDataImpl _value,
+      $Res Function(_$MagicLevelGetStatusDataImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _MagicLevelGetStatusData get _value => super._value as _MagicLevelGetStatusData;
-
+  /// Create a copy of MagicLevelGetStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? io = freezed,
-    Object? index = freezed,
-    Object? value = freezed,
-    Object? correlation = freezed,
-    Object? source = freezed,
-    Object? destination = freezed,
+    Object? io = null,
+    Object? index = null,
+    Object? value = null,
+    Object? correlation = null,
+    Object? source = null,
+    Object? destination = null,
   }) {
-    return _then(_MagicLevelGetStatusData(
-      io == freezed
+    return _then(_$MagicLevelGetStatusDataImpl(
+      null == io
           ? _value.io
           : io // ignore: cast_nullable_to_non_nullable
               as int,
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
-      correlation == freezed
+      null == correlation
           ? _value.correlation
           : correlation // ignore: cast_nullable_to_non_nullable
               as int,
-      source == freezed
+      null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination == freezed
+      null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
@@ -164,10 +176,12 @@ class __$MagicLevelGetStatusDataCopyWithImpl<$Res> extends _$MagicLevelGetStatus
 
 /// @nodoc
 @JsonSerializable()
-class _$_MagicLevelGetStatusData implements _MagicLevelGetStatusData {
-  const _$_MagicLevelGetStatusData(this.io, this.index, this.value, this.correlation, this.source, this.destination);
+class _$MagicLevelGetStatusDataImpl implements _MagicLevelGetStatusData {
+  const _$MagicLevelGetStatusDataImpl(this.io, this.index, this.value,
+      this.correlation, this.source, this.destination);
 
-  factory _$_MagicLevelGetStatusData.fromJson(Map<String, dynamic> json) => _$_$_MagicLevelGetStatusDataFromJson(json);
+  factory _$MagicLevelGetStatusDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MagicLevelGetStatusDataImplFromJson(json);
 
   @override
   final int io;
@@ -188,59 +202,71 @@ class _$_MagicLevelGetStatusData implements _MagicLevelGetStatusData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _MagicLevelGetStatusData &&
-            (identical(other.io, io) || const DeepCollectionEquality().equals(other.io, io)) &&
-            (identical(other.index, index) || const DeepCollectionEquality().equals(other.index, index)) &&
-            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$MagicLevelGetStatusDataImpl &&
+            (identical(other.io, io) || other.io == io) &&
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.value, value) || other.value == value) &&
             (identical(other.correlation, correlation) ||
-                const DeepCollectionEquality().equals(other.correlation, correlation)) &&
-            (identical(other.source, source) || const DeepCollectionEquality().equals(other.source, source)) &&
+                other.correlation == correlation) &&
+            (identical(other.source, source) || other.source == source) &&
             (identical(other.destination, destination) ||
-                const DeepCollectionEquality().equals(other.destination, destination)));
+                other.destination == destination));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(io) ^
-      const DeepCollectionEquality().hash(index) ^
-      const DeepCollectionEquality().hash(value) ^
-      const DeepCollectionEquality().hash(correlation) ^
-      const DeepCollectionEquality().hash(source) ^
-      const DeepCollectionEquality().hash(destination);
+  int get hashCode => Object.hash(
+      runtimeType, io, index, value, correlation, source, destination);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MagicLevelGetStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$MagicLevelGetStatusDataCopyWith<_MagicLevelGetStatusData> get copyWith =>
-      __$MagicLevelGetStatusDataCopyWithImpl<_MagicLevelGetStatusData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$MagicLevelGetStatusDataImplCopyWith<_$MagicLevelGetStatusDataImpl>
+      get copyWith => __$$MagicLevelGetStatusDataImplCopyWithImpl<
+          _$MagicLevelGetStatusDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_MagicLevelGetStatusDataToJson(this);
+    return _$$MagicLevelGetStatusDataImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _MagicLevelGetStatusData implements MagicLevelGetStatusData {
-  const factory _MagicLevelGetStatusData(int io, int index, int value, int correlation, int source, int destination) =
-      _$_MagicLevelGetStatusData;
+  const factory _MagicLevelGetStatusData(
+      final int io,
+      final int index,
+      final int value,
+      final int correlation,
+      final int source,
+      final int destination) = _$MagicLevelGetStatusDataImpl;
 
-  factory _MagicLevelGetStatusData.fromJson(Map<String, dynamic> json) = _$_MagicLevelGetStatusData.fromJson;
+  factory _MagicLevelGetStatusData.fromJson(Map<String, dynamic> json) =
+      _$MagicLevelGetStatusDataImpl.fromJson;
 
   @override
-  int get io => throw _privateConstructorUsedError;
+  int get io;
   @override
-  int get index => throw _privateConstructorUsedError;
+  int get index;
   @override
-  int get value => throw _privateConstructorUsedError;
+  int get value;
   @override
-  int get correlation => throw _privateConstructorUsedError;
+  int get correlation;
   @override
-  int get source => throw _privateConstructorUsedError;
+  int get source;
   @override
-  int get destination => throw _privateConstructorUsedError;
+  int get destination;
+
+  /// Create a copy of MagicLevelGetStatusData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$MagicLevelGetStatusDataCopyWith<_MagicLevelGetStatusData> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MagicLevelGetStatusDataImplCopyWith<_$MagicLevelGetStatusDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

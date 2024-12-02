@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'generic_level_status.dart';
 
@@ -10,35 +12,12 @@ part of 'generic_level_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-GenericLevelStatusData _$GenericLevelStatusDataFromJson(Map<String, dynamic> json) {
+GenericLevelStatusData _$GenericLevelStatusDataFromJson(
+    Map<String, dynamic> json) {
   return _GenericLevelStatusData.fromJson(json);
 }
-
-/// @nodoc
-class _$GenericLevelStatusDataTearOff {
-  const _$GenericLevelStatusDataTearOff();
-
-  _GenericLevelStatusData call(
-      int level, int? targetLevel, int? transitionSteps, int? transitionResolution, int source, int destination) {
-    return _GenericLevelStatusData(
-      level,
-      targetLevel,
-      transitionSteps,
-      transitionResolution,
-      source,
-      destination,
-    );
-  }
-
-  GenericLevelStatusData fromJson(Map<String, Object> json) {
-    return GenericLevelStatusData.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $GenericLevelStatusData = _$GenericLevelStatusDataTearOff();
 
 /// @nodoc
 mixin _$GenericLevelStatusData {
@@ -49,114 +28,145 @@ mixin _$GenericLevelStatusData {
   int get source => throw _privateConstructorUsedError;
   int get destination => throw _privateConstructorUsedError;
 
+  /// Serializes this GenericLevelStatusData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $GenericLevelStatusDataCopyWith<GenericLevelStatusData> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of GenericLevelStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $GenericLevelStatusDataCopyWith<GenericLevelStatusData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $GenericLevelStatusDataCopyWith<$Res> {
-  factory $GenericLevelStatusDataCopyWith(GenericLevelStatusData value, $Res Function(GenericLevelStatusData) then) =
-      _$GenericLevelStatusDataCopyWithImpl<$Res>;
+  factory $GenericLevelStatusDataCopyWith(GenericLevelStatusData value,
+          $Res Function(GenericLevelStatusData) then) =
+      _$GenericLevelStatusDataCopyWithImpl<$Res, GenericLevelStatusData>;
+  @useResult
   $Res call(
-      {int level, int? targetLevel, int? transitionSteps, int? transitionResolution, int source, int destination});
+      {int level,
+      int? targetLevel,
+      int? transitionSteps,
+      int? transitionResolution,
+      int source,
+      int destination});
 }
 
 /// @nodoc
-class _$GenericLevelStatusDataCopyWithImpl<$Res> implements $GenericLevelStatusDataCopyWith<$Res> {
+class _$GenericLevelStatusDataCopyWithImpl<$Res,
+        $Val extends GenericLevelStatusData>
+    implements $GenericLevelStatusDataCopyWith<$Res> {
   _$GenericLevelStatusDataCopyWithImpl(this._value, this._then);
 
-  final GenericLevelStatusData _value;
   // ignore: unused_field
-  final $Res Function(GenericLevelStatusData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of GenericLevelStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? level = freezed,
+    Object? level = null,
     Object? targetLevel = freezed,
     Object? transitionSteps = freezed,
     Object? transitionResolution = freezed,
-    Object? source = freezed,
-    Object? destination = freezed,
+    Object? source = null,
+    Object? destination = null,
   }) {
     return _then(_value.copyWith(
-      level: level == freezed
+      level: null == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
               as int,
-      targetLevel: targetLevel == freezed
+      targetLevel: freezed == targetLevel
           ? _value.targetLevel
           : targetLevel // ignore: cast_nullable_to_non_nullable
               as int?,
-      transitionSteps: transitionSteps == freezed
+      transitionSteps: freezed == transitionSteps
           ? _value.transitionSteps
           : transitionSteps // ignore: cast_nullable_to_non_nullable
               as int?,
-      transitionResolution: transitionResolution == freezed
+      transitionResolution: freezed == transitionResolution
           ? _value.transitionResolution
           : transitionResolution // ignore: cast_nullable_to_non_nullable
               as int?,
-      source: source == freezed
+      source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination: destination == freezed
+      destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$GenericLevelStatusDataCopyWith<$Res> implements $GenericLevelStatusDataCopyWith<$Res> {
-  factory _$GenericLevelStatusDataCopyWith(_GenericLevelStatusData value, $Res Function(_GenericLevelStatusData) then) =
-      __$GenericLevelStatusDataCopyWithImpl<$Res>;
+abstract class _$$GenericLevelStatusDataImplCopyWith<$Res>
+    implements $GenericLevelStatusDataCopyWith<$Res> {
+  factory _$$GenericLevelStatusDataImplCopyWith(
+          _$GenericLevelStatusDataImpl value,
+          $Res Function(_$GenericLevelStatusDataImpl) then) =
+      __$$GenericLevelStatusDataImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {int level, int? targetLevel, int? transitionSteps, int? transitionResolution, int source, int destination});
+      {int level,
+      int? targetLevel,
+      int? transitionSteps,
+      int? transitionResolution,
+      int source,
+      int destination});
 }
 
 /// @nodoc
-class __$GenericLevelStatusDataCopyWithImpl<$Res> extends _$GenericLevelStatusDataCopyWithImpl<$Res>
-    implements _$GenericLevelStatusDataCopyWith<$Res> {
-  __$GenericLevelStatusDataCopyWithImpl(_GenericLevelStatusData _value, $Res Function(_GenericLevelStatusData) _then)
-      : super(_value, (v) => _then(v as _GenericLevelStatusData));
+class __$$GenericLevelStatusDataImplCopyWithImpl<$Res>
+    extends _$GenericLevelStatusDataCopyWithImpl<$Res,
+        _$GenericLevelStatusDataImpl>
+    implements _$$GenericLevelStatusDataImplCopyWith<$Res> {
+  __$$GenericLevelStatusDataImplCopyWithImpl(
+      _$GenericLevelStatusDataImpl _value,
+      $Res Function(_$GenericLevelStatusDataImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _GenericLevelStatusData get _value => super._value as _GenericLevelStatusData;
-
+  /// Create a copy of GenericLevelStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? level = freezed,
+    Object? level = null,
     Object? targetLevel = freezed,
     Object? transitionSteps = freezed,
     Object? transitionResolution = freezed,
-    Object? source = freezed,
-    Object? destination = freezed,
+    Object? source = null,
+    Object? destination = null,
   }) {
-    return _then(_GenericLevelStatusData(
-      level == freezed
+    return _then(_$GenericLevelStatusDataImpl(
+      null == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
               as int,
-      targetLevel == freezed
+      freezed == targetLevel
           ? _value.targetLevel
           : targetLevel // ignore: cast_nullable_to_non_nullable
               as int?,
-      transitionSteps == freezed
+      freezed == transitionSteps
           ? _value.transitionSteps
           : transitionSteps // ignore: cast_nullable_to_non_nullable
               as int?,
-      transitionResolution == freezed
+      freezed == transitionResolution
           ? _value.transitionResolution
           : transitionResolution // ignore: cast_nullable_to_non_nullable
               as int?,
-      source == freezed
+      null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination == freezed
+      null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
@@ -166,11 +176,17 @@ class __$GenericLevelStatusDataCopyWithImpl<$Res> extends _$GenericLevelStatusDa
 
 /// @nodoc
 @JsonSerializable()
-class _$_GenericLevelStatusData implements _GenericLevelStatusData {
-  const _$_GenericLevelStatusData(
-      this.level, this.targetLevel, this.transitionSteps, this.transitionResolution, this.source, this.destination);
+class _$GenericLevelStatusDataImpl implements _GenericLevelStatusData {
+  const _$GenericLevelStatusDataImpl(
+      this.level,
+      this.targetLevel,
+      this.transitionSteps,
+      this.transitionResolution,
+      this.source,
+      this.destination);
 
-  factory _$_GenericLevelStatusData.fromJson(Map<String, dynamic> json) => _$_$_GenericLevelStatusDataFromJson(json);
+  factory _$GenericLevelStatusDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GenericLevelStatusDataImplFromJson(json);
 
   @override
   final int level;
@@ -191,62 +207,73 @@ class _$_GenericLevelStatusData implements _GenericLevelStatusData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _GenericLevelStatusData &&
-            (identical(other.level, level) || const DeepCollectionEquality().equals(other.level, level)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$GenericLevelStatusDataImpl &&
+            (identical(other.level, level) || other.level == level) &&
             (identical(other.targetLevel, targetLevel) ||
-                const DeepCollectionEquality().equals(other.targetLevel, targetLevel)) &&
+                other.targetLevel == targetLevel) &&
             (identical(other.transitionSteps, transitionSteps) ||
-                const DeepCollectionEquality().equals(other.transitionSteps, transitionSteps)) &&
+                other.transitionSteps == transitionSteps) &&
             (identical(other.transitionResolution, transitionResolution) ||
-                const DeepCollectionEquality().equals(other.transitionResolution, transitionResolution)) &&
-            (identical(other.source, source) || const DeepCollectionEquality().equals(other.source, source)) &&
+                other.transitionResolution == transitionResolution) &&
+            (identical(other.source, source) || other.source == source) &&
             (identical(other.destination, destination) ||
-                const DeepCollectionEquality().equals(other.destination, destination)));
+                other.destination == destination));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(level) ^
-      const DeepCollectionEquality().hash(targetLevel) ^
-      const DeepCollectionEquality().hash(transitionSteps) ^
-      const DeepCollectionEquality().hash(transitionResolution) ^
-      const DeepCollectionEquality().hash(source) ^
-      const DeepCollectionEquality().hash(destination);
+  int get hashCode => Object.hash(runtimeType, level, targetLevel,
+      transitionSteps, transitionResolution, source, destination);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GenericLevelStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$GenericLevelStatusDataCopyWith<_GenericLevelStatusData> get copyWith =>
-      __$GenericLevelStatusDataCopyWithImpl<_GenericLevelStatusData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$GenericLevelStatusDataImplCopyWith<_$GenericLevelStatusDataImpl>
+      get copyWith => __$$GenericLevelStatusDataImplCopyWithImpl<
+          _$GenericLevelStatusDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_GenericLevelStatusDataToJson(this);
+    return _$$GenericLevelStatusDataImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _GenericLevelStatusData implements GenericLevelStatusData {
   const factory _GenericLevelStatusData(
-          int level, int? targetLevel, int? transitionSteps, int? transitionResolution, int source, int destination) =
-      _$_GenericLevelStatusData;
+      final int level,
+      final int? targetLevel,
+      final int? transitionSteps,
+      final int? transitionResolution,
+      final int source,
+      final int destination) = _$GenericLevelStatusDataImpl;
 
-  factory _GenericLevelStatusData.fromJson(Map<String, dynamic> json) = _$_GenericLevelStatusData.fromJson;
+  factory _GenericLevelStatusData.fromJson(Map<String, dynamic> json) =
+      _$GenericLevelStatusDataImpl.fromJson;
 
   @override
-  int get level => throw _privateConstructorUsedError;
+  int get level;
   @override
-  int? get targetLevel => throw _privateConstructorUsedError;
+  int? get targetLevel;
   @override
-  int? get transitionSteps => throw _privateConstructorUsedError;
+  int? get transitionSteps;
   @override
-  int? get transitionResolution => throw _privateConstructorUsedError;
+  int? get transitionResolution;
   @override
-  int get source => throw _privateConstructorUsedError;
+  int get source;
   @override
-  int get destination => throw _privateConstructorUsedError;
+  int get destination;
+
+  /// Create a copy of GenericLevelStatusData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$GenericLevelStatusDataCopyWith<_GenericLevelStatusData> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GenericLevelStatusDataImplCopyWith<_$GenericLevelStatusDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

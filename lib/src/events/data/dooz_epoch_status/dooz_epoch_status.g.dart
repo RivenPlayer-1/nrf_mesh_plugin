@@ -6,21 +6,23 @@ part of 'dooz_epoch_status.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DoozEpochStatusData _$_$_DoozEpochStatusDataFromJson(Map<String, dynamic> json) {
-  return _$_DoozEpochStatusData(
-    json['tzData'] as int,
-    json['command'] as int,
-    json['io'] as int,
-    json['unused'] as int,
-    json['epoch'] as int,
-    json['correlation'] as int,
-    json['extra'] as int,
-    json['source'] as int,
-    json['destination'] as int,
-  );
-}
+_$DoozEpochStatusDataImpl _$$DoozEpochStatusDataImplFromJson(
+        Map<String, dynamic> json) =>
+    _$DoozEpochStatusDataImpl(
+      (json['tzData'] as num).toInt(),
+      (json['command'] as num).toInt(),
+      (json['io'] as num).toInt(),
+      (json['unused'] as num).toInt(),
+      (json['epoch'] as num).toInt(),
+      (json['correlation'] as num).toInt(),
+      (json['extra'] as num).toInt(),
+      (json['source'] as num).toInt(),
+      (json['destination'] as num).toInt(),
+    );
 
-Map<String, dynamic> _$_$_DoozEpochStatusDataToJson(_$_DoozEpochStatusData instance) => <String, dynamic>{
+Map<String, dynamic> _$$DoozEpochStatusDataImplToJson(
+        _$DoozEpochStatusDataImpl instance) =>
+    <String, dynamic>{
       'tzData': instance.tzData,
       'command': instance.command,
       'io': instance.io,

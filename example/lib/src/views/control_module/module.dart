@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
 import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
 import 'package:nordic_nrf_mesh_example/src/views/control_module/commands/send_config_model_publication_add.dart';
+import 'package:nordic_nrf_mesh_faradine/src/mesh_network.dart';
+import 'package:nordic_nrf_mesh_example/src/views/control_module/commands/send_generic_location.dart';
+import 'package:nordic_nrf_mesh_example/src/views/control_module/commands/send_vendor_model_message.dart';
 
 import 'commands/send_deprovisioning.dart';
 import 'commands/send_generic_on_off.dart';
@@ -14,12 +17,14 @@ import 'node.dart';
 class Module extends StatefulWidget {
   final DiscoveredDevice device;
   final MeshManagerApi meshManagerApi;
+  final VoidCallback onGoToProvisioning;
   final VoidCallback onDisconnect;
 
   const Module({
     Key? key,
     required this.device,
     required this.meshManagerApi,
+    required this.onGoToProvisioning,
     required this.onDisconnect,
   }) : super(key: key);
 
@@ -47,10 +52,13 @@ class _ModuleState extends State<Module> {
 
   @override
   Widget build(BuildContext context) {
-    Widget layout = Center(
+    Map<String, DeviceInfo> deviceMap = widget.meshManagerApi.meshNetwork!.deviceMap;
+    TextStyle cardStyle = const TextStyle(overflow: TextOverflow.ellipsis);
+
+    Widget layout = const Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: const [
+        children: [
           CircularProgressIndicator(),
           Text('Connecting ...'),
         ],
@@ -59,13 +67,6 @@ class _ModuleState extends State<Module> {
     if (!isLoading) {
       layout = ListView(
         children: <Widget>[
-          TextButton(
-            onPressed: () {
-              _deinit();
-              widget.onDisconnect();
-            },
-            child: const Text('Disconnect from network'),
-          ),
           for (var i = 0; i < nodes.length; i++)
             GestureDetector(
               onTap: () {
@@ -76,6 +77,7 @@ class _ModuleState extends State<Module> {
                         meshManagerApi: widget.meshManagerApi,
                         node: nodes[i],
                         name: nodes[i].uuid,
+                        onGoToProvisioning: widget.onGoToProvisioning,
                       );
                     },
                   ),
@@ -86,14 +88,49 @@ class _ModuleState extends State<Module> {
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
                     key: ValueKey('node-$i'),
-                    child: Text(nodes[i].uuid),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (deviceMap[nodes[i].uuid] != null) ...[
+                          Text(
+                            'Device Name: ${deviceMap[nodes[i].uuid]?.deviceName}',
+                            style: cardStyle,
+                          ),
+                          Text(
+                            'Device Id: ${deviceMap[nodes[i].uuid]?.deviceId}',
+                            style: cardStyle,
+                          ),
+                        ],
+                        Text(
+                          'Node UUID: ${nodes[i].uuid}',
+                          style: cardStyle,
+                        ),
+
+                        // Text(
+                        //   'Primary Element Address: ${await nodes[i].unicastAddress}',
+                        //   style: cardStyle,
+                        // ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
+          TextButton(
+            onPressed: () {
+              _deinit();
+              widget.onDisconnect();
+            },
+            child: const Text('Disconnect from network'),
+          ),
+
           const Divider(),
+          // SendCustomAction(meshManagerApi: widget.meshManagerApi),
+          SendGenericLocation(widget.meshManagerApi),
+          SendVendorModelMessage(widget.meshManagerApi),
           SendGenericLevel(meshManagerApi: widget.meshManagerApi),
           SendGenericOnOff(meshManagerApi: widget.meshManagerApi),
+
           SendConfigModelSubscriptionAdd(widget.meshManagerApi),
           SendConfigModelPublicationAdd(widget.meshManagerApi),
           SendDeprovisioning(meshManagerApi: widget.meshManagerApi),
@@ -105,7 +142,8 @@ class _ModuleState extends State<Module> {
 
   Future<void> _init() async {
     bleMeshManager.callbacks = DoozProvisionedBleMeshManagerCallbacks(widget.meshManagerApi, bleMeshManager);
-    await bleMeshManager.connect(widget.device);
+    await bleMeshManager.connect(widget.device); // vital but can send commands to any device
+    // await bleMeshManager.connect()
     // get nodes (ignore first node which is the default provisioner)
     nodes = (await widget.meshManagerApi.meshNetwork!.nodes).skip(1).toList();
     // will bind app keys (needed to be able to configure node)
@@ -118,7 +156,6 @@ class _ModuleState extends State<Module> {
               continue;
             }
             final unicast = await node.unicastAddress;
-            debugPrint('need to bind app key');
             await widget.meshManagerApi.sendConfigModelAppBind(
               unicast,
               element.address,

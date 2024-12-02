@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'config_node_reset_status.dart';
 
@@ -10,31 +12,12 @@ part of 'config_node_reset_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConfigNodeResetStatus _$ConfigNodeResetStatusFromJson(Map<String, dynamic> json) {
+ConfigNodeResetStatus _$ConfigNodeResetStatusFromJson(
+    Map<String, dynamic> json) {
   return _ConfigNodeResetStatus.fromJson(json);
 }
-
-/// @nodoc
-class _$ConfigNodeResetStatusTearOff {
-  const _$ConfigNodeResetStatusTearOff();
-
-  _ConfigNodeResetStatus call(int source, int destination, bool success) {
-    return _ConfigNodeResetStatus(
-      source,
-      destination,
-      success,
-    );
-  }
-
-  ConfigNodeResetStatus fromJson(Map<String, Object> json) {
-    return ConfigNodeResetStatus.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ConfigNodeResetStatus = _$ConfigNodeResetStatusTearOff();
 
 /// @nodoc
 mixin _$ConfigNodeResetStatus {
@@ -42,82 +25,102 @@ mixin _$ConfigNodeResetStatus {
   int get destination => throw _privateConstructorUsedError;
   bool get success => throw _privateConstructorUsedError;
 
+  /// Serializes this ConfigNodeResetStatus to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ConfigNodeResetStatusCopyWith<ConfigNodeResetStatus> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of ConfigNodeResetStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ConfigNodeResetStatusCopyWith<ConfigNodeResetStatus> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ConfigNodeResetStatusCopyWith<$Res> {
-  factory $ConfigNodeResetStatusCopyWith(ConfigNodeResetStatus value, $Res Function(ConfigNodeResetStatus) then) =
-      _$ConfigNodeResetStatusCopyWithImpl<$Res>;
+  factory $ConfigNodeResetStatusCopyWith(ConfigNodeResetStatus value,
+          $Res Function(ConfigNodeResetStatus) then) =
+      _$ConfigNodeResetStatusCopyWithImpl<$Res, ConfigNodeResetStatus>;
+  @useResult
   $Res call({int source, int destination, bool success});
 }
 
 /// @nodoc
-class _$ConfigNodeResetStatusCopyWithImpl<$Res> implements $ConfigNodeResetStatusCopyWith<$Res> {
+class _$ConfigNodeResetStatusCopyWithImpl<$Res,
+        $Val extends ConfigNodeResetStatus>
+    implements $ConfigNodeResetStatusCopyWith<$Res> {
   _$ConfigNodeResetStatusCopyWithImpl(this._value, this._then);
 
-  final ConfigNodeResetStatus _value;
   // ignore: unused_field
-  final $Res Function(ConfigNodeResetStatus) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of ConfigNodeResetStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = freezed,
-    Object? destination = freezed,
-    Object? success = freezed,
+    Object? source = null,
+    Object? destination = null,
+    Object? success = null,
   }) {
     return _then(_value.copyWith(
-      source: source == freezed
+      source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination: destination == freezed
+      destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
-      success: success == freezed
+      success: null == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$ConfigNodeResetStatusCopyWith<$Res> implements $ConfigNodeResetStatusCopyWith<$Res> {
-  factory _$ConfigNodeResetStatusCopyWith(_ConfigNodeResetStatus value, $Res Function(_ConfigNodeResetStatus) then) =
-      __$ConfigNodeResetStatusCopyWithImpl<$Res>;
+abstract class _$$ConfigNodeResetStatusImplCopyWith<$Res>
+    implements $ConfigNodeResetStatusCopyWith<$Res> {
+  factory _$$ConfigNodeResetStatusImplCopyWith(
+          _$ConfigNodeResetStatusImpl value,
+          $Res Function(_$ConfigNodeResetStatusImpl) then) =
+      __$$ConfigNodeResetStatusImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int source, int destination, bool success});
 }
 
 /// @nodoc
-class __$ConfigNodeResetStatusCopyWithImpl<$Res> extends _$ConfigNodeResetStatusCopyWithImpl<$Res>
-    implements _$ConfigNodeResetStatusCopyWith<$Res> {
-  __$ConfigNodeResetStatusCopyWithImpl(_ConfigNodeResetStatus _value, $Res Function(_ConfigNodeResetStatus) _then)
-      : super(_value, (v) => _then(v as _ConfigNodeResetStatus));
+class __$$ConfigNodeResetStatusImplCopyWithImpl<$Res>
+    extends _$ConfigNodeResetStatusCopyWithImpl<$Res,
+        _$ConfigNodeResetStatusImpl>
+    implements _$$ConfigNodeResetStatusImplCopyWith<$Res> {
+  __$$ConfigNodeResetStatusImplCopyWithImpl(_$ConfigNodeResetStatusImpl _value,
+      $Res Function(_$ConfigNodeResetStatusImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _ConfigNodeResetStatus get _value => super._value as _ConfigNodeResetStatus;
-
+  /// Create a copy of ConfigNodeResetStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = freezed,
-    Object? destination = freezed,
-    Object? success = freezed,
+    Object? source = null,
+    Object? destination = null,
+    Object? success = null,
   }) {
-    return _then(_ConfigNodeResetStatus(
-      source == freezed
+    return _then(_$ConfigNodeResetStatusImpl(
+      null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination == freezed
+      null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
-      success == freezed
+      null == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -127,10 +130,12 @@ class __$ConfigNodeResetStatusCopyWithImpl<$Res> extends _$ConfigNodeResetStatus
 
 /// @nodoc
 @JsonSerializable()
-class _$_ConfigNodeResetStatus implements _ConfigNodeResetStatus {
-  const _$_ConfigNodeResetStatus(this.source, this.destination, this.success);
+class _$ConfigNodeResetStatusImpl implements _ConfigNodeResetStatus {
+  const _$ConfigNodeResetStatusImpl(
+      this.source, this.destination, this.success);
 
-  factory _$_ConfigNodeResetStatus.fromJson(Map<String, dynamic> json) => _$_$_ConfigNodeResetStatusFromJson(json);
+  factory _$ConfigNodeResetStatusImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ConfigNodeResetStatusImplFromJson(json);
 
   @override
   final int source;
@@ -145,45 +150,56 @@ class _$_ConfigNodeResetStatus implements _ConfigNodeResetStatus {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _ConfigNodeResetStatus &&
-            (identical(other.source, source) || const DeepCollectionEquality().equals(other.source, source)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$ConfigNodeResetStatusImpl &&
+            (identical(other.source, source) || other.source == source) &&
             (identical(other.destination, destination) ||
-                const DeepCollectionEquality().equals(other.destination, destination)) &&
-            (identical(other.success, success) || const DeepCollectionEquality().equals(other.success, success)));
+                other.destination == destination) &&
+            (identical(other.success, success) || other.success == success));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(source) ^
-      const DeepCollectionEquality().hash(destination) ^
-      const DeepCollectionEquality().hash(success);
+  int get hashCode => Object.hash(runtimeType, source, destination, success);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ConfigNodeResetStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$ConfigNodeResetStatusCopyWith<_ConfigNodeResetStatus> get copyWith =>
-      __$ConfigNodeResetStatusCopyWithImpl<_ConfigNodeResetStatus>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ConfigNodeResetStatusImplCopyWith<_$ConfigNodeResetStatusImpl>
+      get copyWith => __$$ConfigNodeResetStatusImplCopyWithImpl<
+          _$ConfigNodeResetStatusImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ConfigNodeResetStatusToJson(this);
+    return _$$ConfigNodeResetStatusImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _ConfigNodeResetStatus implements ConfigNodeResetStatus {
-  const factory _ConfigNodeResetStatus(int source, int destination, bool success) = _$_ConfigNodeResetStatus;
+  const factory _ConfigNodeResetStatus(
+          final int source, final int destination, final bool success) =
+      _$ConfigNodeResetStatusImpl;
 
-  factory _ConfigNodeResetStatus.fromJson(Map<String, dynamic> json) = _$_ConfigNodeResetStatus.fromJson;
+  factory _ConfigNodeResetStatus.fromJson(Map<String, dynamic> json) =
+      _$ConfigNodeResetStatusImpl.fromJson;
 
   @override
-  int get source => throw _privateConstructorUsedError;
+  int get source;
   @override
-  int get destination => throw _privateConstructorUsedError;
+  int get destination;
   @override
-  bool get success => throw _privateConstructorUsedError;
+  bool get success;
+
+  /// Create a copy of ConfigNodeResetStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$ConfigNodeResetStatusCopyWith<_ConfigNodeResetStatus> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ConfigNodeResetStatusImplCopyWith<_$ConfigNodeResetStatusImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

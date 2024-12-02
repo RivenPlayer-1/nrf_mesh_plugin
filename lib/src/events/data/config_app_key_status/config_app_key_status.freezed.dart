@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'config_app_key_status.dart';
 
@@ -10,90 +12,94 @@ part of 'config_app_key_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConfigAppKeyStatusData _$ConfigAppKeyStatusDataFromJson(Map<String, dynamic> json) {
+ConfigAppKeyStatusData _$ConfigAppKeyStatusDataFromJson(
+    Map<String, dynamic> json) {
   return _ConfigAppKeyStatusData.fromJson(json);
 }
-
-/// @nodoc
-class _$ConfigAppKeyStatusDataTearOff {
-  const _$ConfigAppKeyStatusDataTearOff();
-
-  _ConfigAppKeyStatusData call(int source) {
-    return _ConfigAppKeyStatusData(
-      source,
-    );
-  }
-
-  ConfigAppKeyStatusData fromJson(Map<String, Object> json) {
-    return ConfigAppKeyStatusData.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ConfigAppKeyStatusData = _$ConfigAppKeyStatusDataTearOff();
 
 /// @nodoc
 mixin _$ConfigAppKeyStatusData {
   int get source => throw _privateConstructorUsedError;
 
+  /// Serializes this ConfigAppKeyStatusData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ConfigAppKeyStatusDataCopyWith<ConfigAppKeyStatusData> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of ConfigAppKeyStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ConfigAppKeyStatusDataCopyWith<ConfigAppKeyStatusData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ConfigAppKeyStatusDataCopyWith<$Res> {
-  factory $ConfigAppKeyStatusDataCopyWith(ConfigAppKeyStatusData value, $Res Function(ConfigAppKeyStatusData) then) =
-      _$ConfigAppKeyStatusDataCopyWithImpl<$Res>;
+  factory $ConfigAppKeyStatusDataCopyWith(ConfigAppKeyStatusData value,
+          $Res Function(ConfigAppKeyStatusData) then) =
+      _$ConfigAppKeyStatusDataCopyWithImpl<$Res, ConfigAppKeyStatusData>;
+  @useResult
   $Res call({int source});
 }
 
 /// @nodoc
-class _$ConfigAppKeyStatusDataCopyWithImpl<$Res> implements $ConfigAppKeyStatusDataCopyWith<$Res> {
+class _$ConfigAppKeyStatusDataCopyWithImpl<$Res,
+        $Val extends ConfigAppKeyStatusData>
+    implements $ConfigAppKeyStatusDataCopyWith<$Res> {
   _$ConfigAppKeyStatusDataCopyWithImpl(this._value, this._then);
 
-  final ConfigAppKeyStatusData _value;
   // ignore: unused_field
-  final $Res Function(ConfigAppKeyStatusData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of ConfigAppKeyStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = freezed,
+    Object? source = null,
   }) {
     return _then(_value.copyWith(
-      source: source == freezed
+      source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$ConfigAppKeyStatusDataCopyWith<$Res> implements $ConfigAppKeyStatusDataCopyWith<$Res> {
-  factory _$ConfigAppKeyStatusDataCopyWith(_ConfigAppKeyStatusData value, $Res Function(_ConfigAppKeyStatusData) then) =
-      __$ConfigAppKeyStatusDataCopyWithImpl<$Res>;
+abstract class _$$ConfigAppKeyStatusDataImplCopyWith<$Res>
+    implements $ConfigAppKeyStatusDataCopyWith<$Res> {
+  factory _$$ConfigAppKeyStatusDataImplCopyWith(
+          _$ConfigAppKeyStatusDataImpl value,
+          $Res Function(_$ConfigAppKeyStatusDataImpl) then) =
+      __$$ConfigAppKeyStatusDataImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int source});
 }
 
 /// @nodoc
-class __$ConfigAppKeyStatusDataCopyWithImpl<$Res> extends _$ConfigAppKeyStatusDataCopyWithImpl<$Res>
-    implements _$ConfigAppKeyStatusDataCopyWith<$Res> {
-  __$ConfigAppKeyStatusDataCopyWithImpl(_ConfigAppKeyStatusData _value, $Res Function(_ConfigAppKeyStatusData) _then)
-      : super(_value, (v) => _then(v as _ConfigAppKeyStatusData));
+class __$$ConfigAppKeyStatusDataImplCopyWithImpl<$Res>
+    extends _$ConfigAppKeyStatusDataCopyWithImpl<$Res,
+        _$ConfigAppKeyStatusDataImpl>
+    implements _$$ConfigAppKeyStatusDataImplCopyWith<$Res> {
+  __$$ConfigAppKeyStatusDataImplCopyWithImpl(
+      _$ConfigAppKeyStatusDataImpl _value,
+      $Res Function(_$ConfigAppKeyStatusDataImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _ConfigAppKeyStatusData get _value => super._value as _ConfigAppKeyStatusData;
-
+  /// Create a copy of ConfigAppKeyStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = freezed,
+    Object? source = null,
   }) {
-    return _then(_ConfigAppKeyStatusData(
-      source == freezed
+    return _then(_$ConfigAppKeyStatusDataImpl(
+      null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
@@ -103,10 +109,11 @@ class __$ConfigAppKeyStatusDataCopyWithImpl<$Res> extends _$ConfigAppKeyStatusDa
 
 /// @nodoc
 @JsonSerializable()
-class _$_ConfigAppKeyStatusData implements _ConfigAppKeyStatusData {
-  const _$_ConfigAppKeyStatusData(this.source);
+class _$ConfigAppKeyStatusDataImpl implements _ConfigAppKeyStatusData {
+  const _$ConfigAppKeyStatusDataImpl(this.source);
 
-  factory _$_ConfigAppKeyStatusData.fromJson(Map<String, dynamic> json) => _$_$_ConfigAppKeyStatusDataFromJson(json);
+  factory _$ConfigAppKeyStatusDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ConfigAppKeyStatusDataImplFromJson(json);
 
   @override
   final int source;
@@ -117,136 +124,151 @@ class _$_ConfigAppKeyStatusData implements _ConfigAppKeyStatusData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _ConfigAppKeyStatusData &&
-            (identical(other.source, source) || const DeepCollectionEquality().equals(other.source, source)));
+        (other.runtimeType == runtimeType &&
+            other is _$ConfigAppKeyStatusDataImpl &&
+            (identical(other.source, source) || other.source == source));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(source);
+  int get hashCode => Object.hash(runtimeType, source);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ConfigAppKeyStatusData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$ConfigAppKeyStatusDataCopyWith<_ConfigAppKeyStatusData> get copyWith =>
-      __$ConfigAppKeyStatusDataCopyWithImpl<_ConfigAppKeyStatusData>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ConfigAppKeyStatusDataImplCopyWith<_$ConfigAppKeyStatusDataImpl>
+      get copyWith => __$$ConfigAppKeyStatusDataImplCopyWithImpl<
+          _$ConfigAppKeyStatusDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ConfigAppKeyStatusDataToJson(this);
+    return _$$ConfigAppKeyStatusDataImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _ConfigAppKeyStatusData implements ConfigAppKeyStatusData {
-  const factory _ConfigAppKeyStatusData(int source) = _$_ConfigAppKeyStatusData;
+  const factory _ConfigAppKeyStatusData(final int source) =
+      _$ConfigAppKeyStatusDataImpl;
 
-  factory _ConfigAppKeyStatusData.fromJson(Map<String, dynamic> json) = _$_ConfigAppKeyStatusData.fromJson;
+  factory _ConfigAppKeyStatusData.fromJson(Map<String, dynamic> json) =
+      _$ConfigAppKeyStatusDataImpl.fromJson;
 
   @override
-  int get source => throw _privateConstructorUsedError;
+  int get source;
+
+  /// Create a copy of ConfigAppKeyStatusData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$ConfigAppKeyStatusDataCopyWith<_ConfigAppKeyStatusData> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ConfigAppKeyStatusDataImplCopyWith<_$ConfigAppKeyStatusDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
-ConfigAppKeyStatusMeshMessage _$ConfigAppKeyStatusMeshMessageFromJson(Map<String, dynamic> json) {
+ConfigAppKeyStatusMeshMessage _$ConfigAppKeyStatusMeshMessageFromJson(
+    Map<String, dynamic> json) {
   return _ConfigAppKeyStatusMeshMessage.fromJson(json);
 }
-
-/// @nodoc
-class _$ConfigAppKeyStatusMeshMessageTearOff {
-  const _$ConfigAppKeyStatusMeshMessageTearOff();
-
-  _ConfigAppKeyStatusMeshMessage call(int source, int destination) {
-    return _ConfigAppKeyStatusMeshMessage(
-      source,
-      destination,
-    );
-  }
-
-  ConfigAppKeyStatusMeshMessage fromJson(Map<String, Object> json) {
-    return ConfigAppKeyStatusMeshMessage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ConfigAppKeyStatusMeshMessage = _$ConfigAppKeyStatusMeshMessageTearOff();
 
 /// @nodoc
 mixin _$ConfigAppKeyStatusMeshMessage {
   int get source => throw _privateConstructorUsedError;
   int get destination => throw _privateConstructorUsedError;
 
+  /// Serializes this ConfigAppKeyStatusMeshMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ConfigAppKeyStatusMeshMessageCopyWith<ConfigAppKeyStatusMeshMessage> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of ConfigAppKeyStatusMeshMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ConfigAppKeyStatusMeshMessageCopyWith<ConfigAppKeyStatusMeshMessage>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ConfigAppKeyStatusMeshMessageCopyWith<$Res> {
   factory $ConfigAppKeyStatusMeshMessageCopyWith(
-          ConfigAppKeyStatusMeshMessage value, $Res Function(ConfigAppKeyStatusMeshMessage) then) =
-      _$ConfigAppKeyStatusMeshMessageCopyWithImpl<$Res>;
+          ConfigAppKeyStatusMeshMessage value,
+          $Res Function(ConfigAppKeyStatusMeshMessage) then) =
+      _$ConfigAppKeyStatusMeshMessageCopyWithImpl<$Res,
+          ConfigAppKeyStatusMeshMessage>;
+  @useResult
   $Res call({int source, int destination});
 }
 
 /// @nodoc
-class _$ConfigAppKeyStatusMeshMessageCopyWithImpl<$Res> implements $ConfigAppKeyStatusMeshMessageCopyWith<$Res> {
+class _$ConfigAppKeyStatusMeshMessageCopyWithImpl<$Res,
+        $Val extends ConfigAppKeyStatusMeshMessage>
+    implements $ConfigAppKeyStatusMeshMessageCopyWith<$Res> {
   _$ConfigAppKeyStatusMeshMessageCopyWithImpl(this._value, this._then);
 
-  final ConfigAppKeyStatusMeshMessage _value;
   // ignore: unused_field
-  final $Res Function(ConfigAppKeyStatusMeshMessage) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of ConfigAppKeyStatusMeshMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = freezed,
-    Object? destination = freezed,
+    Object? source = null,
+    Object? destination = null,
   }) {
     return _then(_value.copyWith(
-      source: source == freezed
+      source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination: destination == freezed
+      destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$ConfigAppKeyStatusMeshMessageCopyWith<$Res> implements $ConfigAppKeyStatusMeshMessageCopyWith<$Res> {
-  factory _$ConfigAppKeyStatusMeshMessageCopyWith(
-          _ConfigAppKeyStatusMeshMessage value, $Res Function(_ConfigAppKeyStatusMeshMessage) then) =
-      __$ConfigAppKeyStatusMeshMessageCopyWithImpl<$Res>;
+abstract class _$$ConfigAppKeyStatusMeshMessageImplCopyWith<$Res>
+    implements $ConfigAppKeyStatusMeshMessageCopyWith<$Res> {
+  factory _$$ConfigAppKeyStatusMeshMessageImplCopyWith(
+          _$ConfigAppKeyStatusMeshMessageImpl value,
+          $Res Function(_$ConfigAppKeyStatusMeshMessageImpl) then) =
+      __$$ConfigAppKeyStatusMeshMessageImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int source, int destination});
 }
 
 /// @nodoc
-class __$ConfigAppKeyStatusMeshMessageCopyWithImpl<$Res> extends _$ConfigAppKeyStatusMeshMessageCopyWithImpl<$Res>
-    implements _$ConfigAppKeyStatusMeshMessageCopyWith<$Res> {
-  __$ConfigAppKeyStatusMeshMessageCopyWithImpl(
-      _ConfigAppKeyStatusMeshMessage _value, $Res Function(_ConfigAppKeyStatusMeshMessage) _then)
-      : super(_value, (v) => _then(v as _ConfigAppKeyStatusMeshMessage));
+class __$$ConfigAppKeyStatusMeshMessageImplCopyWithImpl<$Res>
+    extends _$ConfigAppKeyStatusMeshMessageCopyWithImpl<$Res,
+        _$ConfigAppKeyStatusMeshMessageImpl>
+    implements _$$ConfigAppKeyStatusMeshMessageImplCopyWith<$Res> {
+  __$$ConfigAppKeyStatusMeshMessageImplCopyWithImpl(
+      _$ConfigAppKeyStatusMeshMessageImpl _value,
+      $Res Function(_$ConfigAppKeyStatusMeshMessageImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _ConfigAppKeyStatusMeshMessage get _value => super._value as _ConfigAppKeyStatusMeshMessage;
-
+  /// Create a copy of ConfigAppKeyStatusMeshMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = freezed,
-    Object? destination = freezed,
+    Object? source = null,
+    Object? destination = null,
   }) {
-    return _then(_ConfigAppKeyStatusMeshMessage(
-      source == freezed
+    return _then(_$ConfigAppKeyStatusMeshMessageImpl(
+      null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as int,
-      destination == freezed
+      null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as int,
@@ -256,11 +278,13 @@ class __$ConfigAppKeyStatusMeshMessageCopyWithImpl<$Res> extends _$ConfigAppKeyS
 
 /// @nodoc
 @JsonSerializable()
-class _$_ConfigAppKeyStatusMeshMessage implements _ConfigAppKeyStatusMeshMessage {
-  const _$_ConfigAppKeyStatusMeshMessage(this.source, this.destination);
+class _$ConfigAppKeyStatusMeshMessageImpl
+    implements _ConfigAppKeyStatusMeshMessage {
+  const _$ConfigAppKeyStatusMeshMessageImpl(this.source, this.destination);
 
-  factory _$_ConfigAppKeyStatusMeshMessage.fromJson(Map<String, dynamic> json) =>
-      _$_$_ConfigAppKeyStatusMeshMessageFromJson(json);
+  factory _$ConfigAppKeyStatusMeshMessageImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ConfigAppKeyStatusMeshMessageImplFromJson(json);
 
   @override
   final int source;
@@ -273,43 +297,56 @@ class _$_ConfigAppKeyStatusMeshMessage implements _ConfigAppKeyStatusMeshMessage
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _ConfigAppKeyStatusMeshMessage &&
-            (identical(other.source, source) || const DeepCollectionEquality().equals(other.source, source)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$ConfigAppKeyStatusMeshMessageImpl &&
+            (identical(other.source, source) || other.source == source) &&
             (identical(other.destination, destination) ||
-                const DeepCollectionEquality().equals(other.destination, destination)));
+                other.destination == destination));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(source) ^
-      const DeepCollectionEquality().hash(destination);
+  int get hashCode => Object.hash(runtimeType, source, destination);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ConfigAppKeyStatusMeshMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$ConfigAppKeyStatusMeshMessageCopyWith<_ConfigAppKeyStatusMeshMessage> get copyWith =>
-      __$ConfigAppKeyStatusMeshMessageCopyWithImpl<_ConfigAppKeyStatusMeshMessage>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ConfigAppKeyStatusMeshMessageImplCopyWith<
+          _$ConfigAppKeyStatusMeshMessageImpl>
+      get copyWith => __$$ConfigAppKeyStatusMeshMessageImplCopyWithImpl<
+          _$ConfigAppKeyStatusMeshMessageImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ConfigAppKeyStatusMeshMessageToJson(this);
+    return _$$ConfigAppKeyStatusMeshMessageImplToJson(
+      this,
+    );
   }
 }
 
-abstract class _ConfigAppKeyStatusMeshMessage implements ConfigAppKeyStatusMeshMessage {
-  const factory _ConfigAppKeyStatusMeshMessage(int source, int destination) = _$_ConfigAppKeyStatusMeshMessage;
+abstract class _ConfigAppKeyStatusMeshMessage
+    implements ConfigAppKeyStatusMeshMessage {
+  const factory _ConfigAppKeyStatusMeshMessage(
+          final int source, final int destination) =
+      _$ConfigAppKeyStatusMeshMessageImpl;
 
   factory _ConfigAppKeyStatusMeshMessage.fromJson(Map<String, dynamic> json) =
-      _$_ConfigAppKeyStatusMeshMessage.fromJson;
+      _$ConfigAppKeyStatusMeshMessageImpl.fromJson;
 
   @override
-  int get source => throw _privateConstructorUsedError;
+  int get source;
   @override
-  int get destination => throw _privateConstructorUsedError;
+  int get destination;
+
+  /// Create a copy of ConfigAppKeyStatusMeshMessage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$ConfigAppKeyStatusMeshMessageCopyWith<_ConfigAppKeyStatusMeshMessage> get copyWith =>
-      throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ConfigAppKeyStatusMeshMessageImplCopyWith<
+          _$ConfigAppKeyStatusMeshMessageImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

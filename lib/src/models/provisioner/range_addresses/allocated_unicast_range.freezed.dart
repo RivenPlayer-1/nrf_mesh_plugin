@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'allocated_unicast_range.dart';
 
@@ -10,102 +12,104 @@ part of 'allocated_unicast_range.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-AllocatedUnicastRange _$AllocatedUnicastRangeFromJson(Map<String, dynamic> json) {
+AllocatedUnicastRange _$AllocatedUnicastRangeFromJson(
+    Map<String, dynamic> json) {
   return _AllocatedUnicastRange.fromJson(json);
 }
-
-/// @nodoc
-class _$AllocatedUnicastRangeTearOff {
-  const _$AllocatedUnicastRangeTearOff();
-
-  _AllocatedUnicastRange call(int lowAddress, int highAddress) {
-    return _AllocatedUnicastRange(
-      lowAddress,
-      highAddress,
-    );
-  }
-
-  AllocatedUnicastRange fromJson(Map<String, Object> json) {
-    return AllocatedUnicastRange.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AllocatedUnicastRange = _$AllocatedUnicastRangeTearOff();
 
 /// @nodoc
 mixin _$AllocatedUnicastRange {
   int get lowAddress => throw _privateConstructorUsedError;
   int get highAddress => throw _privateConstructorUsedError;
 
+  /// Serializes this AllocatedUnicastRange to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AllocatedUnicastRangeCopyWith<AllocatedUnicastRange> get copyWith => throw _privateConstructorUsedError;
+
+  /// Create a copy of AllocatedUnicastRange
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AllocatedUnicastRangeCopyWith<AllocatedUnicastRange> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AllocatedUnicastRangeCopyWith<$Res> {
-  factory $AllocatedUnicastRangeCopyWith(AllocatedUnicastRange value, $Res Function(AllocatedUnicastRange) then) =
-      _$AllocatedUnicastRangeCopyWithImpl<$Res>;
+  factory $AllocatedUnicastRangeCopyWith(AllocatedUnicastRange value,
+          $Res Function(AllocatedUnicastRange) then) =
+      _$AllocatedUnicastRangeCopyWithImpl<$Res, AllocatedUnicastRange>;
+  @useResult
   $Res call({int lowAddress, int highAddress});
 }
 
 /// @nodoc
-class _$AllocatedUnicastRangeCopyWithImpl<$Res> implements $AllocatedUnicastRangeCopyWith<$Res> {
+class _$AllocatedUnicastRangeCopyWithImpl<$Res,
+        $Val extends AllocatedUnicastRange>
+    implements $AllocatedUnicastRangeCopyWith<$Res> {
   _$AllocatedUnicastRangeCopyWithImpl(this._value, this._then);
 
-  final AllocatedUnicastRange _value;
   // ignore: unused_field
-  final $Res Function(AllocatedUnicastRange) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of AllocatedUnicastRange
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lowAddress = freezed,
-    Object? highAddress = freezed,
+    Object? lowAddress = null,
+    Object? highAddress = null,
   }) {
     return _then(_value.copyWith(
-      lowAddress: lowAddress == freezed
+      lowAddress: null == lowAddress
           ? _value.lowAddress
           : lowAddress // ignore: cast_nullable_to_non_nullable
               as int,
-      highAddress: highAddress == freezed
+      highAddress: null == highAddress
           ? _value.highAddress
           : highAddress // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$AllocatedUnicastRangeCopyWith<$Res> implements $AllocatedUnicastRangeCopyWith<$Res> {
-  factory _$AllocatedUnicastRangeCopyWith(_AllocatedUnicastRange value, $Res Function(_AllocatedUnicastRange) then) =
-      __$AllocatedUnicastRangeCopyWithImpl<$Res>;
+abstract class _$$AllocatedUnicastRangeImplCopyWith<$Res>
+    implements $AllocatedUnicastRangeCopyWith<$Res> {
+  factory _$$AllocatedUnicastRangeImplCopyWith(
+          _$AllocatedUnicastRangeImpl value,
+          $Res Function(_$AllocatedUnicastRangeImpl) then) =
+      __$$AllocatedUnicastRangeImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int lowAddress, int highAddress});
 }
 
 /// @nodoc
-class __$AllocatedUnicastRangeCopyWithImpl<$Res> extends _$AllocatedUnicastRangeCopyWithImpl<$Res>
-    implements _$AllocatedUnicastRangeCopyWith<$Res> {
-  __$AllocatedUnicastRangeCopyWithImpl(_AllocatedUnicastRange _value, $Res Function(_AllocatedUnicastRange) _then)
-      : super(_value, (v) => _then(v as _AllocatedUnicastRange));
+class __$$AllocatedUnicastRangeImplCopyWithImpl<$Res>
+    extends _$AllocatedUnicastRangeCopyWithImpl<$Res,
+        _$AllocatedUnicastRangeImpl>
+    implements _$$AllocatedUnicastRangeImplCopyWith<$Res> {
+  __$$AllocatedUnicastRangeImplCopyWithImpl(_$AllocatedUnicastRangeImpl _value,
+      $Res Function(_$AllocatedUnicastRangeImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _AllocatedUnicastRange get _value => super._value as _AllocatedUnicastRange;
-
+  /// Create a copy of AllocatedUnicastRange
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lowAddress = freezed,
-    Object? highAddress = freezed,
+    Object? lowAddress = null,
+    Object? highAddress = null,
   }) {
-    return _then(_AllocatedUnicastRange(
-      lowAddress == freezed
+    return _then(_$AllocatedUnicastRangeImpl(
+      null == lowAddress
           ? _value.lowAddress
           : lowAddress // ignore: cast_nullable_to_non_nullable
               as int,
-      highAddress == freezed
+      null == highAddress
           ? _value.highAddress
           : highAddress // ignore: cast_nullable_to_non_nullable
               as int,
@@ -115,10 +119,11 @@ class __$AllocatedUnicastRangeCopyWithImpl<$Res> extends _$AllocatedUnicastRange
 
 /// @nodoc
 @JsonSerializable()
-class _$_AllocatedUnicastRange implements _AllocatedUnicastRange {
-  const _$_AllocatedUnicastRange(this.lowAddress, this.highAddress);
+class _$AllocatedUnicastRangeImpl implements _AllocatedUnicastRange {
+  const _$AllocatedUnicastRangeImpl(this.lowAddress, this.highAddress);
 
-  factory _$_AllocatedUnicastRange.fromJson(Map<String, dynamic> json) => _$_$_AllocatedUnicastRangeFromJson(json);
+  factory _$AllocatedUnicastRangeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AllocatedUnicastRangeImplFromJson(json);
 
   @override
   final int lowAddress;
@@ -131,42 +136,54 @@ class _$_AllocatedUnicastRange implements _AllocatedUnicastRange {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _AllocatedUnicastRange &&
+        (other.runtimeType == runtimeType &&
+            other is _$AllocatedUnicastRangeImpl &&
             (identical(other.lowAddress, lowAddress) ||
-                const DeepCollectionEquality().equals(other.lowAddress, lowAddress)) &&
+                other.lowAddress == lowAddress) &&
             (identical(other.highAddress, highAddress) ||
-                const DeepCollectionEquality().equals(other.highAddress, highAddress)));
+                other.highAddress == highAddress));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(lowAddress) ^
-      const DeepCollectionEquality().hash(highAddress);
+  int get hashCode => Object.hash(runtimeType, lowAddress, highAddress);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AllocatedUnicastRange
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$AllocatedUnicastRangeCopyWith<_AllocatedUnicastRange> get copyWith =>
-      __$AllocatedUnicastRangeCopyWithImpl<_AllocatedUnicastRange>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AllocatedUnicastRangeImplCopyWith<_$AllocatedUnicastRangeImpl>
+      get copyWith => __$$AllocatedUnicastRangeImplCopyWithImpl<
+          _$AllocatedUnicastRangeImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_AllocatedUnicastRangeToJson(this);
+    return _$$AllocatedUnicastRangeImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _AllocatedUnicastRange implements AllocatedUnicastRange {
-  const factory _AllocatedUnicastRange(int lowAddress, int highAddress) = _$_AllocatedUnicastRange;
+  const factory _AllocatedUnicastRange(
+          final int lowAddress, final int highAddress) =
+      _$AllocatedUnicastRangeImpl;
 
-  factory _AllocatedUnicastRange.fromJson(Map<String, dynamic> json) = _$_AllocatedUnicastRange.fromJson;
+  factory _AllocatedUnicastRange.fromJson(Map<String, dynamic> json) =
+      _$AllocatedUnicastRangeImpl.fromJson;
 
   @override
-  int get lowAddress => throw _privateConstructorUsedError;
+  int get lowAddress;
   @override
-  int get highAddress => throw _privateConstructorUsedError;
+  int get highAddress;
+
+  /// Create a copy of AllocatedUnicastRange
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$AllocatedUnicastRangeCopyWith<_AllocatedUnicastRange> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AllocatedUnicastRangeImplCopyWith<_$AllocatedUnicastRangeImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

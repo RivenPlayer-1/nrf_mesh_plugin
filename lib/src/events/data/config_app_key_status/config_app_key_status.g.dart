@@ -6,24 +6,27 @@ part of 'config_app_key_status.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ConfigAppKeyStatusData _$_$_ConfigAppKeyStatusDataFromJson(Map<String, dynamic> json) {
-  return _$_ConfigAppKeyStatusData(
-    json['source'] as int,
-  );
-}
+_$ConfigAppKeyStatusDataImpl _$$ConfigAppKeyStatusDataImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ConfigAppKeyStatusDataImpl(
+      (json['source'] as num).toInt(),
+    );
 
-Map<String, dynamic> _$_$_ConfigAppKeyStatusDataToJson(_$_ConfigAppKeyStatusData instance) => <String, dynamic>{
+Map<String, dynamic> _$$ConfigAppKeyStatusDataImplToJson(
+        _$ConfigAppKeyStatusDataImpl instance) =>
+    <String, dynamic>{
       'source': instance.source,
     };
 
-_$_ConfigAppKeyStatusMeshMessage _$_$_ConfigAppKeyStatusMeshMessageFromJson(Map<String, dynamic> json) {
-  return _$_ConfigAppKeyStatusMeshMessage(
-    json['source'] as int,
-    json['destination'] as int,
-  );
-}
+_$ConfigAppKeyStatusMeshMessageImpl
+    _$$ConfigAppKeyStatusMeshMessageImplFromJson(Map<String, dynamic> json) =>
+        _$ConfigAppKeyStatusMeshMessageImpl(
+          (json['source'] as num).toInt(),
+          (json['destination'] as num).toInt(),
+        );
 
-Map<String, dynamic> _$_$_ConfigAppKeyStatusMeshMessageToJson(_$_ConfigAppKeyStatusMeshMessage instance) =>
+Map<String, dynamic> _$$ConfigAppKeyStatusMeshMessageImplToJson(
+        _$ConfigAppKeyStatusMeshMessageImpl instance) =>
     <String, dynamic>{
       'source': instance.source,
       'destination': instance.destination,

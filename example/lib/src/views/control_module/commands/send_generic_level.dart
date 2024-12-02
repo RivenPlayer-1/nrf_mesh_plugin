@@ -23,45 +23,52 @@ class _SendGenericLevelState extends State<SendGenericLevel> {
     return ExpansionTile(
       key: const ValueKey('module-send-generic-level-form'),
       title: const Text('Send a generic level set'),
+      initiallyExpanded: false, // change this to have the form initially expanded
       children: <Widget>[
         TextField(
           key: const ValueKey('module-send-generic-level-address'),
           decoration: const InputDecoration(hintText: 'Element Address'),
           onChanged: (text) {
-            selectedElementAddress = int.parse(text);
+            try {
+              selectedElementAddress = int.parse(text);
+            } catch (e) {}
           },
         ),
         TextField(
           key: const ValueKey('module-send-generic-level-value'),
-          decoration: const InputDecoration(hintText: 'Level Value'),
+          decoration: const InputDecoration(hintText: 'Level Value 0 - 100%'),
           onChanged: (text) {
             setState(() {
-              selectedLevel = int.tryParse(text);
+              try {
+                int? percentage = int.tryParse(text);
+                // range from -32768 to +32767
+                selectedLevel = ((percentage! * 65355 / 100) - 32768).round();
+              } catch (e) {}
             });
           },
         ),
         TextButton(
-          onPressed: selectedLevel != null
-              ? () async {
-                  final scaffoldMessenger = ScaffoldMessenger.of(context);
-                  debugPrint('send level $selectedLevel to $selectedElementAddress');
-                  try {
-                    await widget.meshManagerApi
-                        .sendGenericLevelSet(selectedElementAddress!, selectedLevel!)
-                        .timeout(const Duration(seconds: 40));
-                    scaffoldMessenger.showSnackBar(const SnackBar(content: Text('OK')));
-                  } on TimeoutException catch (_) {
-                    scaffoldMessenger.showSnackBar(const SnackBar(content: Text('Board didn\'t respond')));
-                  } on PlatformException catch (e) {
-                    scaffoldMessenger.showSnackBar(SnackBar(content: Text('${e.message}')));
-                  } catch (e) {
-                    scaffoldMessenger.showSnackBar(SnackBar(content: Text(e.toString())));
-                  }
-                }
-              : null,
+          onPressed: selectedLevel != null ? () => sendGenericLevelCommand(context) : null,
           child: const Text('Send level'),
         )
       ],
     );
+  }
+
+  Future<void> sendGenericLevelCommand(BuildContext context) async {
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
+    debugPrint('send level $selectedLevel% to $selectedElementAddress');
+    try {
+      await widget.meshManagerApi
+          .sendGenericLevelSet(selectedElementAddress!, selectedLevel!)
+          .timeout(const Duration(seconds: 40));
+      scaffoldMessenger.showSnackBar(const SnackBar(content: Text('OK')));
+    } on TimeoutException catch (_) {
+      scaffoldMessenger.showSnackBar(const SnackBar(content: Text('Board didn\'t respond')));
+    } on PlatformException catch (e) {
+      scaffoldMessenger.showSnackBar(SnackBar(content: Text('${e.message}')));
+    } catch (e) {
+      scaffoldMessenger.showSnackBar(SnackBar(content: Text(e.toString())));
+    }
   }
 }
