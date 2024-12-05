@@ -26,6 +26,7 @@ class MeshManagerApi {
   // event controllers
   late final _onNetworkLoadedStreamController = StreamController<MeshNetwork>.broadcast();
   late final _onNetworkImportedController = StreamController<MeshNetwork>.broadcast();
+  late final _onNetworkImportedFromQrController = StreamController<MeshNetwork>.broadcast();
   late final _onNetworkUpdatedController = StreamController<MeshNetwork>.broadcast();
   late final _onMeshPduCreatedController = StreamController<List<int>>.broadcast();
   late final _sendProvisioningPduController = StreamController<SendProvisioningPduData>.broadcast();
@@ -56,9 +57,11 @@ class MeshManagerApi {
   // stream subs
   late StreamSubscription<MeshNetwork> _onNetworkLoadedSubscription;
   late StreamSubscription<MeshNetwork> _onNetworkImportedSubscription;
+  late StreamSubscription<MeshNetwork> _onNetworkImportedFromQrSubscription;
   late StreamSubscription<MeshNetwork> _onNetworkUpdatedSubscription;
   late StreamSubscription<MeshNetworkEventError> _onNetworkLoadFailedSubscription;
   late StreamSubscription<MeshNetworkEventError> _onNetworkImportFailedSubscription;
+  late StreamSubscription<MeshNetworkEventError> _onNetworkImportFromQrFailedSubscription;
   late StreamSubscription<List<int>> _onMeshPduCreatedSubscription;
   late StreamSubscription<SendProvisioningPduData> _sendProvisioningPduSubscription;
   late StreamSubscription<MeshProvisioningStatusData> _onProvisioningStateChangedSubscription;
@@ -103,12 +106,16 @@ class MeshManagerApi {
         _onMeshNetworkEventSucceed(MeshManagerApiEvent.loaded).listen(_onNetworkLoadedStreamController.add);
     _onNetworkImportedSubscription =
         _onMeshNetworkEventSucceed(MeshManagerApiEvent.imported).listen(_onNetworkImportedController.add);
+    _onNetworkImportedFromQrSubscription =
+        _onMeshNetworkEventSucceed(MeshManagerApiEvent.importedFromQr).listen(_onNetworkImportedFromQrController.add);
     _onNetworkUpdatedSubscription =
         _onMeshNetworkEventSucceed(MeshManagerApiEvent.updated).listen(_onNetworkUpdatedController.add);
     _onNetworkLoadFailedSubscription =
         _onMeshNetworkEventFailed(MeshManagerApiEvent.loadFailed).listen(_onNetworkLoadedStreamController.addError);
     _onNetworkImportFailedSubscription =
         _onMeshNetworkEventFailed(MeshManagerApiEvent.importFailed).listen(_onNetworkImportedController.addError);
+    _onNetworkImportFromQrFailedSubscription =
+        _onMeshNetworkEventFailed(MeshManagerApiEvent.importFromQrFailed).listen(_onNetworkImportedFromQrController.addError);
     // pdu events
     _onMeshPduCreatedSubscription = _eventChannelStream
         .where((event) => event['eventName'] == MeshManagerApiEvent.meshPduCreated.value)
@@ -241,6 +248,9 @@ class MeshManagerApi {
 
   Stream<IMeshNetwork> get onNetworkImported => _onNetworkImportedController.stream;
 
+  Stream<IMeshNetwork> get onNetworkImportedFromQr => _onNetworkImportedFromQrController.stream;
+
+
   Stream<IMeshNetwork> get onNetworkUpdated => _onNetworkUpdatedController.stream;
 
   Stream<List<int>> get onMeshPduCreated => _onMeshPduCreatedController.stream;
@@ -328,9 +338,11 @@ class MeshManagerApi {
   void dispose() => Future.wait([
         _onNetworkLoadedSubscription.cancel(),
         _onNetworkImportedSubscription.cancel(),
+        _onNetworkImportedFromQrSubscription.cancel(),
         _onNetworkUpdatedSubscription.cancel(),
         _onNetworkLoadFailedSubscription.cancel(),
         _onNetworkImportFailedSubscription.cancel(),
+        _onNetworkImportFromQrFailedSubscription.cancel(),
         _onMeshPduCreatedSubscription.cancel(),
         _sendProvisioningPduSubscription.cancel(),
         _onProvisioningStateChangedSubscription.cancel(),
@@ -360,6 +372,7 @@ class MeshManagerApi {
         _onConfigDefaultTtlStatusSubscription.cancel(),
         _onNetworkLoadedStreamController.close(),
         _onNetworkImportedController.close(),
+        _onNetworkImportedFromQrController.close(),
         _onNetworkUpdatedController.close(),
         _sendProvisioningPduController.close(),
         _onMeshPduCreatedController.close(),
@@ -399,6 +412,23 @@ class MeshManagerApi {
   Future<MeshNetwork> importMeshNetworkJson(final String json) async {
     final future = _onNetworkImportedController.stream.first;
     await _methodChannel.invokeMethod('importMeshNetworkJson', {'json': json});
+    return future;
+  }
+
+  /// Starts an asynchronous task that imports a network from the mesh configuration db json
+  Future<MeshNetwork> importMeshNetworkFromQr(
+      final String uuid,
+      final List<List<int>> netkeys,
+      final List<List<int>> appkeys,
+      final int unicastLow,
+      final int unicastHigh,
+      final int groupLow,
+      final int groupHigh,
+      final int sceneLow,
+      final int sceneHigh
+    ) async {
+    final future = _onNetworkImportedFromQrController.stream.first;
+    await _methodChannel.invokeMethod('importMeshNetworkFromQr', {'uuid': uuid, 'netkeys' : netkeys, 'appkeys' : appkeys, 'unicastLow' : unicastLow, 'unicastHigh' : unicastHigh, 'groupLow' : groupLow, 'groupHigh' : groupHigh, 'sceneLow' : sceneLow, 'sceneHigh' : sceneHigh});
     return future;
   }
 

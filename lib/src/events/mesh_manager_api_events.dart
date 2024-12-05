@@ -19,10 +19,12 @@ class MeshManagerApiEvent {
 
   static const loaded = MeshManagerApiEvent._('onNetworkLoaded');
   static const imported = MeshManagerApiEvent._('onNetworkImported');
+  static const importedFromQr = MeshManagerApiEvent._('onNetworkImportedFromQr');
   static const updated = MeshManagerApiEvent._('onNetworkUpdated');
 
   static const loadFailed = MeshManagerApiEvent._('onNetworkLoadFailed');
   static const importFailed = MeshManagerApiEvent._('onNetworkImportFailed');
+  static const importFromQrFailed = MeshManagerApiEvent._('onNetworkImportFromQrFailed');
 
   static const meshPduCreated = MeshManagerApiEvent._('onMeshPduCreated');
   static const sendProvisioningPdu = MeshManagerApiEvent._('sendProvisioningPdu');

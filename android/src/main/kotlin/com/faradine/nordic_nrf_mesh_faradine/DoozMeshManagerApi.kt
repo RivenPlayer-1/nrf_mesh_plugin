@@ -57,6 +57,10 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
         mMeshManagerApi.importMeshNetworkJson(json)
     }
 
+    private fun importMeshNetworkFromQr(uuid: String, netkeys: List<ByteArray>, appkeys: List<ByteArray>, unicastLow: Int, unicastHight: Int, groupLow: Int, groupHigh: Int, sceneLow: Int, sceneHigh: Int) {
+        mMeshManagerApi.importMeshNetworkFromQr(uuid, netkeys, appkeys, unicastLow, unicastHight, groupLow, groupHigh, sceneLow, sceneHigh)
+    }
+
     private fun exportMeshNetwork(): String? {
         return mMeshManagerApi.exportMeshNetwork()
     }
@@ -91,6 +95,48 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
             }
             "importMeshNetworkJson" -> {
                 importMeshNetworkJson(call.argument<String>("json")!!)
+                result.success(null)
+            }
+            "importMeshNetworkFromQr" -> {
+                val uuid = call.argument<String>("uuid")!!
+                val netkeysList = call.argument<List<List<Int>>>("netkeys") ?: emptyList()
+
+                val netkeys: List<ByteArray> = netkeysList.map { innerList ->
+                    innerList.map { it.toByte() }.toByteArray()
+                }
+
+                // just print stuff
+                Log.d(tag, "Net key data:")
+                netkeys.forEach { byteArray ->
+                    Log.d(tag, byteArray.joinToString(", ") { it.toString() })
+                }
+
+                val appkeysList = call.argument<List<List<Int>>>("netkeys") ?: emptyList()
+
+                val appkeys: List<ByteArray> = appkeysList.map { innerList ->
+                    innerList.map { it.toByte() }.toByteArray()
+                }
+
+                val unicastLow = call.argument<Int>("unicastLow")!!
+                val unicastHigh = call.argument<Int>("unicastHigh")!!
+                val groupLow = call.argument<Int>("groupLow")!!
+                val groupHigh = call.argument<Int>("groupHigh")!!
+                val sceneLow = call.argument<Int>("sceneLow")!!
+                val sceneHigh = call.argument<Int>("sceneHigh")!!
+
+//                val netkeys = List<ByteArray>[]
+//                for (netkeyData in netkeysList) {
+//                    val netkey = ByteArray(netkeyData.size)
+//                    for (i in netkeyData.indices) {
+//                        netkey[i] = netkeyData[i].toByte()
+//                    }
+//                    netkeys.add...
+//                }
+
+
+
+//                importMeshNetworkJson(call.argument<String>("json")!!)
+                importMeshNetworkFromQr(uuid, appkeys, netkeys, unicastLow, unicastHigh, groupLow, groupHigh, sceneLow, sceneHigh)
                 result.success(null)
             }
             "deleteMeshNetworkFromDb" -> {
