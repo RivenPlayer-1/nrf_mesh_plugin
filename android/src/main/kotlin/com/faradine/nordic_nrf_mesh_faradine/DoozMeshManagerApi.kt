@@ -106,12 +106,12 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                 }
 
                 // just print stuff
-                Log.d(tag, "Net key data:")
-                netkeys.forEach { byteArray ->
-                    Log.d(tag, byteArray.joinToString(", ") { it.toString() })
-                }
+                // Log.d(tag, "Net key data:")
+                // netkeys.forEach { byteArray ->
+                //     Log.d(tag, byteArray.joinToString(", ") { it.toString() })
+                // }
 
-                val appkeysList = call.argument<List<List<Int>>>("netkeys") ?: emptyList()
+                val appkeysList = call.argument<List<List<Int>>>("appkeys") ?: emptyList()
 
                 val appkeys: List<ByteArray> = appkeysList.map { innerList ->
                     innerList.map { it.toByte() }.toByteArray()
@@ -136,7 +136,7 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
 
 
 //                importMeshNetworkJson(call.argument<String>("json")!!)
-                importMeshNetworkFromQr(uuid, appkeys, netkeys, unicastLow, unicastHigh, groupLow, groupHigh, sceneLow, sceneHigh)
+                importMeshNetworkFromQr(uuid, netkeys, appkeys, unicastLow, unicastHigh, groupLow, groupHigh, sceneLow, sceneHigh)
                 result.success(null)
             }
             "deleteMeshNetworkFromDb" -> {

@@ -672,24 +672,6 @@ class MeshManagerApi {
     return result!;
   }
 
-  Future<int> checkAppKey({
-    int keyIndex = 0,
-  }) async {
-    debugPrint('[Joseph Debug] keyIndex is $keyIndex');
-
-    final result = await _methodChannel.invokeMethod('checkAppKey', {
-      'keyIndex': keyIndex,
-    });
-
-    return result!;
-  }
-
-  // My function to experiment with (doesn't work)
-  Future<bool> addAppKey() async {
-    final result = await _methodChannel.invokeMethod<bool>('addAppKey');
-    return result!;
-  }
-
   /// Will send a ConfigModelSubscriptionAdd message to the given [elementAddress].
   Future<ConfigModelSubscriptionStatus> sendConfigModelSubscriptionAdd(
       int elementAddress, int subscriptionAddress, int modelIdentifier) async {
