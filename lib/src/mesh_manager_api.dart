@@ -114,8 +114,8 @@ class MeshManagerApi {
         _onMeshNetworkEventFailed(MeshManagerApiEvent.loadFailed).listen(_onNetworkLoadedStreamController.addError);
     _onNetworkImportFailedSubscription =
         _onMeshNetworkEventFailed(MeshManagerApiEvent.importFailed).listen(_onNetworkImportedController.addError);
-    _onNetworkImportFromQrFailedSubscription =
-        _onMeshNetworkEventFailed(MeshManagerApiEvent.importFromQrFailed).listen(_onNetworkImportedFromQrController.addError);
+    _onNetworkImportFromQrFailedSubscription = _onMeshNetworkEventFailed(MeshManagerApiEvent.importFromQrFailed)
+        .listen(_onNetworkImportedFromQrController.addError);
     // pdu events
     _onMeshPduCreatedSubscription = _eventChannelStream
         .where((event) => event['eventName'] == MeshManagerApiEvent.meshPduCreated.value)
@@ -249,7 +249,6 @@ class MeshManagerApi {
   Stream<IMeshNetwork> get onNetworkImported => _onNetworkImportedController.stream;
 
   Stream<IMeshNetwork> get onNetworkImportedFromQr => _onNetworkImportedFromQrController.stream;
-
 
   Stream<IMeshNetwork> get onNetworkUpdated => _onNetworkUpdatedController.stream;
 
@@ -425,10 +424,19 @@ class MeshManagerApi {
       final int groupLow,
       final int groupHigh,
       final int sceneLow,
-      final int sceneHigh
-    ) async {
+      final int sceneHigh) async {
     final future = _onNetworkImportedFromQrController.stream.first;
-    await _methodChannel.invokeMethod('importMeshNetworkFromQr', {'uuid': uuid, 'netkeys' : netkeys, 'appkeys' : appkeys, 'unicastLow' : unicastLow, 'unicastHigh' : unicastHigh, 'groupLow' : groupLow, 'groupHigh' : groupHigh, 'sceneLow' : sceneLow, 'sceneHigh' : sceneHigh});
+    await _methodChannel.invokeMethod('importMeshNetworkFromQr', {
+      'uuid': uuid,
+      'netkeys': netkeys,
+      'appkeys': appkeys,
+      'unicastLow': unicastLow,
+      'unicastHigh': unicastHigh,
+      'groupLow': groupLow,
+      'groupHigh': groupHigh,
+      'sceneLow': sceneLow,
+      'sceneHigh': sceneHigh
+    });
     return future;
   }
 
@@ -1124,6 +1132,40 @@ class MeshManagerApi {
       await _methodChannel.invokeMethod('deprovision', {'unicastAddress': unicastAddress});
       meshNetwork!.deviceMap.remove(uuid);
       return status;
+    } else {
+      throw UnsupportedError('Platform ${Platform.operatingSystem} is not supported');
+    }
+  }
+
+  Future<ConfigNodeResetStatus> deprovisionByAddress(int unicastAddress) async {
+    if (Platform.isIOS || Platform.isAndroid) {
+      final status = _onConfigNodeResetStatusController.stream
+          .where((element) => element.source == unicastAddress)
+          .timeout(const Duration(seconds: 3),
+              onTimeout: (sink) => sink.add(
+                    const ConfigNodeResetStatus(-1, -1, false),
+                  ))
+          .first;
+      await _methodChannel.invokeMethod('deprovision', {'unicastAddress': unicastAddress});
+      // meshNetwork!.deviceMap.remove(uuid);
+      return status;
+    } else {
+      throw UnsupportedError('Platform ${Platform.operatingSystem} is not supported');
+    }
+  }
+
+  Future<void> deprovisionAll() async {
+    if (Platform.isIOS || Platform.isAndroid) {
+      // final status = _onConfigNodeResetStatusController.stream
+      //     .where((element) => element.source == unicastAddress)
+      //     .timeout(const Duration(seconds: 3),
+      //         onTimeout: (sink) => sink.add(
+      //               const ConfigNodeResetStatus(-1, -1, false),
+      //             ))
+      //     .first;
+      await _methodChannel.invokeMethod('deprovision', {'unicastAddress': 0xFFFF});
+      // meshNetwork!.deviceMap.remove(uuid);
+      // return status;
     } else {
       throw UnsupportedError('Platform ${Platform.operatingSystem} is not supported');
     }
