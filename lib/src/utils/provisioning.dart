@@ -160,7 +160,7 @@ Future<ProvisionedMeshNode> _provisioning(
     if (event.state == 'PROVISIONING_CAPABILITIES') {
       events?._provisioningCapabilitiesController.add(deviceToProvision);
       final unprovisionedMeshNode =
-          UnprovisionedMeshNode(event.meshNode!.uuid, event.meshNode!.provisionerPublicKeyXY!, deviceToProvision.id);
+          UnprovisionedMeshNode(event.meshNode!.uuid, event.meshNode!.provisionerPublicKeyXY!);
       final elementSize = await unprovisionedMeshNode.getNumberOfElements();
       if (elementSize == 0) {
         completer.completeError(NrfMeshProvisioningException(

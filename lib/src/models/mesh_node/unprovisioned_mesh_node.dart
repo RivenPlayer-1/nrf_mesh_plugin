@@ -14,10 +14,9 @@ class UnprovisionedMeshNode {
   final MethodChannel _methodChannel;
   final String uuid;
   final List<int>? provisionerPublicKeyXY;
-  final String deviceId;
 
   /// {@macro unprovisioned_node}
-  UnprovisionedMeshNode(this.uuid, this.provisionerPublicKeyXY, this.deviceId)
+  UnprovisionedMeshNode(this.uuid, this.provisionerPublicKeyXY)
       : _methodChannel = MethodChannel('$namespace/unprovisioned_mesh_node/$uuid/methods');
 
   factory UnprovisionedMeshNode.fromJson(Map json) => _$UnprovisionedMeshNodeFromJson(json.cast<String, dynamic>());
