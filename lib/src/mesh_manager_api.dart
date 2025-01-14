@@ -571,7 +571,8 @@ class MeshManagerApi {
       orElse: () => VendorModelMessageStatusData(-1, -1, Uint8List(1)),
     );
 
-    await _methodChannel.invokeMethod('sendVendorModelMessage', {
+    await 
+    _methodChannel.invokeMethod('sendVendorModelMessage', {
       'address': address,
       'modelId': modelId,
       'companyIdentifier': companyIdentifier,

@@ -159,6 +159,17 @@ class DoozMeshNetwork(private val binaryMessenger: BinaryMessenger, var meshNetw
                 val pNode = DoozProvisionedMeshNode(binaryMessenger, provisionedMeshNode)
                 result.success(pNode.meshNode.uuid)
             }
+            // Implemented by JL
+            "setNodeName" -> {
+                val address = call.argument<Int>("address")!!
+                val nodeName = call.argument<String>("nodeName")!!
+
+                val node = meshNetwork.getNode(address)
+
+                node.setNodeName(nodeName);
+                val nameChangeSucceeded = meshNetwork.updateNodeName(node, nodeName)
+                result.success(nameChangeSucceeded)
+            }
             "getNodeUsingUUID" -> {
                 val uuid = call.argument<String>("uuid")!!
 

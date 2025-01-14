@@ -87,6 +87,9 @@ abstract class IMeshNetwork {
   /// Will return the node corresponding to the given [address]
   Future<ProvisionedMeshNode?> getNode(int address);
 
+  /// Will set the name of the node corresponding to the given [address]
+  Future<bool?> setNodeName(int address, String nodeName);
+
   /// Will return the node corresponding to the given [uuid]
   Future<ProvisionedMeshNode?> getNodeUsingUUID(String uuid);
 
@@ -304,6 +307,17 @@ class MeshNetwork implements IMeshNetwork {
         debugPrint('node not found');
         return null;
       }
+    } else {
+      throw UnsupportedError('Platform ${Platform.operatingSystem} is not supported');
+    }
+  }
+
+  @override
+  Future<bool?> setNodeName(int address, String nodeName) async {
+    if (Platform.isIOS || Platform.isAndroid) {
+      final success =
+          await _methodChannel.invokeMethod<bool>('setNodeName', {'address': address, 'nodeName': nodeName});
+      return success;
     } else {
       throw UnsupportedError('Platform ${Platform.operatingSystem} is not supported');
     }

@@ -15,3 +15,4 @@ export 'src/utils/provisioning.dart' show ProvisioningEvent;
 export 'src/constants.dart' show ProvisioningFailureCode, BleManagerFailureCode;
 export 'src/exceptions/exceptions.dart';
 export 'src/extensions/extensions.dart';
+export 'src/events/data/vendor_model_message_status/vendor_model_message_status.dart';
