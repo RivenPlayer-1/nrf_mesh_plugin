@@ -219,7 +219,7 @@ class MeshNetwork implements IMeshNetwork {
     int groupAddressRange,
     int sceneAddressRange,
     int globalTtl, {
-    String name = 'DooZ Mesh Provisioner',
+    String name = 'BCON Provisioner',
   }) async {
     if (Platform.isIOS || Platform.isAndroid) {
       return (await _methodChannel.invokeMethod<bool>(

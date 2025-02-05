@@ -55,6 +55,11 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
 
     private fun importMeshNetworkJson(json: String) {
         mMeshManagerApi.importMeshNetworkJson(json)
+        return
+    }
+
+    private fun isNetworkImportInProgress(): Boolean {
+        return mMeshManagerApi.getIsNetworkImportInProgress()
     }
 
     private fun importMeshNetworkFromQr(uuid: String, netkeys: List<ByteArray>, appkeys: List<ByteArray>, unicastLow: Int, unicastHight: Int, groupLow: Int, groupHigh: Int, sceneLow: Int, sceneHigh: Int) {
@@ -96,6 +101,10 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
             "importMeshNetworkJson" -> {
                 importMeshNetworkJson(call.argument<String>("json")!!)
                 result.success(null)
+            }
+            "isNetworkImportInProgress" -> {
+                val networkImportInProgress = isNetworkImportInProgress()
+                result.success(networkImportInProgress)
             }
             "importMeshNetworkFromQr" -> {
                 val uuid = call.argument<String>("uuid")!!

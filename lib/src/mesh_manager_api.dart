@@ -414,6 +414,11 @@ class MeshManagerApi {
     return future;
   }
 
+  Future<bool> isNetworkImportInProgress() async {
+    bool networkImportInProgress = await _methodChannel.invokeMethod('isNetworkImportInProgress');
+    return networkImportInProgress;
+  }
+
   /// Starts an asynchronous task that imports a network from the mesh configuration db json
   Future<MeshNetwork> importMeshNetworkFromQr(
       final String uuid,
@@ -450,7 +455,7 @@ class MeshManagerApi {
   }
 
   /// This method will clear the provisioned nodes, reset the sequence number and generate new network with new provisioning data.
-  Future<void> resetMeshNetwork() => _methodChannel.invokeMethod<void>('resetMeshNetwork');
+  Future<void> resetMeshNetwork() async => await _methodChannel.invokeMethod<void>('resetMeshNetwork');
 
   /// Handles notifications received by the client.
   ///
@@ -571,8 +576,7 @@ class MeshManagerApi {
       orElse: () => VendorModelMessageStatusData(-1, -1, Uint8List(1)),
     );
 
-    await 
-    _methodChannel.invokeMethod('sendVendorModelMessage', {
+    await _methodChannel.invokeMethod('sendVendorModelMessage', {
       'address': address,
       'modelId': modelId,
       'companyIdentifier': companyIdentifier,
