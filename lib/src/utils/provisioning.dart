@@ -308,15 +308,17 @@ void _identify(MeshManagerApi meshManagerApi, BleMeshManager bleMeshManager, Ble
     throw NrfMeshProvisioningException(ProvisioningFailureCode.meshConfiguration,
         'You need to load a meshNetwork before being able to provision a device');
   }
-  // this completer will help providing a Future that corresponds to the process ending
-  final completer = Completer();
-  // when this bool is false, it will notify errors via _onGattErrorSubscription
-  late bool isHandlingConnectErrors;
 
   //'Undocumented scan throttle' error caught here
   _onBleScannerError = bleScanner.onScanErrorStream.listen((event) {
     _log('Scanner Error : ${event.error}');
   });
+
+  // this completer will help providing a Future that corresponds to the process ending
+  final completer = Completer();
+  // when this bool is false, it will notify errors via _onGattErrorSubscription
+  late bool isHandlingConnectErrors;
+
   // override callbacks so we can react to BLE events
   final provisioningCallbacks = BleMeshManagerProvisioningCallbacks(meshManagerApi);
   bleMeshManager.callbacks = provisioningCallbacks;
@@ -334,20 +336,25 @@ void _identify(MeshManagerApi meshManagerApi, BleMeshManager bleMeshManager, Ble
       completer.complete(true);
     }
   });
+
   // handle sending PDUs
+  // This sends the PDU that asks the mesh device to identify itself
   _sendProvisioningPduSubscription = meshManagerApi.sendProvisioningPdu.listen((event) async {
     await bleMeshManager.sendPdu(event.pdu);
   });
+
   if (Platform.isAndroid) {
     // on Android need to call Nordic Semiconductor's library to handle sent data parsing
     _onDataSentSubscription = bleMeshManager.callbacks!.onDataSent.listen((event) async {
       await meshManagerApi.handleWriteCallbacks(event.mtu, event.pdu);
     });
   }
+
   // handle received data parsing
-  _onDataReceivedSubscription = bleMeshManager.callbacks!.onDataReceived.listen((event) async {
-    await meshManagerApi.handleNotifications(event.mtu, event.pdu);
-  });
+  // _onDataReceivedSubscription = bleMeshManager.callbacks!.onDataReceived.listen((event) async {
+  //   await meshManagerApi.handleNotifications(event.mtu, event.pdu);
+  // });
+
   // will notify call and stop process in case of unexpected GATT error
   _onGattErrorSubscription = bleMeshManager.callbacks!.onError.listen((event) {
     _log('received error event : $event');
@@ -374,17 +381,19 @@ void _identify(MeshManagerApi meshManagerApi, BleMeshManager bleMeshManager, Ble
     isHandlingConnectErrors = true;
     await _connect(bleMeshManager, deviceToProvision);
     isHandlingConnectErrors = false;
+
     // wait for listeners to do their job
     await completer.future;
+
     // cleanup resources
-    await meshManagerApi.cleanProvisioningData();
+    // await meshManagerApi.cleanProvisioningData();
     await bleMeshManager.refreshDeviceCache();
     await bleMeshManager.disconnect();
     _cancelProvisioningCallbackSubscription(bleMeshManager);
-    _log('provisioning success !');
+    _log('Identify success !');
     return;
   } catch (e) {
-    _log('caught error during provisioning... $e');
+    _log('caught error during identify process... $e');
     // need to clean up data/resources and properly cancel the provisioning process
     await cancelProvisioning(meshManagerApi, bleScanner, bleMeshManager);
     // depending on the error, always try to throw a NrfMeshProvisioningException to ease downstream error handling

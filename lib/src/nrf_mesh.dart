@@ -52,7 +52,7 @@ class NordicNrfMesh {
       utils_provisioning.provisioning(meshManagerApi, bleMeshManager, _bleScanner, device, serviceDataUuid,
           events: events);
 
-  // Identify only function following the frame work of above provisioning function
+  // Identify only function following the framework of above provisioning function
   Future<void> identify(
     final MeshManagerApi meshManagerApi,
     final BleMeshManager bleMeshManager,
