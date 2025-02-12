@@ -295,14 +295,14 @@ Future<void> identify(MeshManagerApi meshManagerApi, BleMeshManager bleMeshManag
     DiscoveredDevice device, String serviceDataUuid,
     {ProvisioningEvent? events}) async {
   if (Platform.isIOS || Platform.isAndroid) {
-    _identify(meshManagerApi, bleMeshManager, bleScanner, device, serviceDataUuid, events);
+    return _identify(meshManagerApi, bleMeshManager, bleScanner, device, serviceDataUuid, events);
   } else {
     throw UnsupportedError('Platform ${Platform.operatingSystem} is not supported');
   }
 }
 
 // identify
-void _identify(MeshManagerApi meshManagerApi, BleMeshManager bleMeshManager, BleScanner bleScanner,
+Future<void> _identify(MeshManagerApi meshManagerApi, BleMeshManager bleMeshManager, BleScanner bleScanner,
     DiscoveredDevice deviceToProvision, String serviceDataUuid, ProvisioningEvent? events) async {
   if (meshManagerApi.meshNetwork == null) {
     throw NrfMeshProvisioningException(ProvisioningFailureCode.meshConfiguration,
