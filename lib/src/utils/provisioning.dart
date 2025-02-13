@@ -292,10 +292,10 @@ Future<ProvisionedMeshNode> _provisioning(
 
 // identify
 Future<void> identify(MeshManagerApi meshManagerApi, BleMeshManager bleMeshManager, BleScanner bleScanner,
-    DiscoveredDevice device, String serviceDataUuid,
+    DiscoveredDevice device, String serviceDataUuid, int attentionTimer,
     {ProvisioningEvent? events}) async {
   if (Platform.isIOS || Platform.isAndroid) {
-    return _identify(meshManagerApi, bleMeshManager, bleScanner, device, serviceDataUuid, events);
+    return _identify(meshManagerApi, bleMeshManager, bleScanner, device, serviceDataUuid, events, attentionTimer);
   } else {
     throw UnsupportedError('Platform ${Platform.operatingSystem} is not supported');
   }
@@ -303,7 +303,7 @@ Future<void> identify(MeshManagerApi meshManagerApi, BleMeshManager bleMeshManag
 
 // identify
 Future<void> _identify(MeshManagerApi meshManagerApi, BleMeshManager bleMeshManager, BleScanner bleScanner,
-    DiscoveredDevice deviceToProvision, String serviceDataUuid, ProvisioningEvent? events) async {
+    DiscoveredDevice deviceToProvision, String serviceDataUuid, ProvisioningEvent? events, int attentionTimer) async {
   if (meshManagerApi.meshNetwork == null) {
     throw NrfMeshProvisioningException(ProvisioningFailureCode.meshConfiguration,
         'You need to load a meshNetwork before being able to provision a device');
@@ -331,7 +331,7 @@ Future<void> _identify(MeshManagerApi meshManagerApi, BleMeshManager bleMeshMana
       // await meshManagerApi.sendConfigCompositionDataGet(unicast);
       debugPrint("Identify not supported on iOS");
     } else {
-      await meshManagerApi.identifyNode(serviceDataUuid);
+      await meshManagerApi.identifyNodeWithTimer(serviceDataUuid, attentionTimer);
       await cancelProvisioning(meshManagerApi, bleScanner, bleMeshManager);
       completer.complete(true);
     }

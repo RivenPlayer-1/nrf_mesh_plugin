@@ -479,6 +479,11 @@ class MeshManagerApi {
         {'serviceUuid': serviceUuid},
       );
 
+      Future<void> identifyNodeWithTimer(String serviceUuid, int attentionTimer) => _methodChannel.invokeMethod<void>(
+        'identifyNodeWithTimer',
+        {'serviceUuid': serviceUuid, 'attentionTimer': attentionTimer},
+      );
+
   /// This method reset the unprovisioned nodes cache.
   ///
   /// _WARNING: This method is not intended to be used by external use of nrf_mesh_plugin. It is used for the provisioning process._

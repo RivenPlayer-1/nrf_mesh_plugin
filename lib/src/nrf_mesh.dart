@@ -59,8 +59,9 @@ class NordicNrfMesh {
     final DiscoveredDevice device,
     final String serviceDataUuid, {
     final utils_provisioning.ProvisioningEvent? events,
+    final int attentionTimer = 5
   }) =>
-      utils_provisioning.identify(meshManagerApi, bleMeshManager, _bleScanner, device, serviceDataUuid, events: events);
+      utils_provisioning.identify(meshManagerApi, bleMeshManager, _bleScanner, device, serviceDataUuid, events: events, attentionTimer);
 
   /// {@template deprovision}
   /// Will try to deprovision the specified [ProvisionedMeshNode] by sending [ConfigNodeReset] message via the unicast address.
