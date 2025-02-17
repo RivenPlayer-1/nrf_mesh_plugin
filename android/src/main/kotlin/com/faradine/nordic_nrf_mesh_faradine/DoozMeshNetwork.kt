@@ -126,6 +126,7 @@ class DoozMeshNetwork(private val binaryMessenger: BinaryMessenger, var meshNetw
                 }!!
                 result.success(meshNetwork.getElements(group).map { element ->
                     mapOf(
+                            "key" to 0, // default value for key
                             "name" to element.name,
                             "address" to element.elementAddress,
                             "locationDescriptor" to element.locationDescriptor,
