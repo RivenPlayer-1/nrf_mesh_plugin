@@ -50,6 +50,9 @@ abstract class IMeshNetwork {
   /// Will remove the group with the given [groupAddress]
   Future<bool> removeGroup(int groupAddress);
 
+  /// Will rename the group with the given [groupAddress] to [name]
+  Future<bool> renameGroup(int groupAddress, String name);
+
   /// Will return the UUID of the current selected provisioner
   Future<String> selectedProvisionerUuid();
 
@@ -190,6 +193,10 @@ class MeshNetwork implements IMeshNetwork {
   @override
   Future<bool> removeGroup(int groupAddress) async =>
       (await _methodChannel.invokeMethod<bool>('removeGroup', {'groupAddress': groupAddress}))!;
+
+  @override
+  Future<bool> renameGroup(int groupAddress, String name) async =>
+      (await _methodChannel.invokeMethod<bool>('removeGroup', {'groupAddress': groupAddress, 'name': name}))!;
 
   @override
   Future<String> selectedProvisionerUuid() async =>

@@ -119,6 +119,13 @@ class DoozMeshNetwork(private val binaryMessenger: BinaryMessenger, var meshNetw
                 }!!
                 result.success(meshNetwork.removeGroup(group))
             }
+            "renameGroup" -> {
+                val groupAddress = call.argument<Int>("groupAddress")!!
+                val name = call.argument<String>("name")!!
+                val group = meshNetwork.getGroup(groupAddress)!!
+                group.setName(name)
+                result.success(true)
+            }
             "getElementsForGroup" -> {
                 val groupAddress = call.argument<Int>("groupAddress")!!
                 val group = meshNetwork.groups.first {
