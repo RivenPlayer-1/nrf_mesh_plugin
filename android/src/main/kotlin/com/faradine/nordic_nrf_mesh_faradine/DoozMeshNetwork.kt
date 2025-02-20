@@ -189,6 +189,9 @@ class DoozMeshNetwork(private val binaryMessenger: BinaryMessenger, var meshNetw
             "selectedProvisionerUuid" -> {
                 result.success(meshNetwork.selectedProvisioner.provisionerUuid)
             }
+            "selectedProvisionerAddress" -> {
+                result.success(meshNetwork.selectedProvisioner.provisionerAddress)
+            }
             "getProvisionersAsJson" -> {
 
                 val nodeList: List<Provisioner> = meshNetwork.provisioners

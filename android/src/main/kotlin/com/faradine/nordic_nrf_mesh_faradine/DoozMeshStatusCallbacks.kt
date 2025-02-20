@@ -309,7 +309,7 @@ class DoozMeshStatusCallbacks(var eventSink: EventChannel.EventSink?): MeshStatu
     }
 
     override fun onUnknownPduReceived(src: Int, accessPayload: ByteArray?) {
-        Log.d(tag, "onUnknownPduReceived")
+        Log.d(tag, "onUnknownPduReceived from source address: " + src.toString())
     }
 
     override fun onTransactionFailed(dst: Int, hasIncompleteTimerExpired: Boolean) {

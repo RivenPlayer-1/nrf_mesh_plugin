@@ -56,6 +56,9 @@ abstract class IMeshNetwork {
   /// Will return the UUID of the current selected provisioner
   Future<String> selectedProvisionerUuid();
 
+  /// Will return the Address of the current selected provisioner
+  Future<int> selectedProvisionerAddress();
+
   /// Will select the provisioner at the given index of the [provisioners] list
   Future<void> selectProvisioner(int provisionerIndex);
 
@@ -201,6 +204,10 @@ class MeshNetwork implements IMeshNetwork {
   @override
   Future<String> selectedProvisionerUuid() async =>
       (await _methodChannel.invokeMethod<String>('selectedProvisionerUuid'))!;
+
+  @override
+  Future<int> selectedProvisionerAddress() async =>
+      (await _methodChannel.invokeMethod<int>('selectedProvisionerAddress'))!;
 
   @override
   String toString() => 'MeshNetwork{$_id}';
