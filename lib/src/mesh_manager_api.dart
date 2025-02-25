@@ -479,7 +479,7 @@ class MeshManagerApi {
         {'serviceUuid': serviceUuid},
       );
 
-      Future<void> identifyNodeWithTimer(String serviceUuid, int attentionTimer) => _methodChannel.invokeMethod<void>(
+  Future<void> identifyNodeWithTimer(String serviceUuid, int attentionTimer) => _methodChannel.invokeMethod<void>(
         'identifyNodeWithTimer',
         {'serviceUuid': serviceUuid, 'attentionTimer': attentionTimer},
       );
