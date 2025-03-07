@@ -199,7 +199,7 @@ class MeshNetwork implements IMeshNetwork {
 
   @override
   Future<bool> renameGroup(int groupAddress, String name) async =>
-      (await _methodChannel.invokeMethod<bool>('removeGroup', {'groupAddress': groupAddress, 'name': name}))!;
+      (await _methodChannel.invokeMethod<bool>('renameGroup', {'groupAddress': groupAddress, 'name': name}))!;
 
   @override
   Future<String> selectedProvisionerUuid() async =>
