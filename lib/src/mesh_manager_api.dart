@@ -581,6 +581,9 @@ class MeshManagerApi {
       orElse: () => VendorModelMessageStatusData(-1, -1, Uint8List(1)),
     );
 
+    // _onVendorModelMessageStatusController.stream
+    // onVendorModelMessageStatus The same
+
     await _methodChannel.invokeMethod('sendVendorModelMessage', {
       'address': address,
       'modelId': modelId,
@@ -727,14 +730,22 @@ class MeshManagerApi {
   }
 
   /// Will send a ConfigModelSubscriptionDeleteAll message to the given [elementAddress].
-  Future<void> sendConfigModelSubscriptionDeleteAll(int elementAddress, int modelIdentifier) =>
-      _methodChannel.invokeMethod(
-        'sendConfigModelSubscriptionDeleteAll',
-        {
-          'elementAddress': elementAddress,
-          'modelIdentifier': modelIdentifier,
-        },
-      );
+  Future<ConfigModelSubscriptionStatus> sendConfigModelSubscriptionDeleteAll(
+      int elementAddress, int modelIdentifier) async {
+    final status = _onConfigModelSubscriptionStatusController.stream.firstWhere(
+      (element) => element.elementAddress == elementAddress && element.modelIdentifier == modelIdentifier,
+      orElse: () => const ConfigModelSubscriptionStatus(-1, -1, -1, -1, -1, false),
+    );
+    await _methodChannel.invokeMethod(
+      'sendConfigModelSubscriptionDeleteAll',
+      {
+        'elementAddress': elementAddress,
+        'modelIdentifier': modelIdentifier,
+      },
+    );
+
+    return status;
+  }
 
   /// Will send a ConfigModelPublicationSet message to the given [elementAddress].
   Future<ConfigModelPublicationStatus> sendConfigModelPublicationSet(
