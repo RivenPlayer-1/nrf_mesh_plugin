@@ -257,7 +257,7 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                     parameters[i] = parametersList[i].toByte()
                 }
             
-                val meshMessage: MeshMessage = VendorModelMessageAcked(
+                val meshMessage: MeshMessage = VendorModelMessageUnacked(
                         mMeshManagerApi.meshNetwork!!.getAppKey(keyIndex),
                         modelId,
                         companyIdentifier,
