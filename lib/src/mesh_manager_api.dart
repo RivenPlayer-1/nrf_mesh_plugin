@@ -1189,6 +1189,12 @@ class MeshManagerApi {
     }
   }
 
+  /// This method will reset the internal storage of the mesh node in the same way that deprovisioning it would.
+  /// Be careful with this method because it does not actually remove it from the network or deprovision it.
+  Future<void> forceMeshNodeReset(int unicastAddress) async {
+    await _methodChannel.invokeMethod('meshNodeReset', {'unicastAddress': unicastAddress});
+  }
+
   /// A method that will return a mesh node uuid during provisioning process or null
   Future<String?> cachedProvisionedMeshNodeUuid() => _methodChannel.invokeMethod('cachedProvisionedMeshNodeUuid');
 

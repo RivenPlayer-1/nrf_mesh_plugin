@@ -590,6 +590,13 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                 }
                 result.success(true)
             }
+            "meshNodeReset" -> {
+                val unicastAddress = call.argument<Int>("unicastAddress")!!
+                val currentMeshNetwork = mMeshManagerApi.meshNetwork!!
+                val pNode: ProvisionedMeshNode = currentMeshNetwork.getNode(unicastAddress)
+                mMeshManagerApi.onMeshNodeReset(pNode);
+                result.success(true)
+            }
             "sendConfigCompositionDataGet" -> {
                 mMeshManagerApi.createMeshPdu(call.argument("dest")!!, ConfigCompositionDataGet())
                 result.success(null)
