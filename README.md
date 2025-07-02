@@ -1,3 +1,9 @@
+Enverionment
+- Flutter 3.32.2
+- Android Studio 2024.3.2 Patch 1
+- JDK 17
+- Gradle 8.12
+
 # nordic_nrf_mesh_faradine
 
 A Flutter plugin to enable mesh network management and communication using Nordic Semiconductor's SDKs.
