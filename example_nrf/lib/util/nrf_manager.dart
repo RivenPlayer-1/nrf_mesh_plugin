@@ -54,10 +54,6 @@ class NrfManager {
       _meshNetwork = event;
       print("onNetworkLoaded");
     });
-    BleMeshManager().callbacks = DoozProvisionedBleMeshManagerCallbacks(
-      _meshManagerApi,
-      BleMeshManager(),
-    );
     await meshManagerApi.loadMeshNetwork();
   }
 
@@ -67,7 +63,6 @@ class NrfManager {
       onNetworkLoadingSubscription.cancel();
       onNetworkImportSubscription.cancel();
       meshManagerApi.dispose();
-      await BleMeshManager().callbacks?.dispose();
       await BleMeshManager().disconnect();
       await BleMeshManager().dispose();
     });
@@ -85,8 +80,8 @@ class NrfManager {
 }
 
 class DoozProvisionedBleMeshManagerCallbacks extends BleMeshManagerCallbacks {
-  final MeshManagerApi meshManagerApi;
-  final BleMeshManager bleMeshManager;
+  late MeshManagerApi meshManagerApi = NrfManager().meshManagerApi;
+  late BleMeshManager bleMeshManager = BleMeshManager();
 
   late StreamSubscription<ConnectionStateUpdate> onDeviceConnectingSubscription;
   late StreamSubscription<ConnectionStateUpdate> onDeviceConnectedSubscription;
@@ -103,13 +98,9 @@ class DoozProvisionedBleMeshManagerCallbacks extends BleMeshManagerCallbacks {
   onDeviceDisconnectedSubscription;
   late StreamSubscription<List<int>> onMeshPduCreatedSubscription;
 
-  var isDispose = false;
-  var isConnect = false;
+  var isConnected = false;
 
-  DoozProvisionedBleMeshManagerCallbacks(
-    this.meshManagerApi,
-    this.bleMeshManager,
-  ) {
+  DoozProvisionedBleMeshManagerCallbacks() {
     onDeviceConnectingSubscription = onDeviceConnecting.listen((event) {
       debugPrint('onDeviceConnecting $event');
     });
@@ -123,7 +114,7 @@ class DoozProvisionedBleMeshManagerCallbacks extends BleMeshManagerCallbacks {
 
     onDeviceReadySubscription = onDeviceReady.listen((event) async {
       debugPrint('onDeviceReady name = ${event.name} id = ${event.id}');
-      isConnect = true;
+      isConnected = true;
     });
 
     onDataReceivedSubscription = onDataReceived.listen((event) async {
@@ -140,7 +131,7 @@ class DoozProvisionedBleMeshManagerCallbacks extends BleMeshManagerCallbacks {
     });
     onDeviceDisconnectedSubscription = onDeviceDisconnected.listen((event) {
       debugPrint('onDeviceDisconnected $event');
-      isConnect = false;
+      isConnected = false;
     });
 
     onMeshPduCreatedSubscription = meshManagerApi.onMeshPduCreated.listen((
@@ -154,7 +145,8 @@ class DoozProvisionedBleMeshManagerCallbacks extends BleMeshManagerCallbacks {
 
   @override
   Future<void> dispose() async {
-    Future.wait([
+    debugPrint('dooz dispose');
+    await Future.wait([
       onDeviceConnectingSubscription.cancel(),
       onDeviceConnectedSubscription.cancel(),
       onServicesDiscoveredSubscription.cancel(),
@@ -166,7 +158,6 @@ class DoozProvisionedBleMeshManagerCallbacks extends BleMeshManagerCallbacks {
       onMeshPduCreatedSubscription.cancel(),
       super.dispose(),
     ]);
-    isDispose = true;
   }
 
   @override

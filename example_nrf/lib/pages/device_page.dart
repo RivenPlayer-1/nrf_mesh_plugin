@@ -80,8 +80,24 @@ class _DevicePageState extends State<DevicePage> {
     });
   }
 
-  void _jumpToScanPage() {
+  void _jumpToScanPage() async {
+    await _stopScan();
+    await disconnectDevice();
+    if (!mounted) {
+      return;
+    }
     Navigator.push(context, MaterialPageRoute(builder: (ctx) => ScanPage()));
+  }
+
+  Future<void> disconnectDevice() async {
+    final connectDevice = BleMeshManager().device;
+    if (connectDevice != null) {
+      debugPrint("disconnect callback end");
+      debugPrint("disconnect device start");
+      await BleMeshManager().disconnect();
+      await BleMeshManager().callbacks?.dispose();
+      debugPrint("disconnect device end");
+    }
   }
 
   void initListener() async {
@@ -102,6 +118,7 @@ class _DevicePageState extends State<DevicePage> {
     setState(() {
       isScanning = true;
     });
+    discoveredDevices.clear();
     _scanResults = nordicNrfMesh.scanForProxy().listen((
       discoveredDevice,
     ) async {
@@ -138,7 +155,7 @@ class _DevicePageState extends State<DevicePage> {
     });
   }
 
-  void _stopScan() async {
+  Future<void> _stopScan() async {
     await _scanResults.cancel();
     setState(() {
       if (mounted) {
@@ -157,6 +174,31 @@ class _DevicePageState extends State<DevicePage> {
     var selectDevice = discoveredDevices[index];
 
     var connectedDevice = BleMeshManager().device;
+    var callbacks = BleMeshManager().callbacks;
+    if (callbacks == null) {
+      BleMeshManager().callbacks = DoozProvisionedBleMeshManagerCallbacks();
+      print("callback is null");
+    } else if (callbacks is! DoozProvisionedBleMeshManagerCallbacks) {
+      BleMeshManager().callbacks = DoozProvisionedBleMeshManagerCallbacks();
+      print("callback is not DoozProvisionedBleMeshManagerCallbacks");
+    }
+    // if (callbacks != null &&
+    //     callbacks is! DoozProvisionedBleMeshManagerCallbacks) {
+    //   BleMeshManager().callbacks = DoozProvisionedBleMeshManagerCallbacks();
+    //   print("callback is not null and is not Dooz");
+    // } else if(callbacks == null) {
+    //
+    // }
+
+    // if(callbacks != null && callbacks is! DoozProvisionedBleMeshManagerCallbacks){
+    //   await BleMeshManager().disconnect();
+    //   await BleMeshManager().callbacks!.dispose();
+    //   print("callback is not null");
+    // }
+    // print("callbacks dispose done");
+    // BleMeshManager().callbacks = null;
+    // BleMeshManager().callbacks = DoozProvisionedBleMeshManagerCallbacks(
+    // );
     debugPrint("connected device = $connectedDevice");
     if (connectedDevice != null) {
       var isMatch = false;
@@ -274,6 +316,11 @@ class _DevicePageState extends State<DevicePage> {
       return false;
     }
     var result = await nordicNrfMesh.meshManagerApi.deprovision(selectNode);
+    if (result.success) {
+      setState(() {
+        discoveredDevices.removeAt(index);
+      });
+    }
     return result.success;
   }
 }

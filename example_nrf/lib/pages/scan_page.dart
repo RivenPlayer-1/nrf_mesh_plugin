@@ -38,7 +38,7 @@ class _ScanPageState extends State<ScanPage> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    Future.microtask(()async{
+    Future.microtask(() async {
       _stopScan();
     });
   }
@@ -73,14 +73,14 @@ class _ScanPageState extends State<ScanPage> {
         deviceList.add(discoveredDevice);
       });
     });
-    Future.delayed(Duration(seconds: 10), () {
+    Future.delayed(Duration(seconds: 3), () {
       _stopScan();
     });
   }
 
   void _stopScan() async {
     await _scanResults.cancel();
-    if(mounted){
+    if (mounted) {
       setState(() {
         isScanning = false;
       });
@@ -143,7 +143,7 @@ class _ScanPageState extends State<ScanPage> {
       events: provisioningEvent,
     );
     provisionedNode.nodeName = device.name;
-    Future.delayed(Duration(seconds: 1),()async{
+    Future.delayed(Duration(seconds: 1), () async {
       var name = await provisionedNode.name;
       print("provisionedNode name = ${name}");
       isProvisioning = false;
