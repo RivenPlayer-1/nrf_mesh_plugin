@@ -60,9 +60,18 @@ abstract class BleMeshManagerCallbacks extends BleManagerCallbacks {
   Stream<BleMeshManagerCallbacksDataSent> get onDataSent => onDataSentController.stream;
 
   @override
-  Future<void> dispose() => Future.wait([
+  Future<void> dispose() async{
+
+    Future.wait([
         onDataReceivedController.close(),
         onDataSentController.close(),
         super.dispose(),
       ]);
+    // await onDataReceivedController.close();
+    // print("onDataReceivedController close");
+    // onDataSentController.close();
+    // print("onDataSentController close");
+    // await super.dispose();
+    // print("BleMeshManagerCallbacks dispose done");
+    }
 }

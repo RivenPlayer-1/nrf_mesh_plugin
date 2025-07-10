@@ -82,13 +82,38 @@ abstract class BleManagerCallbacks {
   bool shouldEnableBatteryLevelNotifications(DiscoveredDevice device) => false;
 
   /// Will clear the used resources
-  Future<void> dispose() => Future.wait([
-        onDeviceConnectingController.close(),
-        onDeviceConnectedController.close(),
-        onDeviceDisconnectingController.close(),
-        onDeviceDisconnectedController.close(),
-        onServicesDiscoveredController.close(),
-        onDeviceReadyController.close(),
-        onErrorController.close(),
-      ]);
+  Future<void> dispose() async{
+    // Future.wait([
+    //   onDeviceConnectingController.close(),
+    //   onDeviceConnectedController.close(),
+    //   onDeviceDisconnectingController.close(),
+    //   onDeviceDisconnectedController.close(),
+    //   onServicesDiscoveredController.close(),
+    //   onDeviceReadyController.close(),
+    //   onErrorController.close(),
+    // ]);
+    await onDeviceConnectingController.close();
+    // print("onDeviceConnectingController close");
+    await onDeviceConnectedController.close();
+    // print("onDeviceConnectedController close");
+    await onDeviceDisconnectingController.close();
+    // print("onDeviceDisconnectingController close");
+    await onDeviceDisconnectedController.close();
+    // print("onDeviceDisconnectedController close");
+    await onServicesDiscoveredController.close();
+    // print("onServicesDiscoveredController close");
+    await onDeviceReadyController.close();
+    // print("onDeviceReadyController close");
+    // why can't close the onErrorController when it don't have doneFuture?
+    if(onErrorController.hasListener){
+      print("onErrorController has listener");
+    }
+    // need execute methor
+    if (!onErrorController.hasListener) {
+      onErrorController.stream.isEmpty;
+      // onErrorController.add(BleManagerCallbacksError(null, "", null));
+    }
+    await onErrorController.close();
+    print("onErrorController close");
+  }
 }
