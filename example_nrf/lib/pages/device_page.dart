@@ -17,7 +17,8 @@ class DevicePage extends StatefulWidget {
   }
 }
 
-class _DevicePageState extends State<DevicePage> {
+class _DevicePageState extends State<DevicePage>
+    with AutomaticKeepAliveClientMixin {
   late NordicNrfMesh nordicNrfMesh;
   late List<ProvisionedMeshNode> provisionedMeshNodes = [];
   late List<DiscoveredDevice> discoveredDevices = [];
@@ -39,6 +40,7 @@ class _DevicePageState extends State<DevicePage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(title: Text('设备管理')),
       floatingActionButton: FloatingActionButton(
@@ -129,9 +131,9 @@ class _DevicePageState extends State<DevicePage> {
       var isMatch = await nordicNrfMesh.meshManagerApi.networkIdMatches(
         serviceData,
       );
-      if (!isMatch) {
-        return;
-      }
+      // if (!isMatch) {
+      //   return;
+      // }
       var isExist = false;
       for (var device in discoveredDevices) {
         if (device.id == discoveredDevice.id) {
@@ -143,9 +145,11 @@ class _DevicePageState extends State<DevicePage> {
       if (isExist) {
         return;
       }
-      setState(() {
-        discoveredDevices.add(discoveredDevice);
-      });
+      if (mounted) {
+        setState(() {
+          discoveredDevices.add(discoveredDevice);
+        });
+      }
       debugPrint("discoveredDevice name = ${discoveredDevice.name}");
       debugPrint("discoveredDevice id = ${discoveredDevice.id}");
     });
@@ -175,6 +179,7 @@ class _DevicePageState extends State<DevicePage> {
 
     var connectedDevice = BleMeshManager().device;
     var callbacks = BleMeshManager().callbacks;
+    //todo
     if (callbacks == null) {
       BleMeshManager().callbacks = DoozProvisionedBleMeshManagerCallbacks();
       print("callback is null");
@@ -182,23 +187,6 @@ class _DevicePageState extends State<DevicePage> {
       BleMeshManager().callbacks = DoozProvisionedBleMeshManagerCallbacks();
       print("callback is not DoozProvisionedBleMeshManagerCallbacks");
     }
-    // if (callbacks != null &&
-    //     callbacks is! DoozProvisionedBleMeshManagerCallbacks) {
-    //   BleMeshManager().callbacks = DoozProvisionedBleMeshManagerCallbacks();
-    //   print("callback is not null and is not Dooz");
-    // } else if(callbacks == null) {
-    //
-    // }
-
-    // if(callbacks != null && callbacks is! DoozProvisionedBleMeshManagerCallbacks){
-    //   await BleMeshManager().disconnect();
-    //   await BleMeshManager().callbacks!.dispose();
-    //   print("callback is not null");
-    // }
-    // print("callbacks dispose done");
-    // BleMeshManager().callbacks = null;
-    // BleMeshManager().callbacks = DoozProvisionedBleMeshManagerCallbacks(
-    // );
     debugPrint("connected device = $connectedDevice");
     if (connectedDevice != null) {
       var isMatch = false;
@@ -323,9 +311,12 @@ class _DevicePageState extends State<DevicePage> {
     }
     return result.success;
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
-typedef Future<T> FutureGenerator<T>();
+typedef FutureGenerator<T> = Future<T> Function();
 
 Future<T> retry<T>(int retries, FutureGenerator aFuture) async {
   try {
