@@ -25,6 +25,7 @@ class _DevicePageState extends State<DevicePage>
   late StreamSubscription<DiscoveredDevice> _scanResults;
   var isScanning = false;
   var isConnecting = false;
+  late final bleManager = BleMeshManager();
 
   @override
   void initState() {
@@ -92,12 +93,12 @@ class _DevicePageState extends State<DevicePage>
   }
 
   Future<void> disconnectDevice() async {
-    final connectDevice = BleMeshManager().device;
+    final connectDevice = bleManager.device;
     if (connectDevice != null) {
       debugPrint("disconnect callback end");
       debugPrint("disconnect device start");
-      await BleMeshManager().disconnect();
-      await BleMeshManager().callbacks?.dispose();
+      await bleManager.disconnect();
+      await bleManager.callbacks?.dispose();
       debugPrint("disconnect device end");
     }
   }
@@ -176,34 +177,24 @@ class _DevicePageState extends State<DevicePage>
       isConnecting = true;
     });
     var selectDevice = discoveredDevices[index];
-
-    var connectedDevice = BleMeshManager().device;
-    var callbacks = BleMeshManager().callbacks;
-    //todo
-    if (callbacks == null) {
-      BleMeshManager().callbacks = DoozProvisionedBleMeshManagerCallbacks();
-      print("callback is null");
-    } else if (callbacks is! DoozProvisionedBleMeshManagerCallbacks) {
-      BleMeshManager().callbacks = DoozProvisionedBleMeshManagerCallbacks();
+    var connectedDevice = bleManager.device;
+    var callbacks = bleManager.callbacks;
+    if (callbacks is! DoozProvisionedBleMeshManagerCallbacks) {
+      bleManager.callbacks = DoozProvisionedBleMeshManagerCallbacks();
       print("callback is not DoozProvisionedBleMeshManagerCallbacks");
     }
     debugPrint("connected device = $connectedDevice");
-    if (connectedDevice != null) {
-      var isMatch = false;
-      for (final device in discoveredDevices) {
-        if (device.id == connectedDevice.id) {
-          isMatch = true;
-          print("match device");
-          break;
-        }
-      }
-      if (!isMatch) {
-        print("not match device");
-        await BleMeshManager().disconnect();
-        await BleMeshManager().connect(selectDevice);
-      }
-    } else {
-      await BleMeshManager().connect(selectDevice);
+    if (connectedDevice == null) {
+      await bleManager
+          .connect(selectDevice)
+          .timeout(
+            Duration(seconds: 8),
+            onTimeout: () {
+              setState(() {
+                isConnecting = false;
+              });
+            },
+          );
     }
     debugPrint("connect success");
     var selectNode = await bindModelWithKey(selectDevice);
