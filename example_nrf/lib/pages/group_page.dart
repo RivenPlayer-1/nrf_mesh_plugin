@@ -2,6 +2,8 @@ import 'package:example_nrf/util/nrf_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
 
+import 'group_control_page.dart';
+
 class MeshGroup {
   final String name;
   final int address; // 通常从 0xC000 开始
@@ -21,14 +23,12 @@ class GroupPage extends StatefulWidget {
 class _GroupPageState extends State<GroupPage> {
   late IMeshNetwork? meshNetwork;
   final List<GroupData> _groups = <GroupData>[];
-  int _groupAddressCounter = 0xC000;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     meshNetwork = NrfManager().meshManagerApi.meshNetwork;
-    if(meshNetwork == null){
+    if (meshNetwork == null) {
       return;
     }
     loadGroup();
@@ -78,20 +78,20 @@ class _GroupPageState extends State<GroupPage> {
   void createAndAddGroup(String name) async {
     if (name.trim().isEmpty) return;
     var result = await meshNetwork?.addGroupWithName(name);
-    if(result != null){
+    if (result != null) {
       setState(() {
         _groups.add(result);
       });
-      if(mounted){
+      if (mounted) {
         Navigator.pop(context);
       }
     }
   }
 
-  void _deleteGroup(int index) async{
+  void _deleteGroup(int index) async {
     final address = _groups[index].address;
-    var result = await meshNetwork?.removeGroup(address)?? false;
-    if(!result){
+    var result = await meshNetwork?.removeGroup(address) ?? false;
+    if (!result) {
       return;
     }
     setState(() {
@@ -114,7 +114,7 @@ class _GroupPageState extends State<GroupPage> {
                   child: ListTile(
                     title: Text(group.name),
                     subtitle: Text(
-                      '地址: 0x${group.address.toRadixString(16).toUpperCase()}\n'
+                      '地址: 0x${group.address.toRadixString(16).toUpperCase()}\n',
                       // '包含元素: ${group.address}',
                     ),
                     isThreeLine: true,
@@ -124,19 +124,25 @@ class _GroupPageState extends State<GroupPage> {
                     ),
                     onTap: () {
                       // 这里可以跳转到群组控制页面或选择添加设备
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('点击了群组 ${group.name}')),
-                      );
+                      _jumpToGroupControlPage(group);
                     },
                   ),
                 );
               },
             ),
       floatingActionButton: FloatingActionButton(
+        heroTag: "create group",
         onPressed: _addGroup,
         child: const Icon(Icons.add),
         tooltip: '创建群组',
       ),
+    );
+  }
+
+  void _jumpToGroupControlPage(GroupData group) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => GroupControlPage(group)),
     );
   }
 }

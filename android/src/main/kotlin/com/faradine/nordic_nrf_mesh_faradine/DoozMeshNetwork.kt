@@ -10,6 +10,7 @@ import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import no.nordicsemi.android.mesh.*
+import no.nordicsemi.android.mesh.Group
 import no.nordicsemi.android.mesh.transport.Element
 import no.nordicsemi.android.mesh.transport.NodeDeserializer
 import no.nordicsemi.android.mesh.transport.ProvisionedMeshNode
@@ -382,6 +383,22 @@ class DoozMeshNetwork(private val binaryMessenger: BinaryMessenger, var meshNetw
                 } else {
                     result.error("NOT_FOUND", "No Network Key found", "Please check the given index")
                 }
+            }
+            "getModels" -> {
+                val groupAddress = call.argument<Int>("groupAddress")!!
+                val group = meshNetwork.getGroup(groupAddress)
+                val models = meshNetwork.getModels(group)
+                val data = models.map {it ->
+                    mapOf(
+                        "key" to 0,
+                        "modelId" to it.modelId,
+                        "subscribedAddresses" to it.subscribedAddresses,
+                        "boundAppKey" to it.boundAppKeyIndexes,
+                        "modelName" to it.modelName
+                    )
+                }
+                println("models $data")
+                result.success(data)
             }
             else -> {
                 result.notImplemented()

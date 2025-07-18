@@ -110,6 +110,8 @@ abstract class IMeshNetwork {
 
   /// Will distribute the Network Key at the given index
   Future<NetworkKey?> distributeNetKey(int netKeyIndex);
+
+  Future<List<ModelData>?> getModels(int groupAddress);
 }
 
 /// {@template mesh_network_impl}
@@ -390,6 +392,20 @@ class MeshNetwork implements IMeshNetwork {
       throw UnsupportedError('Platform ${Platform.operatingSystem} is not supported');
     }
   }
+
+  @override
+  Future<List<ModelData>?> getModels(int groupAddress) async{
+    if (/* Platform.isIOS ||  */ Platform.isAndroid) {
+      var models = <ModelData>[];
+      final result = await _methodChannel.invokeMethod('getModels', {'groupAddress': groupAddress});
+      result.forEach((data)=> models.add(ModelData.fromJson(data)));
+      return models;
+    } else {
+      throw UnsupportedError('Platform ${Platform.operatingSystem} is not supported');
+    }
+  }
+
+
 }
 
 class DeviceInfo {
