@@ -179,29 +179,24 @@ class _DevicePageState extends State<DevicePage>
     var selectDevice = discoveredDevices[index];
     var connectedDevice = bleManager.device;
     var callbacks = bleManager.callbacks;
+    var isConnectSuccess = true;
     if (callbacks is! DoozProvisionedBleMeshManagerCallbacks) {
       bleManager.callbacks = DoozProvisionedBleMeshManagerCallbacks();
       print("callback is not DoozProvisionedBleMeshManagerCallbacks");
     }
     debugPrint("connected device = $connectedDevice");
     if (connectedDevice == null) {
-      await bleManager
-          .connect(selectDevice)
-          .timeout(
-            Duration(seconds: 8),
-            onTimeout: () {
-              setState(() {
-                isConnecting = false;
-              });
-            },
-          );
+      isConnectSuccess = await tryConnectDevice(selectDevice);
     }
-    debugPrint("connect success");
-    var selectNode = await bindModelWithKey(selectDevice);
     setState(() {
       isConnecting = false;
     });
-
+    if (!isConnectSuccess) {
+      debugPrint("connect fail");
+      return;
+    }
+    debugPrint("connect success");
+    var selectNode = await bindModelWithKey(selectDevice);
     if (!mounted || selectNode == null) {
       return;
     }
@@ -212,6 +207,15 @@ class _DevicePageState extends State<DevicePage>
             DeviceInfoPage(deviceName: selectDevice.name, node: selectNode),
       ),
     );
+  }
+
+  Future<bool> tryConnectDevice(DiscoveredDevice device) async {
+    try {
+      await bleManager.connect(device, connectionTimeout: Duration(seconds: 8));
+    } catch (e) {
+      return false;
+    }
+    return true;
   }
 
   Future<ProvisionedMeshNode?> bindModelWithKey(DiscoveredDevice device) async {
