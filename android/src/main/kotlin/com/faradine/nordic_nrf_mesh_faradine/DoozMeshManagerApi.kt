@@ -219,7 +219,7 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                 )
                 mMeshManagerApi.createMeshPdu(address, meshMessage)
                 result.success(null)
-            } 
+            }
             "sendGenericOnOffSet" -> {
                 val address = call.argument<Int>("address")!!
                 val value = call.argument<Boolean>("value")!!
@@ -250,20 +250,20 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                 val opCode = call.argument<Int>("opCode")!!
                 // Retrieve parameters as a List<Int>
                 val parametersList = call.argument<List<Int>>("parameters") ?: emptyList()
-                
+
                 // Convert List<Int> to ByteArray
                 val parameters = ByteArray(parametersList.size)
                 for (i in parametersList.indices) {
                     parameters[i] = parametersList[i].toByte()
                 }
-            
+
                 val meshMessage: MeshMessage = VendorModelMessageUnacked(
                         mMeshManagerApi.meshNetwork!!.getAppKey(keyIndex),
                         modelId,
                         companyIdentifier,
                         opCode,
                         parameters
-                        
+
                 )
                 mMeshManagerApi.createMeshPdu(address, meshMessage)
                 result.success(1) // the success value shows up in mesh_manager_api.dart
@@ -273,7 +273,7 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                 val address = call.argument<Int>("address")!!
                 val keyIndex = call.argument<Int>("keyIndex")!!
                 val meshMessage: MeshMessage = GenericLocationGlobalGet(
-                        mMeshManagerApi.meshNetwork!!.getAppKey(keyIndex),                        
+                        mMeshManagerApi.meshNetwork!!.getAppKey(keyIndex),
                 )
                 mMeshManagerApi.createMeshPdu(address, meshMessage)
                 result.success(1) // the success value shows up in mesh_manager_api.dart
@@ -646,6 +646,23 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                 } catch (e: Exception) {
                     result.error("102", e.message, "an error occured while checking service data")
                 }
+            }
+            "sendSceneStore"->{
+                val keyIndex = call.argument<Int>("keyIndex")
+                val sceneNumber = call.argument<Int>("sceneNumber")
+                val appKey = mMeshManagerApi.meshNetwork!!.getAppKey(keyIndex)
+                val message = SceneStore(appKey!!,sceneNumber)
+                mMeshManagerApi.createMeshPdu(1,message)
+                result.success(null)
+            }
+            "sendSceneRecall" -> {
+                val keyIndex = call.argument<Int>("keyIndex")
+                val sceneNumber = call.argument<Int>("sceneNumber")
+                val tid = call.argument<Int>("tid")
+                val appKey = mMeshManagerApi.meshNetwork!!.getAppKey(keyIndex)
+                val message = SceneRecall(appKey, sceneNumber, tid)
+                mMeshManagerApi.createMeshPdu(1, message)
+                result.success(null)
             }
 
             // Custom stuff
