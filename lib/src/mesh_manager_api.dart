@@ -1216,6 +1216,14 @@ class MeshManagerApi {
         {'address': await node.unicastAddress, 'sequenceNumber': seqNum},
       );
 
+  Future<void> sendSceneStore(int sceneNumber, {int keyIndex = 0}) =>
+      _methodChannel.invokeMethod(
+          "sendSceneStore", {'sceneNumber': sceneNumber, 'keyIndex': keyIndex});
+
+  Future<void> sendSceneRecall(int sceneNumber, int tid, {int keyIndex = 0}) =>
+      _methodChannel.invokeMethod("sendSceneRecall",
+          {'sceneNumber': sceneNumber, 'tid': tid, 'keyIndex': keyIndex});
+
   String _digits(int val, int digits) {
     var hi = 1 << (digits * 4);
     return (hi | (val & (hi - 1))).toRadixString(16).substring(1);

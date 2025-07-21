@@ -1,5 +1,6 @@
 import 'package:example_nrf/pages/device_page.dart';
 import 'package:example_nrf/pages/group_page.dart';
+import 'package:example_nrf/pages/scene_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -97,7 +98,7 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget _buildGroupPage() => GroupPage();
 
-  Widget _buildScenePage() => SizedBox();
+  Widget _buildScenePage() => ScenePage();
 
   Widget _buildSettingPage() => SizedBox();
 }
