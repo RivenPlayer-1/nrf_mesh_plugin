@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
 import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
 
+import 'event_bus.dart';
+
 class NrfManager {
   // 私有构造函数，防止外部实例化
   NrfManager._internal();
@@ -58,14 +60,14 @@ class NrfManager {
   }
 
   void dispose() async {
-    Future.microtask(() async {
-      onNetworkUpdateSubscription.cancel();
-      onNetworkLoadingSubscription.cancel();
-      onNetworkImportSubscription.cancel();
-      meshManagerApi.dispose();
-      await BleMeshManager().disconnect();
-      await BleMeshManager().dispose();
-    });
+    onNetworkUpdateSubscription.cancel();
+    onNetworkLoadingSubscription.cancel();
+    onNetworkImportSubscription.cancel();
+    meshManagerApi.dispose();
+    await BleMeshManager().refreshDeviceCache();
+    await BleMeshManager().disconnect();
+    await BleMeshManager().dispose();
+    debugPrint("nrf dispose done");
   }
 
   String getDeviceUuid(DiscoveredDevice device) {
@@ -98,14 +100,13 @@ class DoozProvisionedBleMeshManagerCallbacks extends BleMeshManagerCallbacks {
   onDeviceDisconnectedSubscription;
   late StreamSubscription<List<int>> onMeshPduCreatedSubscription;
 
-  var isConnected = false;
-
   DoozProvisionedBleMeshManagerCallbacks() {
     onDeviceConnectingSubscription = onDeviceConnecting.listen((event) {
       debugPrint('onDeviceConnecting $event');
     });
     onDeviceConnectedSubscription = onDeviceConnected.listen((event) {
       debugPrint('onDeviceConnected $event');
+      bus.emit(bus.connectToProxyEvent, true);
     });
 
     onServicesDiscoveredSubscription = onServicesDiscovered.listen((event) {
@@ -114,7 +115,7 @@ class DoozProvisionedBleMeshManagerCallbacks extends BleMeshManagerCallbacks {
 
     onDeviceReadySubscription = onDeviceReady.listen((event) async {
       debugPrint('onDeviceReady name = ${event.name} id = ${event.id}');
-      isConnected = true;
+      bus.emit(bus.connectToProxyEvent, true);
     });
 
     onDataReceivedSubscription = onDataReceived.listen((event) async {
@@ -131,7 +132,7 @@ class DoozProvisionedBleMeshManagerCallbacks extends BleMeshManagerCallbacks {
     });
     onDeviceDisconnectedSubscription = onDeviceDisconnected.listen((event) {
       debugPrint('onDeviceDisconnected $event');
-      isConnected = false;
+      bus.emit(bus.connectToProxyEvent, false);
     });
 
     onMeshPduCreatedSubscription = meshManagerApi.onMeshPduCreated.listen((
