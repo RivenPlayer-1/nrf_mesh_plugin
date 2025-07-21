@@ -466,11 +466,10 @@ class DoozMeshNetwork(private val binaryMessenger: BinaryMessenger, var meshNetw
                         "modelName" to it.modelName
                     )
                 }
-                println("models $data")
                 result.success(data)
             }
 
-            "createScene" -> {
+            "addScene" -> {
                 val name = call.argument<String>("name")!!
                 val provisioner = meshNetwork.selectedProvisioner
                 val scene = meshNetwork.createScene(provisioner, name)
