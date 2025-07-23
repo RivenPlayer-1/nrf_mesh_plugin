@@ -1216,13 +1216,13 @@ class MeshManagerApi {
         {'address': await node.unicastAddress, 'sequenceNumber': seqNum},
       );
 
-  Future<void> sendSceneStore(int sceneNumber, {int keyIndex = 0}) =>
+  Future<void> sendSceneStore(int address,int sceneNumber, {int keyIndex = 0}) =>
       _methodChannel.invokeMethod(
-          "sendSceneStore", {'sceneNumber': sceneNumber, 'keyIndex': keyIndex});
+          "sendSceneStore", {'address': address,'sceneNumber': sceneNumber, 'keyIndex': keyIndex});
 
-  Future<void> sendSceneRecall(int sceneNumber, int tid, {int keyIndex = 0}) =>
+  Future<void> sendSceneRecall(int address,int sceneNumber, int tid, {int keyIndex = 0}) =>
       _methodChannel.invokeMethod("sendSceneRecall",
-          {'sceneNumber': sceneNumber, 'tid': tid, 'keyIndex': keyIndex});
+          {'address': address,'sceneNumber': sceneNumber, 'tid': tid, 'keyIndex': keyIndex});
 
   String _digits(int val, int digits) {
     var hi = 1 << (digits * 4);

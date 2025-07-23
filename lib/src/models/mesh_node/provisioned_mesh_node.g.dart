@@ -16,6 +16,12 @@ ModelData _$ModelDataFromJson(Map json) => ModelData(
           .map((e) => (e as num).toInt())
           .toList(),
       json['modelName'] as String,
+      (json['sceneNumbers'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
+          .toList(),
+      (json['subscriptionAddresses'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
+          .toList(),
     );
 
 Map<String, dynamic> _$ModelDataToJson(ModelData instance) => <String, dynamic>{
@@ -24,6 +30,8 @@ Map<String, dynamic> _$ModelDataToJson(ModelData instance) => <String, dynamic>{
       'subscribedAddresses': instance.subscribedAddresses,
       'boundAppKey': instance.boundAppKey,
       'modelName': instance.modelName,
+      'sceneNumbers': instance.sceneNumbers,
+      'subscriptionAddresses': instance.subscriptionAddresses,
     };
 
 ElementData _$ElementDataFromJson(Map json) => ElementData(

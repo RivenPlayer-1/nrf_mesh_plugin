@@ -1,3 +1,4 @@
+import 'package:example_nrf/pages/scene_device_page.dart';
 import 'package:flutter/material.dart';
 import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
 
@@ -11,7 +12,9 @@ class ScenePage extends StatefulWidget {
 }
 
 class _SceneScenePageState extends State<ScenePage> {
-  late final IMeshNetwork meshNetwork = NrfManager().meshManagerApi.meshNetwork!;
+  late final nrfManager = NrfManager();
+  late final IMeshNetwork meshNetwork =
+      NrfManager().meshManagerApi.meshNetwork!;
   late final meshManagerApi = NrfManager().meshManagerApi;
   late List<SceneData> scenes = [];
   bool loading = true;
@@ -29,9 +32,7 @@ class _SceneScenePageState extends State<ScenePage> {
         scenes = sceneList;
         loading = false;
       });
-    }
-    catch (e) {
-      throw(e);
+    } catch (e) {
       setState(() => loading = false);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('加载场景失败: $e'), backgroundColor: Colors.red),
@@ -41,10 +42,13 @@ class _SceneScenePageState extends State<ScenePage> {
 
   Future<void> _recallScene(int sceneNumber) async {
     try {
-      // await NrfManager().meshNetworkManager.sceneRecall(sceneNumber);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('已切换到场景: $sceneNumber')),
-      );
+      var tid = nrfManager.createSequenceNumber();
+      var nodes = await meshNetwork.nodes;
+      var address = await nodes[2].unicastAddress;
+      await meshManagerApi.sendSceneRecall(address, sceneNumber, tid);
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('已切换到场景: $sceneNumber')));
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('切换失败: $e'), backgroundColor: Colors.red),
@@ -81,9 +85,9 @@ class _SceneScenePageState extends State<ScenePage> {
 
     try {
       var result = await meshNetwork.addScene(sceneName);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('添加成功: $sceneName')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('添加成功: $sceneName')));
 
       _loadScenes();
     } catch (e) {
@@ -100,27 +104,41 @@ class _SceneScenePageState extends State<ScenePage> {
       body: loading
           ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
-        padding: const EdgeInsets.all(16),
-        itemCount: scenes.length,
-        itemBuilder: (_, index) {
-          final scene = scenes[index];
-          return Card(
-            child: ListTile(
-              title: Text('Scene: ${scene.name}'),
-              subtitle: Text('编号: ${scene.number}'),
-              trailing: ElevatedButton(
-                onPressed: () => _recallScene(scene.number),
-                child: const Text('切换'),
-              ),
+              padding: const EdgeInsets.all(16),
+              itemCount: scenes.length,
+              itemBuilder: (_, index) {
+                final scene = scenes[index];
+                return InkWell(
+                  onTap: () => _jumpToSceneDevicePage(scene.number),
+                  child: Card(
+                    child: ListTile(
+                      title: Text('Scene: ${scene.name}'),
+                      subtitle: Text('编号: ${scene.number}'),
+                      trailing: ElevatedButton(
+                        onPressed: () => _recallScene(scene.number),
+                        child: const Text('切换'),
+                      ),
+                    ),
+                  ),
+                );
+              },
             ),
-          );
-        },
-      ),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'add_scene',
         onPressed: _addScene,
         tooltip: '添加场景',
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  void _jumpToSceneDevicePage(int number) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SceneDevicePage(number)),
+    ).then((v) {
+      _loadScenes();
+    });
+    ;
   }
 }

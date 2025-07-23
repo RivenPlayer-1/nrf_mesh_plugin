@@ -648,20 +648,22 @@ class DoozMeshManagerApi(context: Context, binaryMessenger: BinaryMessenger) : S
                 }
             }
             "sendSceneStore"->{
+                val address  = call.argument<Int>("address")!!
                 val keyIndex = call.argument<Int>("keyIndex")!!
                 val sceneNumber = call.argument<Int>("sceneNumber")!!
                 val appKey = mMeshManagerApi.meshNetwork!!.getAppKey(keyIndex)
                 val message = SceneStore(appKey!!,sceneNumber)
-                mMeshManagerApi.createMeshPdu(1,message)
+                mMeshManagerApi.createMeshPdu(address,message)
                 result.success(null)
             }
             "sendSceneRecall" -> {
+                val address  = call.argument<Int>("address")!!
                 val keyIndex = call.argument<Int>("keyIndex")!!
                 val sceneNumber = call.argument<Int>("sceneNumber")!!
                 val tid = call.argument<Int>("tid")!!
                 val appKey = mMeshManagerApi.meshNetwork!!.getAppKey(keyIndex)
                 val message = SceneRecall(appKey, sceneNumber, tid)
-                mMeshManagerApi.createMeshPdu(1, message)
+                mMeshManagerApi.createMeshPdu(address, message)
                 result.success(null)
             }
 
