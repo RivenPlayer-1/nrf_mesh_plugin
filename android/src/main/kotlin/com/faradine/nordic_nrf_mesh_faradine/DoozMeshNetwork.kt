@@ -487,6 +487,15 @@ class DoozMeshNetwork(private val binaryMessenger: BinaryMessenger, var meshNetw
                 }
                 result.success(data)
             }
+            "removeScene" -> {
+                val sceneNumber = call.argument<Int>("sceneNumber")!!
+                val scene = meshNetwork.getScene(sceneNumber)
+                if (scene == null) {
+                    result.success(false)
+                } else {
+                    result.success(meshNetwork.removeScene(scene))
+                }
+            }
 
 
             else -> {

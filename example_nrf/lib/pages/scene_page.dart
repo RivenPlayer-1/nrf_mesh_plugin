@@ -109,14 +109,24 @@ class _SceneScenePageState extends State<ScenePage> {
               itemBuilder: (_, index) {
                 final scene = scenes[index];
                 return InkWell(
-                  onTap: () => _jumpToSceneDevicePage(scene.number),
+                  onTap: () => _jumpToSceneDevicePage(scene),
                   child: Card(
                     child: ListTile(
                       title: Text('Scene: ${scene.name}'),
                       subtitle: Text('编号: ${scene.number}'),
-                      trailing: ElevatedButton(
-                        onPressed: () => _recallScene(scene.number),
-                        child: const Text('切换'),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () => _recallScene(scene.number),
+                            child: Text('切换'),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.delete),
+                            onPressed: () => _removeScene(scene.number),
+                            color: Colors.red,
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -132,13 +142,18 @@ class _SceneScenePageState extends State<ScenePage> {
     );
   }
 
-  void _jumpToSceneDevicePage(int number) {
+  void _jumpToSceneDevicePage(SceneData scene) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SceneDevicePage(number)),
+      MaterialPageRoute(builder: (context) => SceneDevicePage(scene)),
     ).then((v) {
       _loadScenes();
     });
     ;
+  }
+
+  void _removeScene(int sceneNumber) async{
+    await meshNetwork.removeScene(sceneNumber);
+    _loadScenes();
   }
 }

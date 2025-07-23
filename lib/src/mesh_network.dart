@@ -117,6 +117,8 @@ abstract class IMeshNetwork {
   Future<List<SceneData>?> scenes();
 
   Future<bool> addScene(String name);
+
+  Future<bool> removeScene(int sceneNumber);
 }
 
 /// {@template mesh_network_impl}
@@ -468,6 +470,16 @@ class MeshNetwork implements IMeshNetwork {
   Future<bool> addScene(String name) async {
     if (/* Platform.isIOS ||  */ Platform.isAndroid) {
       return await _methodChannel.invokeMethod('addScene', {'name': name});
+    } else {
+      throw UnsupportedError(
+          'Platform ${Platform.operatingSystem} is not supported');
+    }
+  }
+
+  @override
+  Future<bool >removeScene(int sceneNumber)async{
+    if (/* Platform.isIOS ||  */ Platform.isAndroid) {
+      return await _methodChannel.invokeMethod('removeScene', {'sceneNumber': sceneNumber});
     } else {
       throw UnsupportedError(
           'Platform ${Platform.operatingSystem} is not supported');
