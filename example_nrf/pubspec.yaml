@@ -38,7 +38,10 @@ dependencies:
     path: ../
   flutter_reactive_ble: ^5.0.2
   permission_handler: ^12.0.0+1
-
+  shared_preferences: ^2.5.3
+  path: ^1.9.1
+  path_provider: ^2.1.5
+  xml: ^6.5.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

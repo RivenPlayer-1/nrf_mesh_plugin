@@ -1,6 +1,7 @@
 import 'package:example_nrf/pages/scene_device_page.dart';
 import 'package:flutter/material.dart';
 import 'package:nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../util/nrf_manager.dart';
 
@@ -18,11 +19,17 @@ class _SceneScenePageState extends State<ScenePage> {
   late final meshManagerApi = NrfManager().meshManagerApi;
   late List<SceneData> scenes = [];
   bool loading = true;
+  late SharedPreferences prefs;
 
   @override
   void initState() {
     super.initState();
     _loadScenes();
+    init();
+  }
+
+  void init()async{
+    prefs = await SharedPreferences.getInstance();
   }
 
   Future<void> _loadScenes() async {
@@ -41,11 +48,17 @@ class _SceneScenePageState extends State<ScenePage> {
   }
 
   Future<void> _recallScene(int sceneNumber) async {
+
     try {
       var tid = nrfManager.createSequenceNumber();
       var nodes = await meshNetwork.nodes;
       var address = await nodes[2].unicastAddress;
-      await meshManagerApi.sendSceneRecall(address, sceneNumber, tid);
+      var groupAddressStr = prefs.getStringList(sceneNumber.toString())?[0];
+      if(groupAddressStr == null){
+        return;
+      }
+      var groupAddress = int.parse(groupAddressStr);
+      await meshManagerApi.sendSceneRecall(groupAddress, sceneNumber, tid);
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text('已切换到场景: $sceneNumber')));

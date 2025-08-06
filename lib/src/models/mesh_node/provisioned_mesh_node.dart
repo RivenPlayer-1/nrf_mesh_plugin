@@ -15,10 +15,9 @@ class ModelData {
   final List<int> boundAppKey;
   final String modelName;
   final List<int>? sceneNumbers;
-  final List<int>? subscriptionAddresses;
 
   /// {@macro model_data}
-  ModelData(this.key, this.modelId, this.subscribedAddresses, this.boundAppKey,this.modelName, this.sceneNumbers,this.subscriptionAddresses);
+  ModelData(this.key, this.modelId, this.subscribedAddresses, this.boundAppKey,this.modelName, this.sceneNumbers);
 
   /// Provide a constructor to get [ModelData] from JSON [Map].
   /// {@macro model_data}

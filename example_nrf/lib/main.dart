@@ -3,7 +3,10 @@ import 'package:example_nrf/pages/group_page.dart';
 import 'package:example_nrf/pages/scene_page.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+
+void main() async {
+  // Obtain shared preferences.
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

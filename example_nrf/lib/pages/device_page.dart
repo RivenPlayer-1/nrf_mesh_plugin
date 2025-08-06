@@ -132,9 +132,9 @@ class _DevicePageState extends State<DevicePage>
       var isMatch = await nordicNrfMesh.meshManagerApi.networkIdMatches(
         serviceData,
       );
-      // if (!isMatch) {
-      //   return;
-      // }
+      if (!isMatch) {
+        return;
+      }
       var isExist = false;
       for (var device in discoveredDevices) {
         if (device.id == discoveredDevice.id) {
