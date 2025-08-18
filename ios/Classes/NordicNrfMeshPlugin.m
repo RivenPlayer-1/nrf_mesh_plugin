@@ -1,6 +1,6 @@
 #import "NordicNrfMeshPlugin.h"
-#if __has_include(<nordic_nrf_mesh/nordic_nrf_mesh-Swift.h>)
-#import <nordic_nrf_mesh/nordic_nrf_mesh-Swift.h>
+#if __has_include(<nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine-Swift.h>)
+#import <nordic_nrf_mesh_faradine/nordic_nrf_mesh_faradine-Swift.h>
 #else
 // Support project import fallback if the generated compatibility header
 // is not copied when this plugin is created as a library.
