@@ -35,6 +35,6 @@ flutter:
     platforms:
       android:
         package: com.faradine.nordic_nrf_mesh_faradine
-        pluginClass: NordicNrfMeshPlugin
+        pluginClass: DoozMeshManagerApi
       ios:
         pluginClass: NordicNrfMeshPlugin
