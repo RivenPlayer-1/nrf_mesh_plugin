@@ -3,7 +3,7 @@
 # Run `pod lib lint nordic_nrf_mesh_faradine.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'nordic_nrf_mesh_faradine123'
+  s.name             = 'nordic_nrf_mesh_faradine'
   s.version          = '0.13.0'
   s.summary          = 'A Flutter plugin to enable mesh network management and communication using Nordic Semiconductor SDKs.'
   s.description      = <<-DESC
